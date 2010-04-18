@@ -1,0 +1,34 @@
+*{
+  padding:0;
+  margin:0;
+}
+table{
+  border-collapse:collapse;
+}
+ul {
+  list-style:none;
+}
+img {
+  border:0;
+}
+td { 
+  vertical-align: top;
+}
+input, select{
+  vertical-align:middle;
+}
+wbr {
+  display: inline-block;
+}
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}

@@ -1,0 +1,9 @@
+.fade{
+  float: right;
+  background: url('fade.png') no-repeat right;
+  display: block;
+  overflow: hidden;
+  padding: 0 0 0 16px;
+  margin-top: -1em;
+  position: relative;
+}

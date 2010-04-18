@@ -1,0 +1,8 @@
+.salary{
+  font-size:.8em;
+  font-weight:bold;
+}
+  .salary__notset{
+    color:#999;
+    font-weight:normal;
+  }

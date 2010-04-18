@@ -1,0 +1,25 @@
+  .shortvacancy__header__link{
+    color:#000;
+  }
+
+
+.shortvacancy{
+  margin-top:.6em;
+}
+  .shortvacancy__title__link{
+    overflow: hidden;
+    white-space:nowrap;
+    display:block;
+    height:1.2em;
+  }
+  .shortvacancy__company{
+    margin-top:.2em;
+  }
+    .shortvacancy__company__link{
+      color:#999;
+      font-size:.8em;
+      text-decoration:none;
+      overflow: hidden;
+      white-space:nowrap;
+      display:block;
+    }
