@@ -9,44 +9,70 @@
   doctype-public="html"/>
   
   <xsl:template match="doc" mode="body">
+    <div style="background:#FFE102;">
+      <section class="margin indexline">
+        <table class="layout">
+          <tr>
+            <td colspan="4">
+              <div class="layout__paddingright">
+                <div class="layout__padding shortvacancy__list">
+                  <header class="shortvacancy__header">
+                    <a href="#" class="shortvacancy__header__link">HTML и CSS</a>
+                    <xsl:apply-templates select="htmlcss/hh:result/hh:found"/>
+                  </header>
+                  <xsl:apply-templates select="htmlcss/hh:result/hh:vacancies"/>
+                </div>
+              </div>
+            </td>
+            <td colspan="4">
+              <div class="layout__paddingright">
+                <div class="layout__padding shortvacancy__list">
+                  <header class="shortvacancy__header">
+                    <a href="#" class="shortvacancy__header__link">Со знанием Javascript</a>
+                    <xsl:apply-templates select="javascript/hh:result/hh:found"/>
+                  </header>
+                  <xsl:apply-templates select="javascript/hh:result/hh:vacancies"/>
+                </div>
+              </div>
+            </td>
+            <td colspan="4">
+              <div class="layout__padding shortvacancy__list">
+                <header class="shortvacancy__header">
+                  <a href="#" class="shortvacancy__header__link">Со знанием XSLT</a>
+                  <xsl:apply-templates select="xsl/hh:result/hh:found"/>
+                </header>
+                <xsl:apply-templates select="xsl/hh:result/hh:vacancies"/>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </div>
+    
     <section class="margin indexline">
       <table class="layout">
-        <tbody>
-          <tr>
-            <td colspan="3">
-              <header>
-                <a href="#" class="shortvacancy__header__link">HTML и CSS</a>
-                <span class="count">
-                  <xsl:value-of select="htmlcss/hh:result/hh:found"/>
-                </span>
-                <xsl:apply-templates select="htmlcss/hh:result/hh:vacancies"/>
-              </header>
-            </td>
-            <td>&#160;</td>
-            <td colspan="3">
-              <header>
-                <a href="#" class="shortvacancy__header__link">Со знанием Javascript</a>
-                <span class="count">
-                  <xsl:value-of select="javascript/hh:result/hh:found"/>
-                </span>
-              </header>
-              <xsl:apply-templates select="javascript/hh:result/hh:vacancies"/>
-            </td>
-            <td>&#160;</td>
-            <td colspan="3">
-              <header>
-                <a href="#" class="shortvacancy__header__link">Со знанием XSLT</a>
-                <span class="count">
-                  <xsl:value-of select="xsl/hh:result/hh:found"/>
-                </span>
-              </header>
-              <xsl:apply-templates select="xsl/hh:result/hh:vacancies"/>
-            </td>
-            <td>&#160;</td>
-          </tr>
-        </tbody>
+        <tr>
+          <td colspan="12">
+            <header class="layout__padding">
+              <span class="title">Вакансии известных компаний</span>
+            </header>
+            <xsl:apply-templates select="headhunter|yandex|mail|rambler|kaspersky|abbyy" mode="logo"></xsl:apply-templates>
+          </td>
+        </tr>
       </table>
     </section>
+  </xsl:template>
+  
+  <xsl:template match="hh:found">
+    <span class="count">
+      <xsl:apply-templates select="." mode="conversion">
+        <xsl:with-param name="num" select="."/>
+        <xsl:with-param name="zero" select="'вакансий'"/>
+        <xsl:with-param name="one" select="'вакансия'"/>
+        <xsl:with-param name="some" select="'вакансий'"/>
+        <xsl:with-param name="many" select="'вакансии'"/>
+      </xsl:apply-templates>
+    </span>
   </xsl:template>
   
   <xsl:template match="hh:vacancies">
@@ -60,8 +86,8 @@
       <table class="layout">
         <tr>
           <td colspan="2">
-            <div class="layout__marginright">
-              <header class="shortvacancy__title">
+            <div class="layout__paddingright">
+              <header class="title">
                 <a class="shortvacancy__title__link" href="{hh:link[@rel='alternate']/@href}" title="{hh:name}">
                   <xsl:value-of select="hh:name"/>
                 </a>
@@ -98,6 +124,16 @@
       </xsl:choose>
       <span class="fade">&#160;</span>
     </div>
+  </xsl:template>
+  
+  <xsl:template match="*" mode="logo">
+    <div class="layout__padding">
+      <xsl:apply-templates select="hh:employer/hh:logos/hh:link[@rel = 'small']"/>
+    </div>
+  </xsl:template>
+  
+  <xsl:template match="hh:logos/hh:link">
+    <img src="{@href}"/>
   </xsl:template>
 </xsl:stylesheet>
 

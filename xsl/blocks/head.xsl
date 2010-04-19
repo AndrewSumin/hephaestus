@@ -7,10 +7,10 @@
         <table class="layout">
           <tr>
             <td colspan="8">
-              <h1 class="head__title">Работа в Москве для верстальщиков</h1>
+              <h1 class="layout__padding head__title">Работа в Москве для верстальщиков</h1>
             </td>
-            <td colspan="4">
-              <a href="#" style="color:#000">У меня есть вакансия</a>
+            <td colspan="4" style="vertical-align:middle;">
+              <a href="#" class="layout__padding" style="font-size:.8em;color:#000">У меня есть вакансия</a>
             </td>
           </tr>
         </table>

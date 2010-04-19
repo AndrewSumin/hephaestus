@@ -7,10 +7,10 @@
         <table class="layout">
           <tr>
             <td colspan="8">
-              <span>Данные предоставлены сайтом </span><a href="http://hh.ru">HeadHunter</a>
+              <span class="layout__paddingleft">Данные предоставлены сайтом </span><a href="http://hh.ru">HeadHunter</a>
             </td>
             <td colspan="4">
-              <span>&#169; </span><a href="http://jsx.ru">Андрей Сумин</a>
+              <span class="layout__paddingleft">&#169; </span><a href="http://jsx.ru">Андрей Сумин</a>
             </td>
           </tr>
         </table>

@@ -1,6 +1,21 @@
+.shortvacancy__header{
+  margin-bottom:1em;
+}
   .shortvacancy__header__link{
     color:#000;
   }
+  .shortvacancy__list{
+    padding-top:10px;
+    padding-bottom:10px;
+    background:#FFF;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    box-shadow:1px 1px 3px #D3BA02;
+    -moz-box-shadow:1px 1px 3px #D3BA02;
+    -webkit-box-shadow:1px 1px 3px #D3BA02;
+  }
+
 
 
 .shortvacancy{

@@ -33,7 +33,20 @@
     <xsl:text> </xsl:text>
     <xsl:value-of select="."/>
   </xsl:template>
+
+  <xsl:template match="hh:compensation/hh:currency[@code='RUR']">
+    <xsl:text> р.</xsl:text>
+  </xsl:template>
   
+  <xsl:template match="hh:compensation/hh:currency[@code='USD']">
+    <xsl:text> $</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="hh:compensation/hh:currency[@code='EUR']">
+    <xsl:text> eur</xsl:text>
+  </xsl:template>
+  
+
   <xsl:template match="hh:compensation/hh:notset">
     <span class="salary__notset">з/п не указанна</span>
   </xsl:template>

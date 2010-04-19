@@ -3,7 +3,7 @@
   
   <xsl:template match="doc" mode="web">
     <!--xsl:apply-templates select="." mode="web-ex"/-->
-    <div class="margin web" style="height:1000px;displa1y:none;">
+    <div class="margin web" style="height:1000px;display:none">
       <table class="layout">
         <tbody>
           <tr>

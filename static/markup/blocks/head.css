@@ -1,6 +1,8 @@
 .head{
   margin-top:1em;
+  margin-bottom:1em;
 }
   .head__title{
-    font-size:1.3em;
+    font-size:1.4em;
+    font-weight:normal;
   }

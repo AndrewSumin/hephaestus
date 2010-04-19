@@ -1,7 +1,7 @@
 body{
   background:#fff;
-  font-family:Arial;
-  font-size:.9em;
+  font-family:Tahoma, Arial;
+  /*font-size:.8em;*/
 }
 a {
   cursor: pointer;
