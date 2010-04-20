@@ -19,6 +19,7 @@
                   <header class="shortvacancy__header">
                     <a href="#" class="shortvacancy__header__link">HTML и CSS</a>
                     <xsl:apply-templates select="htmlcss/hh:result/hh:found"/>
+                    <xsl:apply-templates select="htmlcss/hh:result" mode="avarage"/>
                   </header>
                   <xsl:apply-templates select="htmlcss/hh:result/hh:vacancies"/>
                 </div>
@@ -28,20 +29,24 @@
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
                   <header class="shortvacancy__header">
-                    <a href="#" class="shortvacancy__header__link">Со знанием Javascript</a>
+                    <a href="#" class="shortvacancy__header__link">Javascript</a>
                     <xsl:apply-templates select="javascript/hh:result/hh:found"/>
+                    <xsl:apply-templates select="javascript/hh:result" mode="avarage"/>
                   </header>
                   <xsl:apply-templates select="javascript/hh:result/hh:vacancies"/>
                 </div>
               </div>
             </td>
             <td colspan="4">
-              <div class="layout__padding shortvacancy__list">
-                <header class="shortvacancy__header">
-                  <a href="#" class="shortvacancy__header__link">Со знанием XSLT</a>
-                  <xsl:apply-templates select="xsl/hh:result/hh:found"/>
-                </header>
-                <xsl:apply-templates select="xsl/hh:result/hh:vacancies"/>
+              <div class="layout__paddingright">
+                <div class="layout__padding shortvacancy__list">
+                  <header class="shortvacancy__header">
+                    <a href="#" class="shortvacancy__header__link">XSLT</a>
+                    <xsl:apply-templates select="xsl/hh:result/hh:found"/>
+                    <xsl:apply-templates select="xsl/hh:result" mode="avarage"/>
+                  </header>
+                  <xsl:apply-templates select="xsl/hh:result/hh:vacancies"/>
+                </div>
               </div>
             </td>
           </tr>
@@ -135,5 +140,20 @@
   <xsl:template match="hh:logos/hh:link">
     <img src="{@href}"/>
   </xsl:template>
+  
+  <xsl:template match="hh:result" mode="avarage">
+    <xsl:variable name="from">
+      <xsl:value-of select="sum(current()//hh:compensation/hh:from) div count(current()//hh:compensation/hh:from)"/>
+    </xsl:variable>
+    <xsl:variable name="to">
+      <xsl:value-of select="sum(current()//hh:compensation/hh:to) div count(current()//hh:compensation/hh:to)"/>
+    </xsl:variable>
+    <span class="hint">
+      <xsl:text>, средняя&#160;з/п&#160;</xsl:text>
+      <xsl:value-of select="format-number($to + ($from - $to) div 2,'###&#160;###','number')"/>
+      <xsl:text>&#160;р.</xsl:text>
+    </span>
+  </xsl:template>
+  
 </xsl:stylesheet>
 

@@ -21,12 +21,12 @@
   
   <xsl:template match="hh:compensation/hh:from[.!='' and .!='0']">
     <xsl:text>от </xsl:text>
-    <xsl:value-of select="format-number(.,'###&#160;###&#160;###', 'number')"/>
+    <xsl:value-of select="format-number(.,'###&#160;###','number')"/>
   </xsl:template>
   
   <xsl:template match="hh:compensation/hh:to[.!='' and .!='0']">
     <xsl:text>до </xsl:text>
-    <xsl:value-of select="format-number(.,'###&#160;###&#160;###', 'number')"/>
+    <xsl:value-of select="format-number(.,'###&#160;###','number')"/>
   </xsl:template>
   
   <xsl:template match="hh:compensation/hh:currency">
