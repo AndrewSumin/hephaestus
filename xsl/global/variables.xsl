@@ -3,6 +3,6 @@
   
   <xsl:decimal-format name="number" grouping-separator="&#160;" NaN="0"/>
  
-  <xsl:variable name="shost" select="'http://static.ubuntu/'"/>
+  <xsl:variable name="shost" select="'/'"/>
 </xsl:stylesheet>
 
