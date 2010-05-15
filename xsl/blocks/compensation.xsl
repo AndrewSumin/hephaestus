@@ -48,7 +48,7 @@
   
 
   <xsl:template match="hh:compensation/hh:notset">
-    <span class="salary__notset">з/п не указанна</span>
+    <span class="salary__notset">з/п не указана</span>
   </xsl:template>
   
   
