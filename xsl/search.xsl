@@ -11,6 +11,11 @@
   media-type="text/html;" 
   doctype-public="html"/>
   
+  <xsl:template match="doc" mode="page-subtitle">
+    <xsl:value-of select="key('request', 'text')"/>
+  </xsl:template>
+  
+  
   <xsl:template match="doc" mode="body">
     <section class="margin">
       <table class="layout">

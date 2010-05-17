@@ -8,6 +8,10 @@
   media-type="text/html;" 
   doctype-public="html"/>
   
+  <xsl:template match="doc" mode="page-title">
+    <xsl:text>Работа в Москве для верстальщиков</xsl:text>
+  </xsl:template>
+  
   <xsl:template match="doc" mode="body">
     <div style="background:#FFE102;">
       <section class="margin indexline">
@@ -59,9 +63,9 @@
         <tr>
           <td colspan="12">
             <header class="layout__padding">
-              <span class="title">Вакансии известных компаний</span>
+              <div class="title m-title_margin">Вакансии известных компаний</div>
             </header>
-            <xsl:apply-templates select="headhunter|yandex|mail|rambler|kaspersky|abbyy" mode="logo"></xsl:apply-templates>
+            <xsl:apply-templates select="headhunter|yandex|mail|rambler|kaspersky|abbyy" mode="logo"/>
           </td>
         </tr>
       </table>
@@ -132,9 +136,9 @@
   </xsl:template>
   
   <xsl:template match="*" mode="logo">
-    <div class="layout__padding">
+    <a href="{hh:employer/hh:link[@rel='alternate']/@href}#vacancies" class="layout__padding">
       <xsl:apply-templates select="hh:employer/hh:logos/hh:link[@rel = 'small']"/>
-    </div>
+    </a>
   </xsl:template>
   
   <xsl:template match="hh:logos/hh:link">
