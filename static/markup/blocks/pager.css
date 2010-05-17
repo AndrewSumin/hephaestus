@@ -1,0 +1,23 @@
+.pager{
+  text-align:center;
+  overflow:hidden;
+  margin-top:2em;
+}
+  .pager ul{
+    display:inline;
+    font-size:1.1em;
+  }
+
+  .pager li{
+    display:inline;
+    margin:.3em;
+  }
+  
+  .pager a:visited{
+    color:#076CC7;
+  }
+  
+  .pager a:visited:hover{
+    color:#c00;
+  }
+

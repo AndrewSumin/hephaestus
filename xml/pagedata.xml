@@ -1,0 +1,5 @@
+<config>
+  <shost>/static/</shost>
+  <version>development</version>
+  <staticprefix></staticprefix>
+</config>

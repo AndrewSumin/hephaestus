@@ -1,0 +1,7 @@
+.vacancylist__item{
+  
+}
+  .vacancylist__item__item{
+    border-bottom:1px solid #eee;
+    padding:10px 0;
+  }

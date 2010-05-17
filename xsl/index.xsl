@@ -17,8 +17,8 @@
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
                   <header class="shortvacancy__header">
-                    <a href="#" class="shortvacancy__header__link">HTML и CSS</a>
-                    <xsl:apply-templates select="htmlcss/relevant/hh:result/hh:found"/>
+                    <a href="/search/?text={htmlcss/text}" class="shortvacancy__header__link">HTML и CSS</a>
+                    <xsl:apply-templates select="htmlcss/last/hh:result/hh:found"/>
                     <xsl:apply-templates select="htmlcss/relevant/hh:result" mode="avarage"/>
                   </header>
                   <xsl:apply-templates select="htmlcss/last/hh:result/hh:vacancies"/>
@@ -29,8 +29,8 @@
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
                   <header class="shortvacancy__header">
-                    <a href="#" class="shortvacancy__header__link">Javascript</a>
-                    <xsl:apply-templates select="javascript/relevant/hh:result/hh:found"/>
+                    <a href="/search/?text={javascript/text}" class="shortvacancy__header__link">Javascript</a>
+                    <xsl:apply-templates select="javascript/last/hh:result/hh:found"/>
                     <xsl:apply-templates select="javascript/relevant/hh:result" mode="avarage"/>
                   </header>
                   <xsl:apply-templates select="javascript/last/hh:result/hh:vacancies"/>
@@ -41,8 +41,8 @@
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
                   <header class="shortvacancy__header">
-                    <a href="#" class="shortvacancy__header__link">XSLT</a>
-                    <xsl:apply-templates select="xsl/relevant/hh:result/hh:found"/>
+                    <a href="/search/?text={xsl/text}" class="shortvacancy__header__link">XSLT</a>
+                    <xsl:apply-templates select="xsl/last/hh:result/hh:found"/>
                     <xsl:apply-templates select="xsl/relevant/hh:result" mode="avarage"/>
                   </header>
                   <xsl:apply-templates select="xsl/last/hh:result/hh:vacancies"/>

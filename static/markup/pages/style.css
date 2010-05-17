@@ -9,3 +9,6 @@
 @import url(../blocks/salary.css);
 @import url(../blocks/title.css);
 @import url(../blocks/hint.css);
+@import url(../blocks/pager.css);
+
+@import url(../blocks/vacancylist/vacancylist.all.css);

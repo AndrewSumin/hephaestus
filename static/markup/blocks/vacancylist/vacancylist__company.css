@@ -1,0 +1,8 @@
+.vacancylist__company{
+  margin-top:.2em;
+}
+  .vacancylist__company__link{
+    color:#999;
+    font-size:.8em;
+    text-decoration:none;
+  }
