@@ -1,5 +1,6 @@
 #coding:utf8
 
+import urllib;
 import frontik.handler
 from frontik.doc import Doc
 from frontik import etree

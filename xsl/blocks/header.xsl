@@ -6,7 +6,7 @@
       <title>
         <xsl:apply-templates select="." mode="title"/>
       </title>
-      <meta charset="utf-8"/>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <link rel="stylesheet" type="text/css" charset="utf-8" href="{$shost}markup/pages/style.css" />
       <script type="text/javascript" src="{$shost}js/jsx/jsx.js">
         <xsl:text>return {autoinit:true, base:'sizzle', build:'develop'}</xsl:text>
