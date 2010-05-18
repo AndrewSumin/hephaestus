@@ -15,12 +15,19 @@ class Page(frontik.handler.PageHandler):
         
         handler.do_pagedata(self)
         
+        if (self.get_argument('salary', None)):
+          salary = 'true'
+        else:
+          salary = None
         
         search = Doc('search')
         search.put(self.get_url(config.api_host + '/1/xml/vacancy/search/',
                                 {
                                  'text': self.get_argument('text', None),
                                  'page': self.get_argument('page', None),
+                                 'salary': self.get_argument('salary', None),
+                                 'notWithoutSalary': salary,
+                                 'area':'1',
                                  'items': '20',
                                  'professionalAreaId':'1',
                                  'items': '20',

@@ -12,7 +12,7 @@
               </h1>
             </td>
             <td colspan="4" style="vertical-align:middle;">
-              <a href="#" class="layout__padding" style="font-size:.8em;color:#000">У меня есть вакансия</a>
+              <a href="http://hh.ru/employer/vacancy-promo.xml" class="layout__padding" style="font-size:.8em;color:#000">У меня есть вакансия</a>
             </td>
           </tr>
         </table>

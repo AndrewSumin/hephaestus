@@ -12,11 +12,14 @@
   doctype-public="html"/>
   
   <xsl:template match="doc" mode="page-subtitle">
-    <xsl:value-of select="key('request', 'text')"/>
+    <xsl:text>Результаты поиска</xsl:text>
   </xsl:template>
   
   
   <xsl:template match="doc" mode="body">
+    
+    <xsl:apply-templates select="." mode="search-form"/>
+    
     <section class="margin">
       <table class="layout">
         <xsl:apply-templates select="search/hh:result/hh:vacancies/hh:vacancy"/>

@@ -8,6 +8,7 @@
   <xsl:import href="foot.xsl"/>
   <xsl:import href="web.xsl"/>
   <xsl:import href="compensation.xsl"/>
+  <xsl:import href="search-form.xsl"/>
   
   <xsl:template match="doc" mode="page">
     <html>

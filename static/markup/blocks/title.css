@@ -3,5 +3,10 @@
   font-weight:normal;
 }
   .m-title_margin{
+    margin-top:1.5em;
+    margin-bottom:1em;
+  }
+
+  .m-title_marginbottom{
     margin-bottom:1em;
   }

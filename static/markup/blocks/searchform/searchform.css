@@ -1,0 +1,29 @@
+.searchform{
+  margin-top:.5em;
+  margin-bottom:.5em;
+  padding-top:.5em;
+  padding-bottom:.5em;
+  background:#eee;
+}
+  .searchform__item{
+    vertical-align:middle;
+  }
+  .searchform__input{
+    font-size:1.3em;
+  }
+  
+  .searchform__search{
+    width:100%;
+  }
+  
+  .searchform__salary{
+    text-align:right;
+  }
+  .searchform__salaryinput{
+    width:100px;
+  }
+
+  .searchform__submitinput{
+    padding-left:1em;
+    padding-right:1em;
+  }
