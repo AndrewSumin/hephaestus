@@ -21,7 +21,7 @@ class Page(frontik.handler.PageHandler):
           salary = None
         
         search = Doc('search')
-        search.put(self.get_url(config.api_host + '/1/xml/vacancy/search/',
+        search.put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/',
                                 {
                                  'text': self.get_argument('text', None),
                                  'page': self.get_argument('page', None),
