@@ -20,13 +20,13 @@ class Page(frontik.handler.PageHandler):
             text = verstka_query + query_suffix;
             block = Doc(name)
             block.put(Doc('text').put(urllib.quote(text.encode('utf-8'))))
-            block.put(Doc('last').put(self.get_url(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'items': '5', 'area':'1', 'professionalAreaId':'1'})))
+            block.put(Doc('last').put(self.get_url(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'items': '5', 'order':'0',  'area':'1', 'professionalAreaId':'1'})))
             block.put(Doc('relevant').put(self.get_url(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'order':'0', 'notWithoutSalary': 'true', 'items': '40', 'area':'1', 'professionalAreaId':'1'})))
             self.doc.put(block)
         
         put_block('htmlcss')
         put_block('php', u'php')
-        put_block('python', u'python')
+        put_block('jquery', u'jquery')
         put_block('perl', u'perl')
         put_block('javascript', u'javascript')
         put_block('xsl', u'(xsl OR xslt)')
@@ -37,6 +37,10 @@ class Page(frontik.handler.PageHandler):
         self.doc.put(Doc('rambler').put(self.get_url(config.api_host + '/1/xml/employer/8620/')))
         self.doc.put(Doc('kaspersky').put(self.get_url(config.api_host + '/1/xml/employer/1057/')))
         self.doc.put(Doc('abbyy').put(self.get_url(config.api_host + '/1/xml/employer/301/')))
+        self.doc.put(Doc('rbc').put(self.get_url(config.api_host + '/1/xml/employer/563765/')))
+        self.doc.put(Doc('actis').put(self.get_url(config.api_host + '/1/xml/employer/4236/')))
+        self.doc.put(Doc('rucenter').put(self.get_url(config.api_host + '/1/xml/employer/6421/')))
+        self.doc.put(Doc('ozon').put(self.get_url(config.api_host + '/1/xml/employer/2180/')))
         
         self.finish_page()
 

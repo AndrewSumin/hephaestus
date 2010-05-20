@@ -46,11 +46,11 @@
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
                   <header class="shortvacancy__header">
-                    <a href="/search/?text={xsl/text}" class="shortvacancy__header__link">XSLT</a>
-                    <xsl:apply-templates select="xsl/last/hh:result/hh:found"/>
-                    <xsl:apply-templates select="xsl/relevant/hh:result" mode="average"/>
+                    <a href="/search/?text={jquery/text}" class="shortvacancy__header__link">jQuery</a>
+                    <xsl:apply-templates select="jquery/last/hh:result/hh:found"/>
+                    <xsl:apply-templates select="jquery/relevant/hh:result" mode="average"/>
                   </header>
-                  <xsl:apply-templates select="xsl/last/hh:result/hh:vacancies"/>
+                  <xsl:apply-templates select="jquery/last/hh:result/hh:vacancies"/>
                 </div>
               </div>
             </td>
@@ -65,6 +65,19 @@
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
                   <header class="shortvacancy__header">
+                    <a href="/search/?text={xsl/text}" class="shortvacancy__header__link">XSLT</a>
+                    <xsl:apply-templates select="xsl/last/hh:result/hh:found"/>
+                    <xsl:apply-templates select="xsl/relevant/hh:result" mode="average"/>
+                  </header>
+                  <xsl:apply-templates select="xsl/last/hh:result/hh:vacancies"/>
+                </div>
+              </div>
+            </td>
+            
+            <td colspan="4">
+              <div class="layout__paddingright">
+                <div class="layout__padding shortvacancy__list">
+                  <header class="shortvacancy__header">
                     <a href="/search/?text={php/text}" class="shortvacancy__header__link">PHP</a>
                     <xsl:apply-templates select="php/last/hh:result/hh:found"/>
                     <xsl:apply-templates select="php/relevant/hh:result" mode="average"/>
@@ -73,18 +86,7 @@
                 </div>
               </div>
             </td>
-            <td colspan="4">
-              <div class="layout__paddingright">
-                <div class="layout__padding shortvacancy__list">
-                  <header class="shortvacancy__header">
-                    <a href="/search/?text={python/text}" class="shortvacancy__header__link">Python</a>
-                    <xsl:apply-templates select="python/last/hh:result/hh:found"/>
-                    <xsl:apply-templates select="python/relevant/hh:result" mode="average"/>
-                  </header>
-                  <xsl:apply-templates select="python/last/hh:result/hh:vacancies"/>
-                </div>
-              </div>
-            </td>
+
             <td colspan="4">
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
@@ -110,7 +112,7 @@
             <header class="layout__padding">
               <div class="title m-title_marginbottom">Вакансии известных компаний</div>
             </header>
-            <xsl:apply-templates select="headhunter|yandex|mail|rambler|kaspersky|abbyy" mode="logo"/>
+            <xsl:apply-templates select="headhunter|yandex|mail|rambler|kaspersky|abbyy|rbc|actis|rucenter|ozon" mode="logo"/>
           </td>
         </tr>
       </table>
