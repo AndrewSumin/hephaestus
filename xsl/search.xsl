@@ -76,7 +76,9 @@
   </xsl:template>
   
   <xsl:template match="hh:vacancy[hh:employer/hh:logos/hh:link[@rel='small']]" mode="logo">
-    <img src="{hh:employer/hh:logos/hh:link/@href}"/>
+    <a href="{hh:employer/hh:link[@rel = 'alternate']/@href}">
+      <img src="{hh:employer/hh:logos/hh:link/@href}"/>
+    </a>
   </xsl:template>
   
   <xsl:template match="hh:employer">
