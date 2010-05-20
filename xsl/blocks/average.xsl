@@ -17,8 +17,11 @@
         <xsl:when test="$from and $to">
           <xsl:value-of select="($from + $to) div 2"/>
         </xsl:when>
+        <xsl:when test="$from">
+          <xsl:value-of select="$from * 1.15"/>
+        </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="$from|$to"/>
+          <xsl:value-of select="$to * 0.85"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -27,7 +30,7 @@
   
   <func:function name="jsx:median">
     <xsl:param name="nodes"/>
-    <xsl:variable name="pos" select="round(count($nodes) div 2)"/>
+    <xsl:variable name="pos" select="ceiling((count($nodes) div 2))"/>
     <xsl:variable name="result">
       <xsl:for-each select="$nodes">
         <xsl:sort select="jsx:avg(hh:from,hh:to)" data-type="number" />
