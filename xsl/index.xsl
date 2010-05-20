@@ -195,18 +195,9 @@
   </xsl:template>
   
   <xsl:template match="hh:result" mode="average">
-    <!--xsl:variable name="from">
-      <xsl:value-of select="sum(current()//hh:compensation[hh:currency/@code = 'RUR']/hh:from) div count(current()//hh:compensation[hh:currency/@code = 'RUR']/hh:from)"/>
-    </xsl:variable>
-    <xsl:variable name="to">
-      <xsl:value-of select="sum(current()//hh:compensation[hh:currency/@code = 'RUR']/hh:to) div count(current()//hh:compensation[hh:currency/@code = 'RUR']/hh:to)"/>
-    </xsl:variable-->
-    
     <span class="hint">
       <xsl:text>, средняя&#160;з/п&#160;</xsl:text>
-      <xsl:value-of select="jsx:median(current()//hh:compensation[hh:currency/@code = 'RUR'])"/>
-      <!--|
-      <xsl:value-of select="format-number($to + ($from - $to) div 2,'###&#160;###','number')"/> -->
+      <xsl:value-of select="format-number(jsx:median(current()//hh:compensation[hh:currency/@code = 'RUR']),'###&#160;###','number')"/>
       <xsl:text>&#160;р.</xsl:text>
     </span>
   </xsl:template>
