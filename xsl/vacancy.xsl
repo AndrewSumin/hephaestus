@@ -29,8 +29,8 @@
   <xsl:template match="hh:vacancy">
     <table class="layout">
       <tr>
-        <td colspan="8">
-          <div class="layout__padding">
+        <td colspan="7">
+          <div class="layout__padding" style="margin-right:50px;">
             <div class="vacancy__description">
               <xsl:value-of select="hh:description" disable-output-escaping="yes"/>
             </div>
