@@ -1,0 +1,8 @@
+.vacancy{}
+  .vacancy__label{
+    font-size:.8em;
+    color:#ccc;
+  }
+  .vacancy__value{
+    margin-bottom:1.5em;
+  }

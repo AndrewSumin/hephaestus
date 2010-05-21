@@ -7,10 +7,16 @@
   exclude-result-prefixes="hh">
 
   <xsl:template match="hh:compensation">
+    <xsl:param name="break"/>
     <xsl:apply-templates select="hh:from"/>
-    <xsl:if test="hh:from and hh:to">
-      <br/>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="hh:from and hh:to and $break">
+        <br/>
+      </xsl:when>
+      <xsl:when test="hh:from and hh:to">
+        <xsl:text> </xsl:text>
+      </xsl:when>
+    </xsl:choose>
     <xsl:apply-templates select="hh:to"/>
     <xsl:apply-templates select="hh:currency"/>
     <xsl:apply-templates select="hh:notset"/>

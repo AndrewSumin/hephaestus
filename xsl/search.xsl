@@ -41,6 +41,8 @@
           <xsl:with-param name="href">
             <xsl:text>/search?text=</xsl:text>
             <xsl:value-of select="key('request','text')"/>
+            <xsl:text>&amp;salary=</xsl:text>
+            <xsl:value-of select="key('request','salary')"/>
             <xsl:text>&amp;page=</xsl:text>
           </xsl:with-param>
         </xsl:apply-templates>
@@ -50,7 +52,7 @@
   
   <xsl:template match="hh:vacancy">
     <tr class="vacancylist__item">
-      <td colspan="8" class="vacancylist__name vacancylist__item__item">
+      <td colspan="6" class="vacancylist__name vacancylist__item__item">
         <div class="layout__padding">
           
           <a href="{hh:link[@rel='alternate']/@href}" target="_blank">
@@ -60,7 +62,7 @@
           <xsl:apply-templates select="hh:employer"/>
         </div>
       </td>
-      <td colspan="2" class="vacancylist__salary vacancylist__item__item">
+      <td colspan="4" class="vacancylist__salary vacancylist__item__item">
         <div class="layout__padding">
           <xsl:apply-templates select="hh:compensation"/>
         </div>

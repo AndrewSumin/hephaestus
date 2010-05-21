@@ -5,5 +5,6 @@
   <xsl:import href="twopass.xsl"/>
   <xsl:import href="convertion.xsl"/>
   <xsl:import href="pager.xsl"/>
+  <xsl:import href="date.xsl"/>
   
 </xsl:stylesheet>
