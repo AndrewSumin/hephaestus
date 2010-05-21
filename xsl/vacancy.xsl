@@ -31,7 +31,9 @@
       <tr>
         <td colspan="8">
           <div class="layout__padding">
-            <xsl:value-of select="hh:description" disable-output-escaping="yes"/>
+            <div class="vacancy__description">
+              <xsl:value-of select="hh:description" disable-output-escaping="yes"/>
+            </div>
             <div style="margin-top:1em;">
               <xsl:apply-templates select="." mode="button">
                 <xsl:with-param name="url" select="concat('http://hh.ru/applicant/vacancyResponse.do?vacancyId=', @id)"/>
