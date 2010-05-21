@@ -1,0 +1,15 @@
+.button_green{
+  border: 0;
+}
+
+*+html .button input {
+  overflow: visible;
+  padding: 7px 20px;
+}
+* html .button input {
+  overflow: visible;
+  padding: 7px 20px;
+}
+  * html .button a:hover {
+    color: #FFF;
+  }

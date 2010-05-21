@@ -11,14 +11,26 @@
   media-type="text/html;" 
   doctype-public="html"/>
   
-  <xsl:template match="doc" mode="page-subtitle">
-    <xsl:text>Результаты поиска</xsl:text>
+  <xsl:template match="doc" mode="page-title-text">
+    <xsl:apply-templates select="." mode="conversion">
+      <xsl:with-param name="num" select="search/hh:result/hh:found"/>
+      <xsl:with-param name="zero" select="'Найдено'"/>
+      <xsl:with-param name="one" select="'Найдена'"/>
+      <xsl:with-param name="some" select="'Найдено'"/>
+      <xsl:with-param name="many" select="'Найдено'"/>
+      <xsl:with-param name="with-num" select="false()"/>
+    </xsl:apply-templates>
+    <xsl:text> </xsl:text>
+    <xsl:apply-templates select="." mode="conversion">
+      <xsl:with-param name="num" select="search/hh:result/hh:found"/>
+      <xsl:with-param name="zero" select="'вакансий'"/>
+      <xsl:with-param name="one" select="'вакансия'"/>
+      <xsl:with-param name="some" select="'вакансий'"/>
+      <xsl:with-param name="many" select="'вакансии'"/>
+    </xsl:apply-templates>
   </xsl:template>
   
-  
   <xsl:template match="doc" mode="body">
-    
-    <xsl:apply-templates select="." mode="search-form"/>
     
     <section class="margin">
       <table class="layout">
@@ -55,7 +67,7 @@
       <td colspan="6" class="vacancylist__name vacancylist__item__item">
         <div class="layout__padding">
           
-          <a href="{hh:link[@rel='alternate']/@href}" target="_blank">
+          <a href="/vacancy/{@id}">
             <xsl:value-of select="hh:name"/>
           </a>
           <br/>

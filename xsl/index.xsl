@@ -9,9 +9,11 @@
   media-type="text/html;" 
   doctype-public="html"/>
   
-  <xsl:template match="doc" mode="page-title">
-    <xsl:text>Работа в Москве для верстальщиков</xsl:text>
+  <xsl:template match="doc" mode="menu">
+    <h1 class="layout__padding head__title">Работа в Москве для верстальщиков</h1>
   </xsl:template>
+  
+  <xsl:template match="doc" mode="page-title"/>
   
   <xsl:template match="doc" mode="body">
     <div style="background:#FFE102;">
@@ -118,7 +120,6 @@
       </table>
     </section>
     
-    <xsl:apply-templates select="." mode="search-form"/>
   </xsl:template>
   
   <xsl:template match="hh:found">
@@ -145,8 +146,8 @@
         <tr>
           <td colspan="2">
             <div class="layout__paddingright">
-              <header class="title">
-                <a class="shortvacancy__title__link" href="{hh:link[@rel='alternate']/@href}" title="{hh:name}">
+              <header class="shortvacancy__title">
+                <a class="shortvacancy__title__link" href="/vacancy/{@id}" title="{hh:name}">
                   <xsl:value-of select="hh:name"/>
                 </a>
                 <span class="fade">&#160;</span>

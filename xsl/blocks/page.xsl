@@ -3,12 +3,13 @@
   
   <xsl:import href="../global/all.xsl"/>
   
-  <xsl:import href="header.xsl"/>
   <xsl:import href="head.xsl"/>
-  <xsl:import href="foot.xsl"/>
+  <xsl:import href="header.xsl"/>
+  <xsl:import href="footer.xsl"/>
   <xsl:import href="web.xsl"/>
   <xsl:import href="compensation.xsl"/>
   <xsl:import href="search-form.xsl"/>
+  <xsl:import href="button.xsl"/>
   
   <xsl:template match="doc" mode="page">
     <html>

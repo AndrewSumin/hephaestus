@@ -21,12 +21,16 @@
 .shortvacancy{
   margin-top:.6em;
 }
-  .shortvacancy__title__link{
-    overflow: hidden;
-    white-space:nowrap;
-    display:block;
-    height:1.2em;
+  .shortvacancy__title{
+    color:#000;
+    font-weight:normal;
   }
+    .shortvacancy__title__link{
+      overflow: hidden;
+      white-space:nowrap;
+      display:block;
+      height:1.2em;
+    }
   .shortvacancy__company{
     margin-top:.2em;
   }

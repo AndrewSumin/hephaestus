@@ -1,0 +1,56 @@
+/*
+
+<div class="button__block">
+  <span class="button m-button_green">
+    <a href="#">
+      button
+    </a>
+  </span>
+</div>
+
+*/
+
+.button__block {
+  text-align: center;
+  padding: 1em 0;
+}
+  .button {
+    margin: 0 auto;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+  }
+    .button a,
+    .button input,
+    .button span {
+      font-family: Arial, Verdana, Helvetica, sans-serif;
+      background: none;
+      border: none;
+      color: #FFF;
+      cursor: pointer;
+      font-size: 1.3em;
+      text-decoration: none;
+      padding: .5em 20px .5em;
+      display: inline-block;
+      text-align: center;
+    }
+      .button a:link,
+      .button a:visited {
+        color: #fff;
+      }
+      .button span {
+        cursor: default;
+      }
+      .m-button_green {
+        background: #71B61F url('green.png') 0 0 repeat-x;
+        border: 1px solid #91D64A;
+      }
+        .m-button_green:hover {
+          background-position: 0 -80px;
+        }
+        .m-button_green:active {
+          background-position: 0 -160px;
+        }

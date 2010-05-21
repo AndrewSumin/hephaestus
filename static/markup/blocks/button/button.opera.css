@@ -1,0 +1,19 @@
+@media all and (min-width:0px) {
+
+  noindex:-o-prefocus, html .button input {
+    border-color: transparent;
+    border-style: solid;
+    border-width: 7px 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 20;
+  }
+  noindex:-o-prefocus, html .button a {
+    position: relative;
+    z-index: 20;
+  }
+  noindex:-o-prefocus, html .button_green{
+    border: 0;
+  }
+
+}
