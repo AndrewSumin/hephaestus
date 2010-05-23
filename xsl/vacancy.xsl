@@ -30,8 +30,8 @@
     <table class="layout">
       <tr>
         <td colspan="8">
-          <div class="layout__padding" style="margin-right:50px;">
-            <div class="vacancy__description">
+          <div class="layout__padding">
+            <div class="description">
               <xsl:value-of select="hh:description" disable-output-escaping="yes"/>
             </div>
             <div style="margin-top:1em;">

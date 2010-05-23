@@ -10,6 +10,7 @@
 @import url(../blocks/title.css);
 @import url(../blocks/hint.css);
 @import url(../blocks/pager.css);
+@import url(../blocks/description.css);
 
 @import url(../blocks/vacancylist/vacancylist.all.css);
 @import url(../blocks/searchform/searchform.all.css);

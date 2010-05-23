@@ -6,7 +6,7 @@
   xmlns:hh="http://hh.ru/api"
   exclude-result-prefixes="hh">
 
-  <xsl:template match="hh:compensation">
+  <xsl:template match="hh:compensation | hh:salary">
     <xsl:param name="break"/>
     <xsl:apply-templates select="hh:from"/>
     <xsl:choose>
@@ -22,38 +22,38 @@
     <xsl:apply-templates select="hh:notset"/>
   </xsl:template>
 
-  <xsl:template match="hh:compensation/hh:from"/>
-  <xsl:template match="hh:compensation/hh:to"/>
+  <xsl:template match="hh:from"/>
+  <xsl:template match="hh:to"/>
   
-  <xsl:template match="hh:compensation/hh:from[.!='' and .!='0']">
+  <xsl:template match="hh:from[.!='' and .!='0']">
     <xsl:text>от </xsl:text>
     <xsl:value-of select="format-number(.,'###&#160;###','number')"/>
   </xsl:template>
   
-  <xsl:template match="hh:compensation/hh:to[.!='' and .!='0']">
+  <xsl:template match="hh:to[.!='' and .!='0']">
     <xsl:text>до </xsl:text>
     <xsl:value-of select="format-number(.,'###&#160;###','number')"/>
   </xsl:template>
   
-  <xsl:template match="hh:compensation/hh:currency">
+  <xsl:template match="hh:currency">
     <xsl:text> </xsl:text>
     <xsl:value-of select="."/>
   </xsl:template>
 
-  <xsl:template match="hh:compensation/hh:currency[@code='RUR']">
+  <xsl:template match="hh:currency[@code='RUR']">
     <xsl:text> р.</xsl:text>
   </xsl:template>
   
-  <xsl:template match="hh:compensation/hh:currency[@code='USD']">
+  <xsl:template match="hh:currency[@code='USD']">
     <xsl:text> $</xsl:text>
   </xsl:template>
 
-  <xsl:template match="hh:compensation/hh:currency[@code='EUR']">
+  <xsl:template match="hh:currency[@code='EUR']">
     <xsl:text> eur</xsl:text>
   </xsl:template>
   
 
-  <xsl:template match="hh:compensation/hh:notset">
+  <xsl:template match="hh:notset">
     <span class="salary__notset">з/п не указана</span>
   </xsl:template>
   

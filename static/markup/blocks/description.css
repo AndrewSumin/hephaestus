@@ -1,0 +1,11 @@
+.description{
+  margin-right:50px;
+}
+  .description li{
+    margin-left:2em;
+    list-style:disc;
+  }
+  .description p{
+    margin-top:.5em;
+    margin-bottom:.3em;
+  }
