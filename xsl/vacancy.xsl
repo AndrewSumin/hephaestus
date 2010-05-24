@@ -19,7 +19,7 @@
   </xsl:template>  
   
   <xsl:template match="doc" mode="page-title-text">
-    <xsl:value-of select="hh:vacancy/hh:name"/>
+    <strong><xsl:value-of select="hh:vacancy/hh:name"/></strong>
     <br/>
     <xsl:apply-templates select="hh:vacancy/hh:salary"/>
   </xsl:template>  
