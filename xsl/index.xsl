@@ -159,7 +159,7 @@
           </td>
           <td>
             <span class="salary">
-              <xsl:apply-templates select="hh:compensation">
+              <xsl:apply-templates select="hh:salary">
                 <xsl:with-param name="break" select="true()"/>
               </xsl:apply-templates>
             </span>

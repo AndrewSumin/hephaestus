@@ -46,8 +46,8 @@
           <div class="layout__padding">
             <xsl:apply-templates select="hh:employer[hh:logos/hh:link[@rel='medium']]" mode="logo"/>
             <xsl:apply-templates select="hh:employer[not(hh:logos/hh:link[@rel='medium'])]" mode="name"/>
-            <xsl:apply-templates select="hh:updated"/>
             <xsl:apply-templates select="." mode="salary"/>
+            <xsl:apply-templates select="hh:updated"/>
           </div>
         </td>
       </tr>
@@ -57,7 +57,7 @@
   <xsl:template match="hh:employer" mode="logo">
     <div class="vacancy__value">
       <a href="{hh:link[@rel = 'alternate']/@href}">
-        <img src="{hh:logos/hh:link/@href}"/>
+        <img src="{hh:logos/hh:link[@rel='medium']/@href}"/>
       </a>
     </div>
   </xsl:template>
@@ -84,7 +84,7 @@
   <xsl:template match="hh:vacancy" mode="salary">
     <div class="vacancy__label">зарплата</div>
     <div class="vacancy__value">
-      <xsl:apply-templates select="hh:compensation"/>
+      <xsl:apply-templates select="hh:salary"/>
     </div>
   </xsl:template>
   
