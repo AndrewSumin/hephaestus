@@ -2,9 +2,11 @@
 <xsl:stylesheet
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:hh="http://hh.ru/api" exclude-result-prefixes="hh">
+  xmlns:jsx="http://jsx.ru/"
+  xmlns:hh="http://hh.ru/api" exclude-result-prefixes="hh jsx">
 
 <xsl:import href="blocks/page.xsl"/>
+<xsl:import href="blocks/strings.xsl"/>
 
 <xsl:output
   omit-xml-declaration="yes" method="xml" indent="no" encoding="UTF-8"
@@ -18,6 +20,8 @@
   
   <xsl:template match="doc" mode="page-title-text">
     <xsl:value-of select="hh:vacancy/hh:name"/>
+    <br/>
+    <xsl:apply-templates select="hh:vacancy/hh:salary"/>
   </xsl:template>  
   
   <xsl:template match="doc" mode="body">
@@ -46,8 +50,11 @@
           <div class="layout__padding">
             <xsl:apply-templates select="hh:employer[hh:logos/hh:link[@rel='medium']]" mode="logo"/>
             <xsl:apply-templates select="hh:employer[not(hh:logos/hh:link[@rel='medium'])]" mode="name"/>
-            <xsl:apply-templates select="." mode="salary"/>
+            <!--xsl:apply-templates select="." mode="salary"/-->
             <xsl:apply-templates select="hh:updated"/>
+            <xsl:apply-templates select="hh:experience"/>
+            <xsl:apply-templates select="hh:schedule"/>
+            <xsl:apply-templates select="hh:employment"/>
           </div>
         </td>
       </tr>
@@ -87,6 +94,28 @@
       <xsl:apply-templates select="hh:salary"/>
     </div>
   </xsl:template>
+  
+  <xsl:template match="hh:experience">
+    <div class="vacancy__label">опыт</div>
+    <div class="vacancy__value">
+      <xsl:value-of select="."/>
+    </div>
+  </xsl:template>
+  
+  <xsl:template match="hh:schedule">
+    <div class="vacancy__label">график</div>
+    <div class="vacancy__value">
+      <xsl:value-of select="."/>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="hh:employment">
+    <div class="vacancy__label">занятость</div>
+    <div class="vacancy__value">
+      <xsl:value-of select="jsx:lowercase(.)"/>
+    </div>
+  </xsl:template>
+  
   
 </xsl:stylesheet>
 

@@ -200,7 +200,7 @@
   <xsl:template match="hh:result" mode="average">
     <span class="hint">
       <xsl:text>, средняя&#160;з/п&#160;</xsl:text>
-      <xsl:value-of select="format-number(jsx:median(current()//hh:compensation[hh:currency/@code = 'RUR']),'###&#160;###','number')"/>
+      <xsl:value-of select="format-number(jsx:median(current()//hh:salary[hh:currency/@code = 'RUR']),'###&#160;###','number')"/>
       <xsl:text>&#160;р.</xsl:text>
     </span>
   </xsl:template>
