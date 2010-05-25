@@ -3,7 +3,7 @@
   
   <xsl:decimal-format name="number" grouping-separator="&#160;" NaN="0"/>
  
-  <xsl:variable name="shost" select="'/static/5/'"/>
+  <xsl:variable name="shost" select="'/static/6/'"/>
   <xsl:key name="request" match="request/param" use="@name"/>
 </xsl:stylesheet>
 

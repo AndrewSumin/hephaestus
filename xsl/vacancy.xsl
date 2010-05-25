@@ -55,6 +55,7 @@
             <xsl:apply-templates select="hh:experience"/>
             <xsl:apply-templates select="hh:schedule"/>
             <xsl:apply-templates select="hh:employment"/>
+            <xsl:apply-templates select="." mode="social"/>
           </div>
         </td>
       </tr>
@@ -62,7 +63,7 @@
   </xsl:template>
 
   <xsl:template match="hh:employer" mode="logo">
-    <div class="vacancy__value">
+    <div class="vacancy__value" style="margin-bottom:1em">
       <a href="{hh:link[@rel = 'alternate']/@href}">
         <img src="{hh:logos/hh:link[@rel='medium']/@href}"/>
       </a>
@@ -116,6 +117,37 @@
     </div>
   </xsl:template>
   
+  <xsl:template match="hh:vacancy" mode="social">
+    <div class="vacancy__label">рассказать друзьям</div>
+    <div class="vacancy__value" style="margin-top:.3em;">
+      
+    </div>
+    <div class="vacancy__value">
+      <script type="text/javascript" src="http://vkontakte.ru/js/api/share.js?5" charset="windows-1251">&#160;</script>
+      <script type="text/javascript">
+          document.write(VK.Share.button(false,{type: "round", text: "Сохранить"}));
+      </script>
+    </div>
+    <div class="vacancy__value">
+      <script>
+        function fbs_click() {
+          var u=location.href;
+          var t=document.title;
+          window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&amp;t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+          return false;
+        }
+      </script>
+      <div style="overflow:hidden">
+        <a target="_blank" class="facebook" onclick="return fbs_click()" href="http://www.facebook.com/share.php?u=http://hh.jsx.ru/vacancy/{@id}" title="Поделиться на facebook">
+          &#160;
+        </a>
+        <a class="twitter" title="в твиттер" href="http://twitter.com/home/?status=http://hh.jsx.ru/vacancy/{@id} {hh:name}, {hh:employer/hh:name}" target="_blank">
+          &#160;
+        </a>
+      </div>
+    </div>
+    
+  </xsl:template>
   
 </xsl:stylesheet>
 
