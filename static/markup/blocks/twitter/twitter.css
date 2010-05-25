@@ -1,0 +1,8 @@
+.twitter{
+  display:block;
+  float:left;
+  width:32px;
+  height:32px;
+  background:url(twitter.png);
+  text-decoration:none;
+}
