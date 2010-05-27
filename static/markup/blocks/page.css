@@ -7,9 +7,21 @@ a {
   cursor: pointer;
   color: #076CC7;
 }
+
+  a:visited {
+    color: #691A95;
+  }
   a:hover {
     color: #c00;
   }
+  .notvisited:visited{
+    color: #076CC7;
+  }
+  .notvisited:hover{
+    color: #c00;
+  }
+
+
 .margin{
   width:96%;
   margin:0 2%;
