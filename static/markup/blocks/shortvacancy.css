@@ -4,6 +4,12 @@
   .shortvacancy__header__link{
     color:#000;
   }
+    .shortvacancy__header__link:visited{
+      color:#000;
+    }
+    .shortvacancy__header__link:hover{
+      color:#c00;
+    }
   .shortvacancy__list{
     padding-top:10px;
     padding-bottom:10px;
@@ -31,6 +37,7 @@
       display:block;
       height:1.2em;
     }
+
   .shortvacancy__company{
     margin-top:.2em;
   }

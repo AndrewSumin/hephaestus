@@ -23,7 +23,7 @@
   
   <xsl:template match="doc" mode="menu">
     <div class="layout__padding">
-      <xsl:text>&#8592; </xsl:text><a href="/" class="notvisited">главная</a>
+      <span style="position:absolute;margin-left:-1.3em;margin-top:-2px;font-size:1.1em;"><xsl:text>&#8592; </xsl:text></span><a href="/" class="notvisited">главная</a>
     </div>
   </xsl:template>
   
