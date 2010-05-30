@@ -49,3 +49,9 @@
       white-space:nowrap;
       display:block;
     }
+      .shortvacancy__company__link:visited{
+        color:#999;
+      }
+      .shortvacancy__company__link:hover{
+        color:#c00;
+      }
