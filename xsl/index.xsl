@@ -188,7 +188,7 @@
   </xsl:template>
   
   <xsl:template match="*" mode="logo">
-    <a href="{hh:employer/hh:link[@rel='alternate']/@href}#vacancies" class="layout__padding">
+    <a href="/employer/{hh:employer/@id}" class="layout__padding">
       <xsl:apply-templates select="hh:employer/hh:logos/hh:link[@rel = 'small']"/>
     </a>
   </xsl:template>
