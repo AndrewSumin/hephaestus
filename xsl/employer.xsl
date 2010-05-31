@@ -19,12 +19,32 @@
   
   <xsl:template match="doc" mode="page-title-text">
     Вакансии компании <xsl:value-of select="hh:employer/hh:name"/>
-  </xsl:template>  
+  </xsl:template>
+  
+  <xsl:template match="doc[not(hh:employer)]" mode="page-title-text">
+    &#160;
+  </xsl:template>
+  
+
+  <xsl:template match="doc[not(hh:employer)]" mode="body">
+    <section class="margin">
+      <div class="layout__padding">
+        Извините, произошла ошибка. Возможно этого работодателя не существует.<br/>
+        Если вы уверены что это существующий работодатель попробуйте <a href="">перезагрузить страницу</a> позже.
+      </div>
+    </section>
+  </xsl:template>
   
   <xsl:template match="doc" mode="body">
     <section class="margin">
-      <xsl:apply-templates select="hh:vacancies"/>
+      <xsl:apply-templates select="hh:vacancies[hh:vacancy]"/>
+      <xsl:apply-templates select="current()[not(hh:vacancies/hh:vacancy)]" mode="novacancies"/>
     </section>
+    <p><br/></p>
+    <xsl:apply-templates select="hh:employer"/>
+  </xsl:template>
+  
+  <xsl:template match="hh:employer">
     <section class="margin">
       <h1 class="layout__padding title m-title_margintop">О компании</h1>
     </section>
@@ -33,12 +53,12 @@
         <tr>
           <td colspan="8">
             <div class="layout__padding description">
-              <xsl:value-of select="hh:employer/hh:full-description" disable-output-escaping="yes"/>
+              <xsl:value-of select="hh:full-description" disable-output-escaping="yes"/>
             </div>
           </td>
           <td colspan="4">
-            <a href="{hh:employer/hh:link[@rel = 'alternate']/@href}">
-              <xsl:apply-templates select="hh:employer" mode="logo"/>
+            <a href="{hh:link[@rel = 'alternate']/@href}">
+              <xsl:apply-templates select="." mode="logo"/>
             </a>
           </td>
         </tr>
@@ -54,6 +74,14 @@
   
   <xsl:template match="hh:employer[hh:logos/hh:link[@rel='medium']]" mode="logo">
     <img src="{hh:logos/hh:link[@rel='medium']/@href}"/>
+  </xsl:template>
+  
+  <xsl:template match="doc" mode="novacancies">
+    <div class="layout__padding">
+      <p><br/></p>
+      У компании нет открытых вакансий
+      <p><br/></p>
+    </div>
   </xsl:template>
 </xsl:stylesheet>
 

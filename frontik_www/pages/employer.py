@@ -16,6 +16,5 @@ class Page(frontik.handler.PageHandler):
         handler.do_pagedata(self)
         
         self.doc.put(self.get_url_retry(config.api_host + '/1/xml/employer/' + self.get_argument('id', None) + '/'))
-        self.doc.put(self.get_url_retry('http://api.chernenko.pyn.ru/1/xml/vacancy/employer/' + self.get_argument('id', None) + '/'))
-        #self.doc.put(self.get_url_retry(config.api_host + '/1/xml/vacancy/employer/' + self.get_argument('id', None) + '/'))
+        self.doc.put(self.get_url_retry(config.api_host + '/1/xml/vacancy/employer/' + self.get_argument('id', None) + '/'))
 

@@ -173,7 +173,7 @@
     <div class="shortvacancy__company">
       <xsl:choose>
         <xsl:when test="hh:link[@rel='alternate']">
-          <a href="{hh:link[@rel='alternate']/@href}" class="shortvacancy__company__link" title="{hh:name}">
+          <a href="/employer/{@id}" class="shortvacancy__company__link" title="{hh:name}">
             <xsl:value-of select="hh:name"/>
           </a>
         </xsl:when>

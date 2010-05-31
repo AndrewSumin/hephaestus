@@ -14,15 +14,32 @@
   doctype-public="html"/>
   
   
+  <xsl:template match="doc[not(hh:vacancy)]" mode="title">
+    Вакансия
+  </xsl:template>
+  
   <xsl:template match="doc" mode="title">
     Вакансия, <xsl:value-of select="hh:vacancy/hh:name"/>, <xsl:value-of select="hh:vacancy/hh:employer/hh:name"/>
   </xsl:template>  
+  
+  <xsl:template match="doc[not(hh:vacancy)]" mode="page-title-text">
+    &#160;
+  </xsl:template>
   
   <xsl:template match="doc" mode="page-title-text">
     <strong><xsl:value-of select="hh:vacancy/hh:name"/></strong>
     <br/>
     <xsl:apply-templates select="hh:vacancy/hh:salary"/>
   </xsl:template>  
+  
+  <xsl:template match="doc[not(hh:vacancy)]" mode="body">
+    <section class="margin">
+      <div class="layout__padding">
+        Извините, произошла ошибка. Возможно этой вакансии не существует.<br/>
+        Если вы уверены что это существующюя вакансия попробуйте <a href="">перезагрузить страницу</a> позже.
+      </div>
+    </section>
+  </xsl:template>
   
   <xsl:template match="doc" mode="body">
     <section class="margin">

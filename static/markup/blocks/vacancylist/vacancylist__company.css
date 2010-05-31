@@ -6,3 +6,9 @@
     font-size:.8em;
     text-decoration:none;
   }
+  .vacancylist__company__link:visited{
+    color:#999
+  }
+  .vacancylist__company__link:hover{
+    color:#c00;
+  }

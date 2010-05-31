@@ -38,7 +38,7 @@
   </xsl:template>
   
   <xsl:template match="hh:vacancy[hh:employer/hh:logos/hh:link[@rel='small']]" mode="logo">
-    <a href="{hh:employer/hh:link[@rel = 'alternate']/@href}">
+    <a href="/employer/{hh:employer/@id}">
       <img src="{hh:employer/hh:logos/hh:link/@href}"/>
     </a>
   </xsl:template>
@@ -47,7 +47,7 @@
     <div class="vacancylist__company">
       <xsl:choose>
         <xsl:when test="hh:link[@rel='alternate']">
-          <a href="{hh:link[@rel='alternate']/@href}" class="vacancylist__company__link" title="{hh:name}">
+          <a href="/employer/{@id}" class="vacancylist__company__link" title="{hh:name}">
             <xsl:value-of select="hh:name"/>
           </a>
         </xsl:when>
