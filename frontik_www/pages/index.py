@@ -29,7 +29,7 @@ class Page(frontik.handler.PageHandler):
         put_block('jquery', u'jquery')
         put_block('perl', u'perl')
         put_block('javascript', u'javascript')
-        put_block('xsl', u'(xsl OR xslt)')
+        put_block('xsl', u'xsl')
         
         self.doc.put(Doc('headhunter').put(self.get_url_retry(config.api_host + '/1/xml/employer/1455/')))
         self.doc.put(Doc('yandex').put(self.get_url_retry(config.api_host + '/1/xml/employer/1740/')))
