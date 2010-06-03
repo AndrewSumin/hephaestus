@@ -81,7 +81,7 @@
 
   <xsl:template match="hh:employer" mode="logo">
     <div class="vacancy__value" style="margin-bottom:1em">
-      <a href="{hh:link[@rel = 'alternate']/@href}">
+      <a href="/employer/{@id}">
         <img src="{hh:logos/hh:link[@rel='medium']/@href}"/>
       </a>
     </div>
