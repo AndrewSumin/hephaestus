@@ -26,12 +26,6 @@
     &#160;
   </xsl:template>
   
-  <xsl:template match="doc" mode="page-title-text">
-    <strong><xsl:value-of select="hh:vacancy/hh:name"/></strong>
-    <br/>
-    <xsl:apply-templates select="hh:vacancy/hh:salary"/>
-  </xsl:template>  
-  
   <xsl:template match="doc[not(hh:vacancy)]" mode="body">
     <section class="margin">
       <div class="layout__padding">
@@ -42,9 +36,14 @@
   </xsl:template>
   
   <xsl:template match="doc" mode="body">
-    <section class="margin">
+    <article class="margin">
+      <h1 class="layout__padding title m-title_margintop">
+        <strong><xsl:value-of select="hh:vacancy/hh:name"/></strong>
+        <br/>
+        <xsl:apply-templates select="hh:vacancy/hh:salary"/>
+      </h1>
       <xsl:apply-templates select="hh:vacancy"/>
-    </section>
+    </article>
   </xsl:template>
   
   <xsl:template match="hh:vacancy">

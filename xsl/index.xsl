@@ -13,8 +13,6 @@
     <h1 class="layout__padding head__title">Работа в Москве для верстальщиков</h1>
   </xsl:template>
   
-  <xsl:template match="doc" mode="page-title"/>
-  
   <xsl:template match="doc" mode="body">
     <div style="background:#FFE102;">
       <section class="margin indexline">
@@ -23,11 +21,11 @@
             <td colspan="4">
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
-                  <header class="shortvacancy__header">
+                  <h2 class="shortvacancy__header">
                     <a href="/search/?text={htmlcss/text}" class="shortvacancy__header__link">HTML и CSS</a>
                     <xsl:apply-templates select="htmlcss/last/hh:result/hh:found"/>
                     <xsl:apply-templates select="htmlcss/relevant/hh:result" mode="average"/>
-                  </header>
+                  </h2>
                   <xsl:apply-templates select="htmlcss/last/hh:result/hh:vacancies"/>
                 </div>
               </div>
@@ -35,11 +33,11 @@
             <td colspan="4">
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
-                  <header class="shortvacancy__header">
+                  <h2 class="shortvacancy__header">
                     <a href="/search/?text={javascript/text}" class="shortvacancy__header__link">Javascript</a>
                     <xsl:apply-templates select="javascript/last/hh:result/hh:found"/>
                     <xsl:apply-templates select="javascript/relevant/hh:result" mode="average"/>
-                  </header>
+                  </h2>
                   <xsl:apply-templates select="javascript/last/hh:result/hh:vacancies"/>
                 </div>
               </div>
@@ -47,11 +45,11 @@
             <td colspan="4">
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
-                  <header class="shortvacancy__header">
+                  <h2 class="shortvacancy__header">
                     <a href="/search/?text={jquery/text}" class="shortvacancy__header__link">jQuery</a>
                     <xsl:apply-templates select="jquery/last/hh:result/hh:found"/>
                     <xsl:apply-templates select="jquery/relevant/hh:result" mode="average"/>
-                  </header>
+                  </h2>
                   <xsl:apply-templates select="jquery/last/hh:result/hh:vacancies"/>
                 </div>
               </div>
@@ -66,11 +64,11 @@
             <td colspan="4">
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
-                  <header class="shortvacancy__header">
+                  <h2 class="shortvacancy__header">
                     <a href="/search/?text={xsl/text}" class="shortvacancy__header__link">XSLT</a>
                     <xsl:apply-templates select="xsl/last/hh:result/hh:found"/>
                     <xsl:apply-templates select="xsl/relevant/hh:result" mode="average"/>
-                  </header>
+                  </h2>
                   <xsl:apply-templates select="xsl/last/hh:result/hh:vacancies"/>
                 </div>
               </div>
@@ -79,11 +77,11 @@
             <td colspan="4">
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
-                  <header class="shortvacancy__header">
+                  <h2 class="shortvacancy__header">
                     <a href="/search/?text={php/text}" class="shortvacancy__header__link">PHP</a>
                     <xsl:apply-templates select="php/last/hh:result/hh:found"/>
                     <xsl:apply-templates select="php/relevant/hh:result" mode="average"/>
-                  </header>
+                  </h2>
                   <xsl:apply-templates select="php/last/hh:result/hh:vacancies"/>
                 </div>
               </div>
@@ -92,11 +90,11 @@
             <td colspan="4">
               <div class="layout__paddingright">
                 <div class="layout__padding shortvacancy__list">
-                  <header class="shortvacancy__header">
+                  <h2 class="shortvacancy__header">
                     <a href="/search/?text={perl/text}" class="shortvacancy__header__link">Perl</a>
                     <xsl:apply-templates select="perl/last/hh:result/hh:found"/>
                     <xsl:apply-templates select="perl/relevant/hh:result" mode="average"/>
-                  </header>
+                  </h2>
                   <xsl:apply-templates select="perl/last/hh:result/hh:vacancies"/>
                 </div>
               </div>
@@ -135,23 +133,23 @@
   </xsl:template>
   
   <xsl:template match="hh:vacancies">
-    <section>
+    <div>
       <xsl:apply-templates select="hh:vacancy[position() &lt; 6]"/>
-    </section>
+    </div>
   </xsl:template>
   
   <xsl:template match="hh:vacancy">
-    <article class="shortvacancy">
+    <div class="shortvacancy">
       <table class="layout">
         <tr>
           <td colspan="2">
             <div class="layout__paddingright">
-              <header class="shortvacancy__title">
+              <h3 class="shortvacancy__title">
                 <a class="shortvacancy__title__link" href="/vacancy/{@id}" title="{hh:name}">
                   <xsl:value-of select="hh:name"/>
                 </a>
                 <span class="fade">&#160;</span>
-              </header>
+              </h3>
               <details>
                 <xsl:apply-templates select="hh:employer"/>
               </details>
@@ -166,7 +164,7 @@
           </td>
         </tr>
       </table>
-    </article>
+    </div>
   </xsl:template>
   
   <xsl:template match="hh:employer">

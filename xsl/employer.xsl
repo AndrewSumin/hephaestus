@@ -17,15 +17,6 @@
     Вакансии компании <xsl:value-of select="hh:employer/hh:name"/>
   </xsl:template>  
   
-  <xsl:template match="doc" mode="page-title-text">
-    Вакансии компании <xsl:value-of select="hh:employer/hh:name"/>
-  </xsl:template>
-  
-  <xsl:template match="doc[not(hh:employer)]" mode="page-title-text">
-    &#160;
-  </xsl:template>
-  
-
   <xsl:template match="doc[not(hh:employer)]" mode="body">
     <section class="margin">
       <div class="layout__padding">
@@ -37,6 +28,9 @@
   
   <xsl:template match="doc" mode="body">
     <section class="margin">
+      <h1 class="layout__padding title m-title_margintop">
+        Вакансии компании <xsl:value-of select="hh:employer/hh:name"/>
+      </h1>
       <xsl:apply-templates select="hh:vacancies[hh:vacancy]"/>
       <xsl:apply-templates select="current()[not(hh:vacancies/hh:vacancy)]" mode="novacancies"/>
     </section>
@@ -45,10 +39,8 @@
   </xsl:template>
   
   <xsl:template match="hh:employer">
-    <section class="margin">
+    <article class="margin">
       <h1 class="layout__padding title m-title_margintop">О компании</h1>
-    </section>
-    <section class="margin">
       <table class="layout">
         <tr>
           <td colspan="8">
@@ -63,7 +55,7 @@
           </td>
         </tr>
       </table>
-    </section>
+    </article>
   </xsl:template>
   
   <xsl:template match="hh:vacancy/hh:employer"/>
