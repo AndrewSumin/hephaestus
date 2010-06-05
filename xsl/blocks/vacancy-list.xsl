@@ -14,12 +14,14 @@
     <tr class="vacancylist__item">
       <td colspan="6" class="vacancylist__name vacancylist__item__item">
         <div class="layout__padding">
-          
           <a href="/vacancy/{@id}">
             <xsl:value-of select="hh:name"/>
           </a>
           <br/>
-          <xsl:apply-templates select="hh:employer"/>
+          <div class="vacancylist__info">
+            <xsl:apply-templates select="hh:employer"/>
+            <xsl:apply-templates select="hh:address/hh:metro"/>
+          </div>
         </div>
       </td>
       <td colspan="4" class="vacancylist__salary vacancylist__item__item">
@@ -44,20 +46,20 @@
   </xsl:template>
   
   <xsl:template match="hh:vacancy/hh:employer">
-    <div class="vacancylist__company">
+    <span class="vacancylist__company">
       <xsl:choose>
         <xsl:when test="hh:link[@rel='alternate']">
           <a href="/employer/{@id}" class="vacancylist__company__link" title="{hh:name}">
-            <xsl:value-of select="hh:name"/>
+            <xsl:value-of select="hh:name"/><xsl:text>. </xsl:text>
           </a>
         </xsl:when>
         <xsl:otherwise>
           <span class="vacancylist__company__link" title="{hh:name}">
-            <xsl:value-of select="hh:name"/>
+            <xsl:value-of select="hh:name"/><xsl:text>. </xsl:text>
           </span>
         </xsl:otherwise>
       </xsl:choose>
-    </div>
+    </span>
   </xsl:template>
   
 </xsl:stylesheet>

@@ -10,6 +10,7 @@
   <xsl:import href="compensation.xsl"/>
   <xsl:import href="search-form.xsl"/>
   <xsl:import href="button.xsl"/>
+  <xsl:import href="metro.xsl"/>
   
   <xsl:template match="doc" mode="page">
     <html>

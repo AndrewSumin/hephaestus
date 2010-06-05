@@ -68,6 +68,7 @@
             <xsl:apply-templates select="hh:employer[not(hh:logos/hh:link[@rel='medium'])]" mode="name"/>
             <!--xsl:apply-templates select="." mode="salary"/-->
             <xsl:apply-templates select="hh:updated"/>
+            <xsl:apply-templates select="hh:address[hh:metro]"/>
             <xsl:apply-templates select="hh:experience"/>
             <xsl:apply-templates select="hh:schedule"/>
             <xsl:apply-templates select="hh:employment"/>
@@ -104,7 +105,15 @@
       <xsl:value-of select="@year"/>
     </div>
   </xsl:template>
+
+  <xsl:template match="hh:address">
+    <div class="vacancy__label">метро</div>
+    <div class="vacancy__value">
+      <xsl:apply-templates select="hh:metro"/>
+    </div>
+  </xsl:template>
   
+
   <xsl:template match="hh:vacancy" mode="salary">
     <div class="vacancy__label">зарплата</div>
     <div class="vacancy__value">
