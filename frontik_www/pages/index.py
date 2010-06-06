@@ -1,13 +1,17 @@
 #coding:utf8
 
-import urllib;
+import tornado.web
+import urllib
+
 import frontik.handler
 from frontik.doc import Doc
 from frontik import etree
 
+import frontik_www.storage
 from frontik_www import config as config
 
-import tornado.web
+storage = frontik_www.storage.MedianSalaryStorage(config.db_filename)
+
 
 def count_median(vacancies_xml):
     salaries = []
@@ -29,6 +33,7 @@ def count_median(vacancies_xml):
     else:
         return None
 
+
 class Page(frontik.handler.PageHandler):
     def get_page(self):
         self.set_xsl('index.xsl')
@@ -42,15 +47,24 @@ class Page(frontik.handler.PageHandler):
             block.put(Doc('text').put(urllib.quote(text.encode('utf-8'))))
             block.put(Doc('last').put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'items': '5', 'order':'0',  'area':'1', 'professionalAreaId':'1'})))
 
-            def put_median(xml, response):
+            def put_median(m):
+                median_block = Doc('median')
+                median_block.put(str(m))
+                block.put(median_block)
+                
+            def count_median_cb(xml, response):
                 if xml:
                     m = count_median(xml)
                     if m:
-                        median_block = Doc('median')
-                        median_block.put(str(m))
-                        block.put(median_block)
+                        storage.store_today(name, m)
+                        put_median(m)
 
-            self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'order':'0', 'notWithoutSalary': 'true', 'items': '40', 'area':'1', 'professionalAreaId':'1'}, callback=put_median)
+            if storage.has_today(name):
+                self.log.debug('show median using cached value')
+                put_median(storage.get_today(name))
+            else:
+                self.log.debug('make search request to count median')
+                self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'order':'0', 'notWithoutSalary': 'true', 'items': '40', 'area':'1', 'professionalAreaId':'1'}, callback=count_median_cb)
             
             self.doc.put(block)
         
