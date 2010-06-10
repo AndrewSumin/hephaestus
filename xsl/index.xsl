@@ -24,7 +24,7 @@
                   <h2 class="shortvacancy__header">
                     <a href="/search/?text={htmlcss/text}" class="shortvacancy__header__link">HTML и CSS</a>
                     <xsl:apply-templates select="htmlcss/last/hh:result/hh:found"/>
-                    <xsl:apply-templates select="htmlcss/relevant/hh:result" mode="average"/>
+                    <xsl:apply-templates select="htmlcss/median" mode="average"/>
                   </h2>
                   <xsl:apply-templates select="htmlcss/last/hh:result/hh:vacancies"/>
                 </div>
@@ -36,7 +36,7 @@
                   <h2 class="shortvacancy__header">
                     <a href="/search/?text={javascript/text}" class="shortvacancy__header__link">Javascript</a>
                     <xsl:apply-templates select="javascript/last/hh:result/hh:found"/>
-                    <xsl:apply-templates select="javascript/relevant/hh:result" mode="average"/>
+                    <xsl:apply-templates select="javascript/median" mode="average"/>
                   </h2>
                   <xsl:apply-templates select="javascript/last/hh:result/hh:vacancies"/>
                 </div>
@@ -48,7 +48,7 @@
                   <h2 class="shortvacancy__header">
                     <a href="/search/?text={jquery/text}" class="shortvacancy__header__link">jQuery</a>
                     <xsl:apply-templates select="jquery/last/hh:result/hh:found"/>
-                    <xsl:apply-templates select="jquery/relevant/hh:result" mode="average"/>
+                    <xsl:apply-templates select="jquery/median" mode="average"/>
                   </h2>
                   <xsl:apply-templates select="jquery/last/hh:result/hh:vacancies"/>
                 </div>
@@ -67,7 +67,7 @@
                   <h2 class="shortvacancy__header">
                     <a href="/search/?text={xsl/text}" class="shortvacancy__header__link">XSLT</a>
                     <xsl:apply-templates select="xsl/last/hh:result/hh:found"/>
-                    <xsl:apply-templates select="xsl/relevant/hh:result" mode="average"/>
+                    <xsl:apply-templates select="xsl/median" mode="average"/>
                   </h2>
                   <xsl:apply-templates select="xsl/last/hh:result/hh:vacancies"/>
                 </div>
@@ -80,7 +80,7 @@
                   <h2 class="shortvacancy__header">
                     <a href="/search/?text={php/text}" class="shortvacancy__header__link">PHP</a>
                     <xsl:apply-templates select="php/last/hh:result/hh:found"/>
-                    <xsl:apply-templates select="php/relevant/hh:result" mode="average"/>
+                    <xsl:apply-templates select="php/median" mode="average"/>
                   </h2>
                   <xsl:apply-templates select="php/last/hh:result/hh:vacancies"/>
                 </div>
@@ -93,7 +93,7 @@
                   <h2 class="shortvacancy__header">
                     <a href="/search/?text={perl/text}" class="shortvacancy__header__link">Perl</a>
                     <xsl:apply-templates select="perl/last/hh:result/hh:found"/>
-                    <xsl:apply-templates select="perl/relevant/hh:result" mode="average"/>
+                    <xsl:apply-templates select="perl/median" mode="average"/>
                   </h2>
                   <xsl:apply-templates select="perl/last/hh:result/hh:vacancies"/>
                 </div>
@@ -195,10 +195,10 @@
     <img src="{@href}"/>
   </xsl:template>
   
-  <xsl:template match="hh:result" mode="average">
+  <xsl:template match="median" mode="average">
     <span class="hint">
       <xsl:text>, средняя&#160;з/п&#160;</xsl:text>
-      <xsl:value-of select="format-number(jsx:median(current()//hh:salary[hh:currency/@code = 'RUR']),'###&#160;###','number')"/>
+      <xsl:value-of select="format-number(., '###&#160;###','number')"/>
       <xsl:text>&#160;р.</xsl:text>
     </span>
   </xsl:template>
