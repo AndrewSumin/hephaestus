@@ -41,7 +41,7 @@ class Page(frontik.handler.PageHandler):
         tabs = Doc('tabs')
         self.doc.put(tabs)
         
-        verstka_query = u' '
+        verstka_query = u'sales '
         
         def put_block(id, name, query_suffix=''):
             text = verstka_query + query_suffix;
@@ -49,7 +49,7 @@ class Page(frontik.handler.PageHandler):
 
             block.put(Doc('name').put(name))
             block.put(Doc('text').put(urllib.quote(text.encode('utf-8'))))
-            block.put(Doc('last').put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'items': '5', 'order':'0',  'area':'1', 'professionalAreaId':'1'})))
+            block.put(Doc('last').put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'items': '5', 'order':'0',  'area':'1'})))
 
             def put_median(m):
                 median_block = Doc('median')
