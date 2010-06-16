@@ -72,12 +72,12 @@ class Page(frontik.handler.PageHandler):
             
             tabs.put(block)
         
-        put_block('marketing', u'Mаркетинг', u'маркетинг')
-        put_block('it', u'ИТ', u'Информационные технологии')
-        put_block('bank', u'Банки', u'банк')
-        put_block('auto', u'Автомобили', u'автомобили')
-        put_block('media', u'Медиа', u'медиа')
-        put_block('medicine', u'Медицина', u'медицина')
+        put_block('htmlcss', u'HTML и CSS')
+        put_block('javascript', u'Javascript', u'javascript')
+        put_block('jquery', u'jQuery', u'jquery')
+        put_block('xslt', u'XSLT', u'xslt')
+        put_block('php', u'PHP', u'php')
+        put_block('perl', u'Perl', u'perl')
 
         self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/1455/')))
         self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/1740/')))
