@@ -10,11 +10,11 @@
   doctype-public="html"/>
   
   <xsl:template match="doc" mode="menu">
-    <h1 class="layout__padding head__title">Работа в Москве для верстальщиков</h1>
+    <h1 class="layout__padding head__title">Работа в Москве для продавцов</h1>
   </xsl:template>
   
   <xsl:template match="doc" mode="body">
-    <div style="background:#FFE102;">
+    <div style="background:#99E102;">
       <section class="margin indexline">
         <table class="layout">
           <tr>
