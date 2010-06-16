@@ -112,7 +112,7 @@
             <header class="layout__padding">
               <div class="title m-title_marginbottom">Вакансии известных компаний</div>
             </header>
-            <xsl:apply-templates select="headhunter|yandex|mail|rambler|kaspersky|abbyy|rbc|actis|rucenter|ozon" mode="logo"/>
+            <xsl:apply-templates select="employer" mode="logo"/>
           </td>
         </tr>
       </table>
