@@ -41,7 +41,7 @@ class Page(frontik.handler.PageHandler):
         tabs = Doc('tabs')
         self.doc.put(tabs)
         
-        verstka_query = u' '
+        verstka_query = u'("html css" OR "html и css" OR верстальщик OR верстка OR "разработчик интерфейсов") '
         
         def put_block(id, name, query_suffix=''):
             text = verstka_query + query_suffix;
