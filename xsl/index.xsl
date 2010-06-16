@@ -139,7 +139,7 @@
   
   <xsl:template match="median" mode="average">
     <span class="hint">
-      <xsl:text>, средняя&#160;з/п&#160;</xsl:text>
+      <xsl:text>, средняя&#160;</xsl:text><span style="white-space:nowrap">з/п</span><xsl:text>&#160;</xsl:text>
       <xsl:value-of select="format-number(., '###&#160;###','number')"/>
       <xsl:text>&#160;р.</xsl:text>
     </span>
