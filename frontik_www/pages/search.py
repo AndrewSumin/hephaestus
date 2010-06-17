@@ -28,9 +28,7 @@ class Page(frontik.handler.PageHandler):
                                  'salary': self.get_argument('salary', None),
                                  'notWithoutSalary': salary,
                                  'area':'1',
-                                 'items': '20',
-                                 'professionalAreaId':'1',
-                                 'items': '20',
+                                 'items': '20'
                                 })
         )
         self.doc.put(search)
