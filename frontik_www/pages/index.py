@@ -43,13 +43,12 @@ class Page(frontik.handler.PageHandler):
         
         verstka_query = u'sales '
         
-        def put_block(id, name, query_suffix=''):
-            text = verstka_query + query_suffix;
+        def put_block(id, name, query):
             block = Doc('tab')
 
             block.put(Doc('name').put(name))
-            block.put(Doc('text').put(urllib.quote(text.encode('utf-8'))))
-            block.put(Doc('last').put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'items': '5', 'order':'0',  'area':'1'})))
+            block.put(Doc('text').put(urllib.quote(query['text'].encode('utf-8'))))
+            block.put(Doc('last').put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', query)))
 
             def put_median(m):
                 median_block = Doc('median')
@@ -67,17 +66,20 @@ class Page(frontik.handler.PageHandler):
                 self.log.debug('show median using cached value')
                 put_median(storage.get_today(id))
             else:
+                query['items']='40'
+                query['order']='0'
+                query['onlysalary']='true'
                 self.log.debug('make search request to count median')
-                self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'order':'0', 'notWithoutSalary': 'true', 'items': '40', 'area':'1'}, callback=count_median_cb)
+                self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', query, callback=count_median_cb)
             
             tabs.put(block)
         
-        put_block('marketing', u'Mаркетинг', u'маркетинг')
-        put_block('it', u'ИТ', u'Информационные технологии')
-        put_block('bank', u'Банки', u'банк')
-        put_block('auto', u'Автомобили', u'автомобили')
-        put_block('media', u'Медиа', u'медиа')
-        put_block('medicine', u'Медицина', u'медицина')
+        put_block('director', u'Директор', {'text': u'Директор OR Начальник OR Руководитель', 'items': '5', 'order':'0',  'area':'1', 'specializationId':'324', 'salary':'150000', 'onlysalary':'true'})
+        put_block('b2b', u'Услуги для бизнеса', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales)', 'items': '5', 'order':'0',  'area':'1', 'specializationId':'333', 'salary':'100000', 'onlysalary':'true'})
+        put_block('fmcg', u'FMCG', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales)', 'items': '5', 'order':'0',  'area':'1', 'specializationId':'302', 'salary':'100000', 'onlysalary':'true'})
+        put_block('gsm', u'Нефть, бензин ...', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales)', 'items': '5', 'order':'0',  'area':'1', 'specializationId':['59', '152', '279', '417'], 'salary':'100000', 'onlysalary':'true'})
+        put_block('it', u'Телекоммуникации', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales)', 'items': '5', 'order':'0',  'area':'1', 'specializationId':['111', '269'], 'salary':'100000', 'onlysalary':'true'})
+        put_block('trade', u'Торговля', {'text': u'Представитель', 'items': '5', 'order':'0',  'area':'1', 'specializationId':'306', 'salary':'60000', 'onlysalary':'true'})
 
         self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/1455/')))
         self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/1740/')))
