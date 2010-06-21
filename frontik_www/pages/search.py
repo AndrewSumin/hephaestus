@@ -26,7 +26,8 @@ class Page(frontik.handler.PageHandler):
                                  'text': self.get_argument('text', None),
                                  'page': self.get_argument('page', None),
                                  'salary': self.get_argument('salary', None),
-                                 'notWithoutSalary': salary,
+                                 'field': '17',
+                                 'onlysalary': salary,
                                  'area':'1',
                                  'items': '20'
                                 })
