@@ -52,7 +52,7 @@
       <div class="layout__paddingright">
         <div class="layout__padding shortvacancy__list">
           <h2 class="shortvacancy__header">
-            <a href="/search/?text={text}" class="shortvacancy__header__link"><xsl:value-of select="name"/></a>
+            <a href="/search/?text={text}&amp;salary={salary}" class="shortvacancy__header__link"><xsl:value-of select="name"/></a>
             <xsl:apply-templates select="last/hh:result/hh:found"/>
             <xsl:apply-templates select="median" mode="average"/>
           </h2>

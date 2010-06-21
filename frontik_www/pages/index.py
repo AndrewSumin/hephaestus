@@ -48,6 +48,7 @@ class Page(frontik.handler.PageHandler):
 
             block.put(Doc('name').put(name))
             block.put(Doc('text').put(urllib.quote(query['text'].encode('utf-8'))))
+            block.put(Doc('salary').put(urllib.quote(query['salary'].encode('utf-8'))))
             block.put(Doc('last').put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', query)))
 
             def put_median(m):
@@ -74,12 +75,12 @@ class Page(frontik.handler.PageHandler):
             
             tabs.put(block)
         
-        put_block('director', u'Директор', {'text': u'Директор OR Начальник OR Руководитель', 'items': '5', 'order':'0',  'area':'1', 'specializationId':'324', 'salary':'150000', 'onlysalary':'true'})
-        put_block('b2b', u'Услуги для бизнеса', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales)', 'items': '5', 'order':'0',  'area':'1', 'specializationId':'333', 'salary':'100000', 'onlysalary':'true'})
-        put_block('fmcg', u'FMCG', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales)', 'items': '5', 'order':'0',  'area':'1', 'specializationId':'302', 'salary':'100000', 'onlysalary':'true'})
-        put_block('gsm', u'Нефть, бензин ...', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales)', 'items': '5', 'order':'0',  'area':'1', 'specializationId':['59', '152', '279', '417'], 'salary':'100000', 'onlysalary':'true'})
-        put_block('it', u'Телекоммуникации', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales)', 'items': '5', 'order':'0',  'area':'1', 'specializationId':['111', '269'], 'salary':'100000', 'onlysalary':'true'})
-        put_block('trade', u'Торговля', {'text': u'Представитель', 'items': '5', 'order':'0',  'area':'1', 'specializationId':'306', 'salary':'60000', 'onlysalary':'true'})
+        put_block('director', u'Управление', {'text': u'Директор OR Начальник OR Руководитель', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'150000','onlysalary':'true'})
+        put_block('b2b', u'Услуги для бизнеса', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales) AND ("продажа услуг" OR "продажа рекламы" OR b2b)', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'70000', 'onlysalary':'true'})
+        put_block('fmcg', u'FMCG', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales) AND (FMCG OR "товары народного потребления")', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'70000', 'onlysalary':'true'})
+        put_block('gsm', u'Нефть, бензин ...', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales) AND (нефть OR Металлопрокат OR Станки OR "промышленное оборудование" OR "производственное оборудование" OR "вентиляционное оборудование" OR "автомобильные масла" OR "строительные материалы" OR "металлоконструкции" OR "сварочные" OR "продажа ГСМ" OR "производство ГСМ")', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'70000', 'onlysalary':'true'})
+        put_block('trade', u'Торговые представители', {'text': u'(NOT (Директор OR руководство OR супервайзер OR Управляющий OR Начальник OR Руководитель)) AND (Торговый представитель)', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'60000', 'onlysalary':'true'})
+        put_block('cunsalt', u'Консультанты', {'text': u'Продавец консультант', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'35000', 'onlysalary':'true'})
 
         self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/1455/')))
         self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/1740/')))
