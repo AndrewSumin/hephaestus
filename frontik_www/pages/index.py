@@ -49,6 +49,7 @@ class Page(frontik.handler.PageHandler):
             block.put(Doc('name').put(name))
             block.put(Doc('text').put(urllib.quote(query['text'].encode('utf-8'))))
             block.put(Doc('salary').put(urllib.quote(query['salary'].encode('utf-8'))))
+            block.put(Doc('onlysalary').put(urllib.quote(query['onlysalary'].encode('utf-8'))))
             block.put(Doc('last').put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', query)))
 
             def put_median(m):
