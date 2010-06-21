@@ -60,9 +60,12 @@ class Page(frontik.handler.PageHandler):
                 if xml:
                     m = count_median(xml)
                     if m:
-                        storage.store_today(id, m)
+                        storage.store_today(id, m, self)
                         put_median(m)
-
+                        
+            
+#            self.log.debug('+++++++++++++++++++++++++++++++++++++++')
+#            self.log.debug(storage.get_last_week_salaries(id))
             if storage.has_today(id):
                 self.log.debug('show median using cached value')
                 put_median(storage.get_today(id))

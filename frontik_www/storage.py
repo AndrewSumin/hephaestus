@@ -16,8 +16,9 @@ class MedianSalaryStorage(object):
     def has_today(self, spec):
         return self.db.get(keyname(spec, datetime.date.today())) is not None
 
-    def store_today(self, spec, salary):
+    def store_today(self, spec, salary, handler):
         today = datetime.date.today()
+        handler.log.debug(str(salary))
         self.db.put(keyname(spec, today), str(salary))
 
     def get_today(self, spec):
