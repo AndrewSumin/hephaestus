@@ -16,11 +16,6 @@
         </table>
       </div>
     </footer>
-    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"><xsl:text> </xsl:text></script>
-    <div style="display:none;">
-      <script type="text/javascript">try { var yaCounter1071168 = new Ya.Metrika(1071168); } catch(e){}</script>
-    </div>
-    <noscript><div style="position:absolute"><img src="//mc.yandex.ru/watch/1071168" alt="" /></div></noscript>
   </xsl:template>
   
 </xsl:stylesheet>
