@@ -27,3 +27,10 @@
     padding-left:1em;
     padding-right:1em;
   }
+
+  .searchform__onlysalary{
+    position:absolute;
+    margin-left:-1.5em;
+    margin-top:.4em;
+    display:block;
+  }

@@ -4,6 +4,7 @@
 @import url(../blocks/foot.css);
 @import url(../blocks/indexline.css);
 @import url(../blocks/count.css);
+@import url(../blocks/hint.css);
 @import url(../blocks/shortvacancy.css);
 @import url(../blocks/fade/fade.css);
 @import url(../blocks/salary.css);
@@ -13,7 +14,6 @@
 @import url(../blocks/description.css);
 @import url(../blocks/facebook/facebook.css);
 @import url(../blocks/twitter/twitter.css);
-
 @import url(../blocks/vacancylist/vacancylist.all.css);
 @import url(../blocks/searchform/searchform.all.css);
 @import url(../blocks/vacancy/vacancy.all.css);
