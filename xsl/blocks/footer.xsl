@@ -17,12 +17,13 @@
       </div>
     </footer>
     <!-- Yandex.Metrika -->
-    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
+    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript">&#160;</script>
     <div style="display:none;">
       <script type="text/javascript">
         try { var yaCounter1153836 = new Ya.Metrika(1153836); } catch(e){}
       </script>
     </div>
-    <noscript><div style="position:absolute"><img src="//mc.yandex.ru/watch/1153836" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika -->  </xsl:template>
+    <noscript><div style="position:absolute"><img src="//mc.yandex.ru/watch/1153836" alt="" />&#160;</div></noscript>
+    <!-- /Yandex.Metrika -->
+  </xsl:template>
 </xsl:stylesheet>
