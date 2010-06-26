@@ -163,13 +163,13 @@
         }
       </script>
       <div style="overflow:hidden">
-        <a target="_blank" class="yaru" href="http://my.ya.ru/posts_add_link.xml?URL=http://hh.jsx.ru/vacancy/{@id}&amp;title={hh:name}, {hh:employer/hh:name}" title="Поделиться на я.ру">
+        <a target="_blank" class="yaru" href="http://my.ya.ru/posts_add_link.xml?URL=http://{key('protocol', 'host')}/vacancy/{@id}&amp;title={hh:name}, {hh:employer/hh:name}" title="Поделиться на я.ру">
           &#160;
         </a>
-        <a target="_blank" class="facebook" onclick="return fbs_click()" href="http://www.facebook.com/share.php?u=http://hh.jsx.ru/vacancy/{@id}" title="Поделиться на facebook">
+        <a target="_blank" class="facebook" onclick="return fbs_click()" href="http://www.facebook.com/share.php?u=http://{key('protocol', 'host')}/vacancy/{@id}" title="Поделиться на facebook">
           &#160;
         </a>
-        <a class="twitter" title="в твиттер" href="http://twitter.com/home/?status=http://hh.jsx.ru/vacancy/{@id} {hh:name}, {hh:employer/hh:name}" target="_blank">
+        <a class="twitter" title="в твиттер" href="http://twitter.com/home/?status=http://{key('protocol', 'host')}/vacancy/{@id} {hh:name}, {hh:employer/hh:name}" target="_blank">
           &#160;
         </a>
       </div>
