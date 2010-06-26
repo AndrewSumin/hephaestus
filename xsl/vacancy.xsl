@@ -163,6 +163,9 @@
         }
       </script>
       <div style="overflow:hidden">
+        <a target="_blank" class="yaru" href="http://my.ya.ru/posts_add_link.xml?URL=http://hh.jsx.ru/vacancy/{@id}&amp;title={hh:name}, {hh:employer/hh:name}" title="Поделиться на я.ру">
+          &#160;
+        </a>
         <a target="_blank" class="facebook" onclick="return fbs_click()" href="http://www.facebook.com/share.php?u=http://hh.jsx.ru/vacancy/{@id}" title="Поделиться на facebook">
           &#160;
         </a>
