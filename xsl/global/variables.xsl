@@ -5,5 +5,6 @@
  
   <xsl:variable name="shost" select="'/static/14/'"/>
   <xsl:key name="request" match="request/param" use="@name"/>
+  <xsl:key name="protocol" match="protocol/param" use="@name"/>
 </xsl:stylesheet>
 
