@@ -4,10 +4,11 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:hh="http://hh.ru/api" exclude-result-prefixes="hh">
 
-<xsl:import href="blocks/page.xsl"/>
-<xsl:import href="blocks/vacancy-list.xsl"/>
+  <xsl:import href="blocks/page.xsl"/>
+  <xsl:import href="blocks/vacancy-list.xsl"/>
+  <xsl:import href="blocks/clusters.xsl"/>
 
-<xsl:output
+  <xsl:output
   omit-xml-declaration="yes" method="xml" indent="no" encoding="UTF-8"
   media-type="text/html;" 
   doctype-public="html"/>
@@ -34,8 +35,16 @@
   <xsl:template match="doc" mode="body">
     
     <section class="margin">
-      
-      <xsl:apply-templates select="search/hh:result/hh:vacancies"/>
+      <table class="layout">
+        <tr>
+          <td colspan="9">
+            <xsl:apply-templates select="search/hh:result/hh:vacancies"/>
+          </td>
+          <td colspan="3">
+            <xsl:apply-templates select="search/hh:result/hh:clusters"/>
+          </td>
+        </tr>
+      </table>
       
       <div class="pager">
         <xsl:apply-templates select="/" mode="pager">

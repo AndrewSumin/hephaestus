@@ -29,7 +29,11 @@ class Page(frontik.handler.PageHandler):
                                  'field': '17',
                                  'onlysalary': self.get_argument('onlysalary', None),
                                  'area':'1',
-                                 'items': '20'
+                                 'items': '20',
+                                 'metro': self.get_argument('metro', None),
+                                 'specialization': self.get_argument('specialization', None),
+                                 'employment': self.get_argument('employment', None),
+                                 'clusters': 'true'
                                 })
         )
         self.doc.put(search)

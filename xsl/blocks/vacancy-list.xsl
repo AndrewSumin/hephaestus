@@ -12,7 +12,7 @@
 
   <xsl:template match="hh:vacancy">
     <tr class="vacancylist__item">
-      <td colspan="6" class="vacancylist__name vacancylist__item__item">
+      <td colspan="5" class="vacancylist__name vacancylist__item__item">
         <div class="layout__padding">
           <a href="/vacancy/{@id}">
             <xsl:value-of select="hh:name"/>
@@ -24,7 +24,7 @@
           </div>
         </div>
       </td>
-      <td colspan="4" class="vacancylist__salary vacancylist__item__item">
+      <td colspan="2" class="vacancylist__salary vacancylist__item__item">
         <div class="layout__padding">
           <xsl:apply-templates select="hh:compensation | hh:salary"/>
         </div>
