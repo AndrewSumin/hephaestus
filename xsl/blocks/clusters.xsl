@@ -52,13 +52,23 @@
   
   <xsl:template match="hh:cluster/hh:line">
     <div class="clusters__cluster__item">
-      <a href="?{hh:query}" style="color:{@color}"><xsl:value-of select="hh:name"/></a>&#160;<span class="clusters__count"><xsl:value-of select="@found"/></span>
+      <a style="color:{@color}">
+        <xsl:attribute name="href">
+          <xsl:apply-templates select="." mode="href"/>
+        </xsl:attribute>
+        <xsl:value-of select="hh:name"/>
+      </a>&#160;<span class="clusters__count"><xsl:value-of select="@found"/></span>
     </div>
   </xsl:template>
   
   <xsl:template match="hh:cluster/hh:line/hh:station">
     <div class="clusters__cluster__item">
-      <a href="?{hh:query}" style="color:{@color}">м. <xsl:value-of select="hh:name"/></a>&#160;<span class="clusters__count"><xsl:value-of select="@found"/></span>
+      <a style="color:{@color}">
+        <xsl:attribute name="href">
+          <xsl:apply-templates select="." mode="href"/>
+        </xsl:attribute>
+        <xsl:text>м. </xsl:text><xsl:value-of select="hh:name"/>
+      </a>&#160;<span class="clusters__count"><xsl:value-of select="@found"/></span>
     </div>
   </xsl:template>
   
@@ -100,6 +110,16 @@
   <xsl:template match="param" mode="clearmetro">
     <xsl:if test="position() != 1">&amp;</xsl:if>
     <xsl:value-of select="@name"/>=<xsl:value-of select="."/>
+  </xsl:template>
+  
+  <xsl:template match="hh:line | hh:station" mode="href">
+    <xsl:text>?</xsl:text>
+    <xsl:apply-templates select="$request/param[@name != 'field' and @name != 'cluster' and @name != 'items' and @name != 'area' and @name != 'metro']" mode="href"/>
+    <xsl:text>metro=</xsl:text><xsl:value-of select="hh:value"/>
+  </xsl:template>
+  
+  <xsl:template match="param" mode="href">
+    <xsl:value-of select="@name"/>=<xsl:value-of select="."/><xsl:text>&amp;</xsl:text>
   </xsl:template>
   
 </xsl:stylesheet>
