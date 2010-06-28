@@ -114,7 +114,7 @@
   
   <xsl:template match="hh:line | hh:station" mode="href">
     <xsl:text>?</xsl:text>
-    <xsl:apply-templates select="$request/param[@name != 'field' and @name != 'cluster' and @name != 'items' and @name != 'area' and @name != 'metro']" mode="href"/>
+    <xsl:apply-templates select="$params[@name != 'metro']" mode="href"/>
     <xsl:text>metro=</xsl:text><xsl:value-of select="hh:value"/>
   </xsl:template>
   
