@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:hh="http://hh.ru/api" exclude-result-prefixes="hh">
-  
+
   <xsl:template match="hh:clusters">
     <xsl:if test="key('request', 'metro')">
       <div class="layout__padding clusters m-clusters_selected">
-        <a href="." class="clusters__link">Вся Москва</a>
+        <a class="clusters__link">
+          <xsl:attribute name="href">
+            <xsl:text>?</xsl:text><xsl:apply-templates select="$request/param[@name != 'metro']" mode="clearmetro"/>
+          </xsl:attribute>
+          <xsl:text>Вся Москва</xsl:text>
+        </a>
         <xsl:text>, </xsl:text>
         <xsl:choose>
           <xsl:when test="hh:cluster[@name = 'metro']/hh:line[hh:value = key('request', 'metro')]">
@@ -90,6 +95,11 @@
     <div class="clusters__cluster__item">
       <a href="?{hh:query}" class="clusters__link"><xsl:value-of select="hh:name"/></a>&#160;<span class="clusters__count"><xsl:value-of select="@found"/></span>
     </div>
+  </xsl:template>
+  
+  <xsl:template match="param" mode="clearmetro">
+    <xsl:if test="position() != 1">&amp;</xsl:if>
+    <xsl:value-of select="@name"/>=<xsl:value-of select="."/>
   </xsl:template>
   
 </xsl:stylesheet>
