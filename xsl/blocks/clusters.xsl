@@ -4,7 +4,7 @@
   <xsl:template match="hh:clusters">
     <xsl:if test="key('request', 'metro')">
       <div class="layout__padding clusters m-clusters_selected">
-        <a href="." class="clusters__link">Вся москва</a>
+        <a href="." class="clusters__link">Вся Москва</a>
         <xsl:text>, </xsl:text>
         <xsl:choose>
           <xsl:when test="hh:cluster[@name = 'metro']/hh:line[hh:value = key('request', 'metro')]">
