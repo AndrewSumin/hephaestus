@@ -31,8 +31,17 @@
       <h1 class="layout__padding title m-title_margintop">
         Вакансии компании <xsl:value-of select="hh:employer/hh:name"/>
       </h1>
-      <xsl:apply-templates select="hh:vacancies[hh:vacancy]"/>
-      <xsl:apply-templates select="current()[not(hh:vacancies/hh:vacancy)]" mode="novacancies"/>
+      <table class="layout">
+        <tr>
+          <td colspan="9">
+            <xsl:apply-templates select="hh:vacancies[hh:vacancy]"/>
+            <xsl:apply-templates select="current()[not(hh:vacancies/hh:vacancy)]" mode="novacancies"/>
+          </td>
+          <td colspan="3">
+            &#160;
+          </td>
+        </tr>
+      </table>
     </section>
     <p><br/></p>
     <xsl:apply-templates select="hh:employer"/>

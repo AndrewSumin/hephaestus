@@ -1,0 +1,31 @@
+.clusters{
+  font-size:.8em;
+  padding-top:1em;
+}
+
+  .m-clusters_selected{
+  }
+
+  .clusters__title{
+    font-weight:bold;
+  }
+  .clusters__count{
+    color:#666;
+    font-style:italic;
+  }
+   .clusters__cluster{
+     margin-bottom:1.5em;
+   }
+    .clusters__cluster__item{
+      margin:.6em 0;
+    }
+    
+  .clusters__link{
+    color:#666;
+  }
+    .clusters__link:visited{
+      color:#666;
+    }
+    .clusters__link:hover{
+      color:#C00;
+    }
