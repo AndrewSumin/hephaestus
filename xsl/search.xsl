@@ -32,6 +32,22 @@
     </xsl:apply-templates>
   </xsl:template>
   
+  <xsl:template match="doc[search/hh:error]" mode="body">
+    <section class="margin">
+      <div class="layout__padding">
+        На <a href="http://hh.ru">hh.ru</a> ошибка, попробуйте <a href="javascript:window.location.reload()">обновить страницу</a>. 
+      </div>
+    </section>
+  </xsl:template>
+  
+  <xsl:template match="doc[search/hh:result/hh:found = '0']" mode="body">
+    <section class="margin">
+      <div class="layout__padding">
+        Ничего не найдено, попробуйте <a href=".">запрос попроще</a>. 
+      </div>
+    </section>
+  </xsl:template>
+  
   <xsl:template match="doc" mode="body">
     
     <section class="margin">
