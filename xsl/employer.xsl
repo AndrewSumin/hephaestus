@@ -58,7 +58,7 @@
             </div>
           </td>
           <td colspan="4">
-            <a href="{hh:link[@rel = 'alternate']/@href}">
+            <a href="{hh:link[@rel = 'related']/@href}">
               <xsl:apply-templates select="." mode="logo"/>
             </a>
           </td>
