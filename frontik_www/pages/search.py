@@ -33,6 +33,7 @@ class Page(frontik.handler.PageHandler):
                                  'metro': self.get_argument('metro', None),
                                  'specialization': self.get_argument('specialization', None),
                                  'employment': self.get_argument('employment', None),
+                                 'order': self.get_argument('order', None),
                                  'clusters': 'true'
                                 })
         )

@@ -25,7 +25,6 @@ class Page(frontik.handler.PageHandler):
         search.put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/',
                                 {
                                  'text': self.get_argument('text', None),
-                                 'page': self.get_argument('page', None),
                                  'salary': self.get_argument('salary', None),
                                  'field': '1',
                                  'onlysalary': self.get_argument('onlysalary', None),
@@ -33,7 +32,8 @@ class Page(frontik.handler.PageHandler):
                                  'items': '20',
                                  'metro': self.get_argument('metro', None),
                                  'specialization': self.get_argument('specialization', None),
-                                 'employment': self.get_argument('employment', None)
+                                 'employment': self.get_argument('employment', None),
+                                 'order': self.get_argument('order', None),
                                 })
         )
         self.doc.put(search)

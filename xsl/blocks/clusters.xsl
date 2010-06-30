@@ -2,13 +2,12 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:hh="http://hh.ru/api" exclude-result-prefixes="hh">
   
   <xsl:template match="hh:clusters">
-    <xsl:if test="key('request', 'metro') or key('request', 'employment')">
-      <div class="layout__padding clusters m-clusters_selected">
-        <xsl:apply-templates select="hh:cluster[@name = 'metro'][key('request', 'metro')]" mode="reset"/>
-        <!--xsl:apply-templates select="hh:cluster[@name = 'fields'][key('request', 'specialization')]" mode="reset"/-->
-        <xsl:apply-templates select="hh:cluster[@name = 'employment'][key('request', 'employment')]" mode="reset"/>
-      </div>
-    </xsl:if>
+    <div class="layout__padding clusters m-clusters_selected">
+      <xsl:apply-templates select="/doc" mode="search-order"/>
+      <xsl:apply-templates select="hh:cluster[@name = 'metro'][key('request', 'metro')]" mode="reset"/>
+      <!--xsl:apply-templates select="hh:cluster[@name = 'fields'][key('request', 'specialization')]" mode="reset"/-->
+      <xsl:apply-templates select="hh:cluster[@name = 'employment'][key('request', 'employment')]" mode="reset"/>
+    </div>
     <div class="layout__padding clusters">
       <xsl:apply-templates select="hh:cluster[@name = 'metro' and count(hh:line/hh:station) != 1]"/>
       <!--xsl:apply-templates select="hh:cluster[@name = 'fields' and not(key('request', 'specialization'))]/hh:field[hh:value = '17']"/-->
@@ -207,5 +206,41 @@
     </div>
   </xsl:template>
   
-  
+  <xsl:template match="doc" mode="search-order">
+    <div class="clusters__cluster__item">
+      Сортировать:
+      <xsl:choose>
+        <xsl:when test="key('request', 'order') = '0'">
+          <a class="clusters__link">
+            <xsl:attribute name="href">
+              <xsl:choose>
+                <xsl:when test="$params[@name != 'order']">
+                  <xsl:text>?</xsl:text>
+                  <xsl:apply-templates select="$params[@name != 'order']" mode="concat-params"/>
+                </xsl:when>
+                <xsl:otherwise>.</xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+            <xsl:text>по дате</xsl:text>
+          </a>
+          <xsl:text>, </xsl:text><strong>по релевантности</strong>
+        </xsl:when>
+        <xsl:otherwise>
+          <strong>по дате</strong><xsl:text>, </xsl:text> 
+          <a class="clusters__link">
+            <xsl:attribute name="href">
+              <xsl:text>?</xsl:text>
+              <xsl:apply-templates select="$params[@name != 'order']" mode="concat-params"/>
+              <xsl:if test="$params[@name != 'order']">
+                <xsl:text>&amp;</xsl:text>
+              </xsl:if>
+              <xsl:text>order=0</xsl:text>
+            </xsl:attribute>
+            <xsl:text>по релевантности</xsl:text>
+          </a>
+        </xsl:otherwise>
+      </xsl:choose>
+      
+    </div>
+  </xsl:template>
 </xsl:stylesheet>
