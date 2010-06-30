@@ -7,7 +7,7 @@
   <xsl:import href="header.xsl"/>
   <xsl:import href="footer.xsl"/>
   <xsl:import href="web.xsl"/>
-  <xsl:import href="compensation.xsl"/>
+  <xsl:import href="salary.xsl"/>
   <xsl:import href="search-form.xsl"/>
   <xsl:import href="button.xsl"/>
   <xsl:import href="metro.xsl"/>

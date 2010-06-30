@@ -6,8 +6,16 @@
   xmlns:hh="http://hh.ru/api"
   exclude-result-prefixes="hh">
 
+  <xsl:template match="hh:compensation | hh:salary" mode="notags">
+    <xsl:apply-templates select=".">
+      <xsl:with-param name="notags" select="true()"/>
+    </xsl:apply-templates>
+  </xsl:template>
+  
+
   <xsl:template match="hh:compensation | hh:salary">
     <xsl:param name="break"/>
+    <xsl:param name="notags" select="false()"/>
     <xsl:apply-templates select="hh:from"/>
     <xsl:choose>
       <xsl:when test="hh:from and hh:to and $break">
@@ -19,7 +27,8 @@
     </xsl:choose>
     <xsl:apply-templates select="hh:to"/>
     <xsl:apply-templates select="hh:currency"/>
-    <xsl:apply-templates select="hh:notset"/>
+    <xsl:apply-templates select="hh:notset[not($notags)]"/>
+    <xsl:apply-templates select="hh:notset[$notags]" mode="notags"/>
   </xsl:template>
 
   <xsl:template match="hh:from"/>
@@ -56,7 +65,9 @@
   <xsl:template match="hh:notset">
     <span class="salary__notset">з/п не указана</span>
   </xsl:template>
-  
-  
+
+  <xsl:template match="hh:notset" mode="notags">
+    <xsl:text>з/п не указана</xsl:text>
+  </xsl:template>
   
 </xsl:stylesheet>

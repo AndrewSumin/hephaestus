@@ -13,6 +13,10 @@
   media-type="text/html;" 
   doctype-public="html"/>
   
+  <xsl:template match="doc" mode="rss">
+    <link title="Результаты поиска вакансий" type="application/rss+xml" rel="alternate" href="/rss/search?{key('protocol', 'query')}"/>
+  </xsl:template>
+  
   <xsl:template match="doc" mode="page-title-text">
     <xsl:apply-templates select="." mode="conversion">
       <xsl:with-param name="num" select="search/hh:result/hh:found"/>
