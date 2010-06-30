@@ -26,5 +26,10 @@
   
   <xsl:template match="doc" mode="body"/>
   
+  
+  <xsl:template match="param" mode="concat-params">
+    <xsl:if test="position() != 1">&amp;</xsl:if>
+    <xsl:value-of select="@name"/>=<xsl:value-of select="."/>
+  </xsl:template>
 </xsl:stylesheet>
 

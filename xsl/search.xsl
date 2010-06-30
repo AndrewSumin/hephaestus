@@ -60,15 +60,18 @@
           </xsl:with-param>
           
           <xsl:with-param name="href">
-            <xsl:text>/search?text=</xsl:text>
-            <xsl:value-of select="key('request','text')"/>
-            <xsl:text>&amp;salary=</xsl:text>
-            <xsl:value-of select="key('request','salary')"/>
+            <xsl:text>/search?</xsl:text>
+            <xsl:apply-templates select="$params[@name != 'page']" mode="concat-params"/>
             <xsl:text>&amp;page=</xsl:text>
           </xsl:with-param>
         </xsl:apply-templates>
       </div>
     </section>
-  </xsl:template>  
+  </xsl:template>
+
+  <xsl:template match="param" mode="concat-params">
+    <xsl:if test="position() != 1">&amp;</xsl:if>
+    <xsl:value-of select="@name"/>=<xsl:value-of select="."/>
+  </xsl:template>
 </xsl:stylesheet>
 

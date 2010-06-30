@@ -1,13 +1,9 @@
 .clusters{
   font-size:.8em;
-  background:#F6F6F6;
   padding-top:1em;
-  padding-bottom:1em;
 }
 
   .m-clusters_selected{
-    background:#FFF6B5;
-    margin-bottom:.5em;
   }
 
   .clusters__title{
