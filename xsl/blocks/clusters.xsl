@@ -208,7 +208,6 @@
   
   <xsl:template match="doc" mode="search-order">
     <div class="clusters__cluster__item">
-      Сортировать:
       <xsl:choose>
         <xsl:when test="key('request', 'order') = '0'">
           <a class="clusters__link">
