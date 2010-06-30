@@ -57,7 +57,7 @@
     <div class="clusters__cluster">
       <header class="clusters__title">Специализации</header>
       <xsl:apply-templates select="hh:specialization[position() &lt; 6]">
-        <xsl:sort select="value"/>
+        <xsl:sort select="@found"/>
       </xsl:apply-templates>
     </div>
   </xsl:template>
