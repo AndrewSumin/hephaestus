@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:hh="http://hh.ru/api" exclude-result-prefixes="hh">
-
+  
   <xsl:template match="hh:clusters">
     <xsl:if test="key('request', 'metro') or key('request', 'employment')">
       <div class="layout__padding clusters m-clusters_selected">
@@ -11,7 +11,7 @@
     </xsl:if>
     <div class="layout__padding clusters">
       <xsl:apply-templates select="hh:cluster[@name = 'metro' and count(hh:line/hh:station) != 1]"/>
-      <!--xsl:apply-templates select="hh:cluster[@name = 'fields' and not(key('request', 'specialization'))]/hh:field[hh:value = '1']"/-->
+      <!--xsl:apply-templates select="hh:cluster[@name = 'fields' and not(key('request', 'specialization'))]/hh:field[hh:value = '17']"/-->
       <xsl:apply-templates select="hh:cluster[@name = 'employment' and not(key('request', 'employment')) and count(hh:employment) != 1]"/>
       <!--xsl:apply-templates select="hh:cluster[@name = 'experience']"/-->
     </div>
@@ -104,27 +104,30 @@
     </div>
   </xsl:template>
   
-  
-  <xsl:template match="param" mode="clearmetro">
-    <xsl:if test="position() != 1">&amp;</xsl:if>
-    <xsl:value-of select="@name"/>=<xsl:value-of select="."/>
-  </xsl:template>
-  
   <xsl:template match="hh:line | hh:station" mode="href">
     <xsl:text>?</xsl:text>
-    <xsl:apply-templates select="$params[@name != 'metro']" mode="href"/>
-    <xsl:value-of select="@name"/><xsl:text>=</xsl:text><xsl:value-of select="hh:value"/>
+    <xsl:apply-templates select="$params[@name != 'metro']" mode="concat-params"/>
+    <xsl:if test="$params[@name != 'metro']">
+      <xsl:text>&amp;</xsl:text>
+    </xsl:if>
+    <xsl:text>metro=</xsl:text><xsl:value-of select="hh:value"/>
   </xsl:template>
   
   <xsl:template match="hh:specialization" mode="href">
     <xsl:text>?</xsl:text>
-    <xsl:apply-templates select="$params[@name != 'specialization']" mode="href"/>
+    <xsl:apply-templates select="$params[@name != 'specialization']" mode="concat-params"/>
+    <xsl:if test="$params[@name != 'specialization']">
+      <xsl:text>&amp;</xsl:text>
+    </xsl:if>
     <xsl:value-of select="@name"/><xsl:text>=</xsl:text><xsl:value-of select="hh:value"/>
   </xsl:template>
-
+  
   <xsl:template match="hh:employment" mode="href">
     <xsl:text>?</xsl:text>
-    <xsl:apply-templates select="$params[@name != 'employment']" mode="href"/>
+    <xsl:apply-templates select="$params[@name != 'employment']" mode="concat-params"/>
+    <xsl:if test="$params[@name != 'employment']">
+      <xsl:text>&amp;</xsl:text>
+    </xsl:if>
     <xsl:value-of select="@name"/><xsl:text>=</xsl:text><xsl:value-of select="hh:value"/>
   </xsl:template>
   
@@ -136,7 +139,13 @@
     <div class="clusters__cluster__item">
       <a class="clusters__link">
         <xsl:attribute name="href">
-          <xsl:text>?</xsl:text><xsl:apply-templates select="$request/param[@name != 'metro']" mode="clearmetro"/>
+          <xsl:choose>
+            <xsl:when test="$params[@name != 'metro']">
+              <xsl:text>?</xsl:text>
+              <xsl:apply-templates select="$params[@name != 'metro']" mode="concat-params"/>
+            </xsl:when>
+            <xsl:otherwise>.</xsl:otherwise>
+          </xsl:choose>
         </xsl:attribute>
         <xsl:text>Вся Москва</xsl:text>
       </a>
@@ -158,13 +167,19 @@
       </xsl:choose>
     </div>
   </xsl:template>
-
-
+  
+  
   <xsl:template match="hh:cluster[@name = 'fields']" mode="reset">
     <div class="clusters__cluster__item">
       <a class="clusters__link">
         <xsl:attribute name="href">
-          <xsl:text>?</xsl:text><xsl:apply-templates select="$request/param[@name != 'specialization']" mode="clearmetro"/>
+          <xsl:choose>
+            <xsl:when test="$params[@name != 'specialization']">
+              <xsl:text>?</xsl:text>
+              <xsl:apply-templates select="$params[@name != 'specialization']" mode="concat-params"/>
+            </xsl:when>
+            <xsl:otherwise>.</xsl:otherwise>
+          </xsl:choose>
         </xsl:attribute>
         <xsl:text>Всe специализации</xsl:text>
       </a>
@@ -177,7 +192,13 @@
     <div class="clusters__cluster__item">
       <a class="clusters__link">
         <xsl:attribute name="href">
-          <xsl:text>?</xsl:text><xsl:apply-templates select="$request/param[@name != 'employment']" mode="clearmetro"/>
+          <xsl:choose>
+            <xsl:when test="$params[@name != 'employment']">
+              <xsl:text>?</xsl:text>
+              <xsl:apply-templates select="$params[@name != 'employment']" mode="concat-params"/>
+            </xsl:when>
+            <xsl:otherwise>.</xsl:otherwise>
+          </xsl:choose>
         </xsl:attribute>
         <xsl:text>Любая занятость</xsl:text>
       </a>

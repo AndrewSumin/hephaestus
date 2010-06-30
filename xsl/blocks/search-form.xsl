@@ -5,7 +5,7 @@
     <div class="searchform">
       <section class="margin">
         <form action="/search/">
-          <xsl:apply-templates select="$params[@name != 'salary' and @name != 'text' and @name != 'onlysalary']" mode="search-form"/>
+          <xsl:apply-templates select="$params[@name != 'salary' and @name != 'text' and @name != 'onlysalary' and @name != 'page']" mode="search-form"/>
           <table class="layout">
             <tr>
               <td colspan="5" class="searchform__item">
