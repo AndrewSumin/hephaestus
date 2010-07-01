@@ -47,7 +47,6 @@
       reformal_wdg_tbcolor  = "#FFFFFF"
     </script>
     <script type="text/javascript" language="JavaScript" src="http://widget.reformal.ru/tabn2v2.js">&#160;</script>
-    <noscript><a href="http://hhjsx.reformal.ru">Обратная связь feedback</a> <a href="http://reformal.ru">на платформе <img src="http://widget.reformal.ru/i/reformal_ru.png" /></a></noscript>
   </xsl:template>
   
 </xsl:stylesheet>
