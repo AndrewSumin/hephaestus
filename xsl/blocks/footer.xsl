@@ -21,6 +21,33 @@
       <script type="text/javascript">try { var yaCounter1071168 = new Ya.Metrika(1071168); } catch(e){}</script>
     </div>
     <noscript><div style="position:absolute"><img src="//mc.yandex.ru/watch/1071168" alt="" /></div></noscript>
+    <style>
+      #myotziv_box{
+        background:#fff;
+      }
+    </style>
+    <script type="text/javascript">
+      reformal_wdg_w    = "713";
+      reformal_wdg_h    = "450";
+      reformal_wdg_domain    = "hhjsx";
+      reformal_wdg_mode    = 0;
+      reformal_wdg_title   = "Задай вопрос или предложи идею";
+      reformal_wdg_ltitle  = "";
+      reformal_wdg_lfont   = "";
+      reformal_wdg_lsize   = "";
+      reformal_wdg_color   = "#FFA000";
+      reformal_wdg_bcolor  = "#dddddd";
+      reformal_wdg_tcolor  = "#000000";
+      reformal_wdg_align   = "right";
+      reformal_wdg_charset = "utf-8";
+      reformal_wdg_waction = 0;
+      reformal_wdg_vcolor  = "#9FCE54";
+      reformal_wdg_cmline  = "#cccccc";
+      reformal_wdg_glcolor  = "#105895"
+      reformal_wdg_tbcolor  = "#FFFFFF"
+    </script>
+    <script type="text/javascript" language="JavaScript" src="http://widget.reformal.ru/tabn2v2.js">&#160;</script>
+    <noscript><a href="http://hhjsx.reformal.ru">Обратная связь feedback</a> <a href="http://reformal.ru">на платформе <img src="http://widget.reformal.ru/i/reformal_ru.png" /></a></noscript>
   </xsl:template>
   
 </xsl:stylesheet>
