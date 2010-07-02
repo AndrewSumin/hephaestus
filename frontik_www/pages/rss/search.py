@@ -9,6 +9,8 @@ import frontik_www.handler as handler
 
 import tornado.web
 
+import frontik_www.utils as utils
+
 class Page(frontik.handler.PageHandler):
     def get_page(self):
         self.set_header('Content-Type', 'application/rss+xml; charset=UTF-8')
@@ -24,7 +26,7 @@ class Page(frontik.handler.PageHandler):
         search = Doc('search')
         search.put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/',
                                 {
-                                 'text': self.get_argument('text', None),
+                                 'text': utils.parse_text(self.get_argument('text', None)),
                                  'salary': self.get_argument('salary', None),
                                  'field': '1',
                                  'onlysalary': self.get_argument('onlysalary', None),
