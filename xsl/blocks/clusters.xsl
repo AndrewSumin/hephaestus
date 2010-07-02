@@ -257,12 +257,12 @@
                 <xsl:otherwise>.</xsl:otherwise>
               </xsl:choose>
             </xsl:attribute>
-            <xsl:text>все вакансии</xsl:text>
+            <xsl:text>все</xsl:text>
           </a>
-          <xsl:text>, </xsl:text><strong>с зарплатой</strong>
+          <xsl:text>, </xsl:text><strong>с указанной зарплатой</strong>
         </xsl:when>
         <xsl:otherwise>
-          <strong>все вакансии</strong><xsl:text>, </xsl:text> 
+          <strong>все</strong><xsl:text>, </xsl:text> 
           <a class="clusters__link">
             <xsl:attribute name="href">
               <xsl:text>?</xsl:text>
@@ -272,7 +272,7 @@
               </xsl:if>
               <xsl:text>onlysalary=true</xsl:text>
             </xsl:attribute>
-            <xsl:text>с зарплатой</xsl:text>
+            <xsl:text>с указанной зарплатой</xsl:text>
           </a>
         </xsl:otherwise>
       </xsl:choose>
