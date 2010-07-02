@@ -4,6 +4,7 @@
   <xsl:template match="hh:clusters">
     <div class="layout__padding clusters m-clusters_selected">
       <xsl:apply-templates select="/doc" mode="search-order"/>
+      <xsl:apply-templates select="/doc" mode="only-salary"/>
       <xsl:apply-templates select="hh:cluster[@name = 'metro'][key('request', 'metro')]" mode="reset"/>
       <!--xsl:apply-templates select="hh:cluster[@name = 'fields'][key('request', 'specialization')]" mode="reset"/-->
       <xsl:apply-templates select="hh:cluster[@name = 'employment'][key('request', 'employment')]" mode="reset"/>
@@ -239,7 +240,42 @@
           </a>
         </xsl:otherwise>
       </xsl:choose>
-      
+    </div>
+  </xsl:template>
+  
+  <xsl:template match="doc" mode="only-salary">
+    <div class="clusters__cluster__item">
+      <xsl:choose>
+        <xsl:when test="key('request', 'onlysalary') = 'true'">
+          <a class="clusters__link">
+            <xsl:attribute name="href">
+              <xsl:choose>
+                <xsl:when test="$params[@name != 'onlysalary']">
+                  <xsl:text>?</xsl:text>
+                  <xsl:apply-templates select="$params[@name != 'onlysalary']" mode="concat-params"/>
+                </xsl:when>
+                <xsl:otherwise>.</xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+            <xsl:text>все вакансии</xsl:text>
+          </a>
+          <xsl:text>, </xsl:text><strong>с зарплатой</strong>
+        </xsl:when>
+        <xsl:otherwise>
+          <strong>все вакансии</strong><xsl:text>, </xsl:text> 
+          <a class="clusters__link">
+            <xsl:attribute name="href">
+              <xsl:text>?</xsl:text>
+              <xsl:apply-templates select="$params[@name != 'onlysalary']" mode="concat-params"/>
+              <xsl:if test="$params[@name != 'onlysalary']">
+                <xsl:text>&amp;</xsl:text>
+              </xsl:if>
+              <xsl:text>onlysalary=true</xsl:text>
+            </xsl:attribute>
+            <xsl:text>с зарплатой</xsl:text>
+          </a>
+        </xsl:otherwise>
+      </xsl:choose>
     </div>
   </xsl:template>
 </xsl:stylesheet>

@@ -66,7 +66,6 @@
           <div class="layout__padding">
             <xsl:apply-templates select="hh:employer[hh:logos/hh:link[@rel='medium']]" mode="logo"/>
             <xsl:apply-templates select="hh:employer[not(hh:logos/hh:link[@rel='medium'])]" mode="name"/>
-            <!--xsl:apply-templates select="." mode="salary"/-->
             <xsl:apply-templates select="hh:update"/>
             <xsl:apply-templates select="hh:address[hh:metro]"/>
             <xsl:apply-templates select="hh:experience"/>
