@@ -34,7 +34,7 @@
       <table class="layout">
         <tr>
           <td colspan="9">
-            <xsl:apply-templates select="hh:vacancies[hh:vacancy]"/>
+            <xsl:apply-templates select="hh:vacancies[hh:vacancy]" mode="omitemployer"/>
             <xsl:apply-templates select="current()[not(hh:vacancies/hh:vacancy)]" mode="novacancies"/>
           </td>
           <td colspan="3">
@@ -47,7 +47,7 @@
     <xsl:apply-templates select="hh:employer"/>
   </xsl:template>
   
-  <xsl:template match="hh:employer">
+  <xsl:template match="doc/hh:employer">
     <article class="margin">
       <h1 class="layout__padding title m-title_margintop">О компании</h1>
       <table class="layout">
@@ -66,8 +66,6 @@
       </table>
     </article>
   </xsl:template>
-  
-  <xsl:template match="hh:vacancy/hh:employer"/>
   
   <xsl:template match="hh:employer" mode="logo">
     <xsl:value-of select="hh:name"/>

@@ -11,6 +11,7 @@
   <xsl:import href="search-form.xsl"/>
   <xsl:import href="button.xsl"/>
   <xsl:import href="metro.xsl"/>
+  <xsl:import href="date.xsl"/>
   
   <xsl:template match="doc" mode="page">
     <html>
