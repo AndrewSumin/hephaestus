@@ -2,8 +2,9 @@
   margin-top:2em;
   border-top:1px solid #ccc;
   padding:1em 0;
+  color:#999;
 }
-  .foot span,
+  .foot_text,
   .foot a{
     color:#999;
     font-size:.8em;
