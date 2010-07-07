@@ -72,7 +72,7 @@ class Page(frontik.handler.PageHandler):
                 put_median(storage.get_today(id))
             else:
                 self.log.debug('make search request to count median')
-                self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', {'text': text, 'order':'0', 'notWithoutSalary': 'true', 'items': '40', 'area':'1', 'professionalAreaId':'1'}, callback=count_median_cb)
+                self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', {'text': utils.parse_text(text), 'order':'0', 'notWithoutSalary': 'true', 'items': '40', 'area':'1', 'professionalAreaId':'1'}, callback=count_median_cb)
             
             tabs.put(block)
         
