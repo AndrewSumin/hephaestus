@@ -7,10 +7,11 @@
   <xsl:import href="header.xsl"/>
   <xsl:import href="footer.xsl"/>
   <xsl:import href="web.xsl"/>
-  <xsl:import href="compensation.xsl"/>
+  <xsl:import href="salary.xsl"/>
   <xsl:import href="search-form.xsl"/>
   <xsl:import href="button.xsl"/>
   <xsl:import href="metro.xsl"/>
+  <xsl:import href="date.xsl"/>
   
   <xsl:template match="doc" mode="page">
     <html>
@@ -25,7 +26,6 @@
   </xsl:template>
   
   <xsl:template match="doc" mode="body"/>
-  
   
   <xsl:template match="param" mode="concat-params">
     <xsl:if test="position() != 1">&amp;</xsl:if>

@@ -7,10 +7,10 @@
         <table class="layout">
           <tr>
             <td colspan="8">
-              <span class="layout__paddingleft">Данные предоставлены сайтом </span><a href="http://hh.ru">HeadHunter</a>
+              <span class="layout__paddingleft foot_text">Данные предоставлены сайтом </span><a href="http://hh.ru">HeadHunter</a>
             </td>
             <td colspan="4">
-              <span class="layout__paddingleft">&#169; </span><a href="http://hh.ru">Алла Савченко</a>
+              <span class="layout__paddingleft foot_text">&#169; </span><a href="http://hh.ru">Алла Савченко</a>
             </td>
           </tr>
         </table>

@@ -5,7 +5,7 @@
     <div class="searchform">
       <section class="margin">
         <form action="/search/">
-          <xsl:apply-templates select="$params[@name != 'salary' and @name != 'text' and @name != 'onlysalary' and @name != 'page']" mode="search-form"/>
+          <xsl:apply-templates select="$params[@name != 'salary' and @name != 'text' and @name != 'page']" mode="search-form"/>
           <table class="layout">
             <tr>
               <td colspan="5" class="searchform__item">
@@ -19,26 +19,11 @@
                   <input name="salary" value="{key('request', 'salary')}" class="searchform__input searchform__salaryinput"/>
                 </div>
               </td>
-              <td colspan="2" class="searchform__item">
+              <td colspan="4" class="searchform__item">
                 <div class="layout__padding">
                   <input type="submit" value="найти" class="searchform__input searchform__submitinput"/>
                 </div>
               </td>
-              <td colspan="2" class="searchform__item">
-                <div class="layout__padding hint">
-                  <label>
-                    <span class="searchform__onlysalary">
-                      <input type="checkbox" name="onlysalary" value="true">
-                        <xsl:if test="key('request', 'onlysalary')='true'">
-                          <xsl:attribute name="checked">checked</xsl:attribute>
-                        </xsl:if>
-                      </input>
-                    </span>
-                    <xsl:text>скрыть вакансии</xsl:text><br/><xsl:text> без указания з/п</xsl:text>
-                  </label>
-                </div>
-              </td>
-              
             </tr>
           </table>
         </form>

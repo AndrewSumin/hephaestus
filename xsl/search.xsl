@@ -13,6 +13,18 @@
   media-type="text/html;" 
   doctype-public="html"/>
   
+  <xsl:template match="doc" mode="rss">
+    <link title="Результаты поиска вакансий" type="application/rss+xml" rel="alternate">
+      <xsl:attribute name="href">
+        <xsl:text>/rss/search</xsl:text>
+        <xsl:if test="$params[@name != 'page']">
+          <xsl:text>?</xsl:text>
+          <xsl:apply-templates select="$params[@name != 'page']" mode="concat-params"/>
+        </xsl:if>
+      </xsl:attribute>
+    </link>
+  </xsl:template>
+  
   <xsl:template match="doc" mode="page-title-text">
     <xsl:apply-templates select="." mode="conversion">
       <xsl:with-param name="num" select="search/hh:result/hh:found"/>
@@ -69,9 +81,5 @@
     </section>
   </xsl:template>
 
-  <xsl:template match="param" mode="concat-params">
-    <xsl:if test="position() != 1">&amp;</xsl:if>
-    <xsl:value-of select="@name"/>=<xsl:value-of select="."/>
-  </xsl:template>
 </xsl:stylesheet>
 

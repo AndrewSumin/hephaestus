@@ -9,8 +9,18 @@
       <xsl:apply-templates select="hh:vacancy"/>
     </table>
   </xsl:template>
+  
+  <xsl:template match="hh:vacancies" mode="omitemployer">
+    <table class="layout">
+      <xsl:apply-templates select="hh:vacancy">
+        <xsl:with-param name="omitemployer" select="true()"/>
+      </xsl:apply-templates>
+    </table>
+  </xsl:template>
+  
 
   <xsl:template match="hh:vacancy">
+    <xsl:param name="omitemployer" select="false()"/>
     <tr class="vacancylist__item">
       <td colspan="5" class="vacancylist__name vacancylist__item__item">
         <div class="layout__padding">
@@ -19,8 +29,15 @@
           </a>
           <br/>
           <div class="vacancylist__info">
-            <xsl:apply-templates select="hh:employer"/>
+            <xsl:apply-templates select="hh:employer[not($omitemployer)]"/>
+            <xsl:if test="not($omitemployer) and hh:address/hh:metro">
+              <xsl:text>, </xsl:text>
+            </xsl:if>
             <xsl:apply-templates select="hh:address/hh:metro"/>
+            <xsl:if test="not($omitemployer) or hh:address/hh:metro">
+              <xsl:text>, </xsl:text>
+            </xsl:if>
+            <xsl:apply-templates select="hh:update" mode="datemonth"/>
           </div>
         </div>
       </td>
@@ -50,12 +67,12 @@
       <xsl:choose>
         <xsl:when test="hh:link[@rel='alternate']">
           <a href="/employer/{@id}" class="vacancylist__company__link" title="{hh:name}">
-            <xsl:value-of select="hh:name"/><xsl:text>. </xsl:text>
+            <xsl:value-of select="hh:name"/>
           </a>
         </xsl:when>
         <xsl:otherwise>
           <span class="vacancylist__company__link" title="{hh:name}">
-            <xsl:value-of select="hh:name"/><xsl:text>. </xsl:text>
+            <xsl:value-of select="hh:name"/>
           </span>
         </xsl:otherwise>
       </xsl:choose>

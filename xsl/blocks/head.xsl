@@ -10,6 +10,7 @@
       <meta name="description" content="http://hh.jsx.ru позволяет верстальщикам найти работу в Москве" />
       <meta name="keywords" content="продавец, работе, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск, россия,  москва" />
       <link rel="stylesheet" type="text/css" charset="utf-8" href="{$shost}markup/pages/style.css" />
+      <xsl:apply-templates select="." mode="rss"/>
       <xsl:comment>
         <xsl:text>[if IE]&gt;</xsl:text>
         <xsl:text>&lt;script&gt;
@@ -28,6 +29,8 @@
   <xsl:template match="doc" mode="title">
     <xsl:text>Работа в Москве для продавцов</xsl:text>
   </xsl:template>
+  
+  <xsl:template match="doc" mode="rss"/>
   
 </xsl:stylesheet>
 
