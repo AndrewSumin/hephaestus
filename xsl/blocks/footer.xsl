@@ -74,7 +74,7 @@
           
           document.write('<a href="http://top.mail.ru/jump?from=310372" target="_top"><img src="http://top.list.ru/counter' +
           '?id=310372;t=49;js=13;' + a + ';rand=' + Math.random() +
-          '" alt="Рейтинг@Mail.ru" border="0" height="18" width="88"/></a>');
+          '" alt="Рейтинг@Mail.ru" border="0" height="31" width="88"/></a>');
         </script>
         <noscript>
           <a target="_top" href="http://top.mail.ru/jump?from=310372">

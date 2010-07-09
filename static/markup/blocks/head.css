@@ -6,3 +6,10 @@
     font-size:1.4em;
     font-weight:normal;
   }
+
+  .head_subtitle{
+    font-size:.8em;
+    display:inline;
+    color:#ccc;
+    font-weight:normal;
+  }

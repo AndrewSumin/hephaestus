@@ -10,7 +10,14 @@
   doctype-public="html"/>
   
   <xsl:template match="doc" mode="menu">
-    <h1 class="layout__padding head__title">Работа в Москве для продавцов</h1>
+    <h4 class="layout__padding head__title">Работа для продавцов в Москве</h4>
+    <div class="layout__padding">
+      <h1 class="head_subtitle">Менеджер по продажам</h1>
+      <span class="head_subtitle">&#160;&#183;&#160;</span>
+      <h2 class="head_subtitle">Продавец-консультант</h2>
+      <span class="head_subtitle">&#160;&#183;&#160;</span>
+      <h3 class="head_subtitle">Торговый представитель</h3>
+    </div>
   </xsl:template>
   
   <xsl:template match="doc" mode="body">
@@ -46,7 +53,7 @@
     </section>
     
     <section class="margin indexline">
-      <div class="layout__padding" style="color:#ccc;font-size:.8em;">
+      <div class="layout__padding" style="color:#999;font-size:.8em;">
         <p>
         Давайте представим, что у вас есть друг - отличный менеджер по продажам или торговый представитель, настоящий профессионал своего дела, который может одинаково виртуозно продавать как холодильники, так и навороченную ERP-систему. Представили? И вот, ваш друг решил сменить работу (мы-то с вами знаем, что он может рассчитывать на большее) и отважно приступил к поискам. 
         Заглянув на все известные работные сайты, он был немало удивлен. Вакансий тысячи, кто только не требуется, но ему-то нужна вполне конкретная вакансия - менеджер по продажам или менеджер по работе с клиентами. 
