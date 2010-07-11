@@ -7,6 +7,8 @@ import frontik.handler
 from frontik.doc import Doc
 from frontik import etree
 
+import frontik_www.handler as handler
+
 import frontik_www.storage
 from frontik_www import config as config
 
@@ -38,18 +40,29 @@ class Page(frontik.handler.PageHandler):
     def get_page(self):
         self.set_xsl('index.xsl')
         
+        handler.do_pagedata(self)
+        
+        data = config.data[self.request.host]
+        
+        self.doc.put(Doc('h1').put(data['h1']))
+        self.doc.put(Doc('h2').put(data['h2']))
+        self.doc.put(Doc('h3').put(data['h3']))
+        self.doc.put(Doc('h4').put(data['h4']))
+        
         tabs = Doc('tabs')
         self.doc.put(tabs)
-        
-        verstka_query = u'sales '
         
         def put_block(id, name, query):
             block = Doc('tab')
 
             block.put(Doc('name').put(name))
             block.put(Doc('text').put(urllib.quote(query['text'].encode('utf-8'))))
-            block.put(Doc('salary').put(urllib.quote(query['salary'].encode('utf-8'))))
-            block.put(Doc('onlysalary').put(urllib.quote(query['onlysalary'].encode('utf-8'))))
+            if 'salary' in query:
+              block.put(Doc('salary').put(urllib.quote(query['salary'].encode('utf-8'))))
+            if 'onlysalary' in query:
+              block.put(Doc('onlysalary').put(urllib.quote(query['onlysalary'].encode('utf-8'))))
+            if 'specialization' in query:
+              block.put(Doc('specialization').put(urllib.quote(query['specialization'].encode('utf-8'))))
             block.put(Doc('last').put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', query)))
 
             def put_median(m):
@@ -76,23 +89,8 @@ class Page(frontik.handler.PageHandler):
             
             tabs.put(block)
         
-        put_block('director', u'Управление', {'text': u'Директор OR Начальник OR Руководитель', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'150000','onlysalary':'true'})
-        put_block('b2b', u'Услуги для бизнеса', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales) AND ("продажа услуг" OR "продажа рекламы" OR b2b)', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'70000', 'onlysalary':'true'})
-        put_block('fmcg', u'FMCG', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales) AND (FMCG OR "товары народного потребления")', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'70000', 'onlysalary':'true'})
-        put_block('gsm', u'Нефть, бензин ...', {'text': u'(NOT (Директор OR Начальник OR Руководитель)) AND (по продажам OR sales) AND (нефть OR Металлопрокат OR Станки OR "промышленное оборудование" OR "производственное оборудование" OR "вентиляционное оборудование" OR "автомобильные масла" OR "строительные материалы" OR "металлоконструкции" OR "сварочные" OR "продажа ГСМ" OR "производство ГСМ")', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'70000', 'onlysalary':'true'})
-        put_block('trade', u'Торговые представители', {'text': u'(NOT (Директор OR руководство OR супервайзер OR Управляющий OR Начальник OR Руководитель)) AND (Торговый представитель)', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'60000', 'onlysalary':'true'})
-        put_block('cunsalt', u'Консультанты', {'text': u'Продавец консультант', 'items': '5', 'order':'0',  'area':'1', 'field':'17', 'salary':'35000', 'onlysalary':'true'})
-
-
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/2381/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/49/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/27812/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/84297/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/143372/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/14894/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/3592/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/2528/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/13520/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/533/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/556716/')))
-        self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/129770/')))
+        for query in config.data[self.request.host]['queries']:
+          put_block(query['name'], query['text'], query['query'])
+ 
+        for employer in config.data[self.request.host]['employers']:
+          self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/' + employer + '/')))

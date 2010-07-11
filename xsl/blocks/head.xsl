@@ -7,10 +7,18 @@
         <xsl:apply-templates select="." mode="title"/>
       </title>
       <meta charset="utf-8"/>
-      <meta name="description" content="HeadHunter - это качественная база резюме и вакансий и лучшие сервисы для поиска работы и персонала." />
-      <meta name="keywords" content="менеджер  по продажам , продавец консультант , торговый представитель , работа для продавцов , работа продавцом , менеджер по работе с клиентами , менеджер  по работе  с клиентами , вакансия менеджер по продажам, вакансии менеджер  по продажам, менеджер по работе с ключевыми клиентами , директор отдела продаж" />
-      <meta name="yandex-verification" content="6f54c42a66b473e2"/>
-      <meta name="google-site-verification" content="cN6ngoWjOVBZJLyyHK7efAJ7YeqMS3vKAgOFKZXy-D0" />
+      <meta name="description">
+        <xsl:apply-templates select="." mode="description"/>
+      </meta>
+      <meta name="keywords">
+        <xsl:apply-templates select="." mode="keywords"/>
+      </meta>
+      <meta name="yandex-verification">
+        <xsl:apply-templates select="." mode="yandex-verification"/>
+      </meta>
+      <meta name="google-site-verification">
+        <xsl:apply-templates select="." mode="google-site-verification"/>
+      </meta>
       <link rel="stylesheet" type="text/css" charset="utf-8" href="{$shost}markup/pages/style.css" />
       <xsl:apply-templates select="." mode="rss"/>
       <xsl:comment>
@@ -28,11 +36,39 @@
     </head>
   </xsl:template>
   
-  <xsl:template match="doc" mode="title">
+  <xsl:template match="doc" mode="rss"/>
+  <xsl:template match="doc" mode="title"/>
+  <xsl:template match="doc" mode="description"/>
+  <xsl:template match="doc" mode="keywords"/>
+  <xsl:template match="doc" mode="yandex-verification"/>
+  <xsl:template match="doc" mode="google-site-verification"/>
+
+  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="title">
     <xsl:text>Работа для продавцов , вакансии менеджера по продажам , продавец консультант , менеджер  по продажам  -  Работа на HeadHunter</xsl:text>
   </xsl:template>
+
+  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="description">
+    <xsl:attribute name="content">
+      <xsl:text>HeadHunter - это качественная база резюме и вакансий и лучшие сервисы для поиска работы и персонала.</xsl:text>
+    </xsl:attribute>
+  </xsl:template>
+
+  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="keywords">
+    <xsl:attribute name="content">
+      <xsl:text>менеджер  по продажам , продавец консультант , торговый представитель , работа для продавцов , работа продавцом , менеджер по работе с клиентами , менеджер  по работе  с клиентами , вакансия менеджер по продажам, вакансии менеджер  по продажам, менеджер по работе с ключевыми клиентами , директор отдела продаж</xsl:text>
+    </xsl:attribute>
+  </xsl:template>
   
-  <xsl:template match="doc" mode="rss"/>
+  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="yandex-verification">
+    <xsl:attribute name="content">
+      <xsl:text>6f54c42a66b473e2</xsl:text>
+    </xsl:attribute>
+  </xsl:template>
   
+  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="google-site-verification">
+    <xsl:attribute name="content">
+      <xsl:text>cN6ngoWjOVBZJLyyHK7efAJ7YeqMS3vKAgOFKZXy-D0</xsl:text>
+    </xsl:attribute>
+  </xsl:template>
 </xsl:stylesheet>
 

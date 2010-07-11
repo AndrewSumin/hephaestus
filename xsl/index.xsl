@@ -10,13 +10,13 @@
   doctype-public="html"/>
   
   <xsl:template match="doc" mode="menu">
-    <h4 class="layout__padding head__title">Работа для продавцов в Москве</h4>
+    <h4 class="layout__padding head__title"><xsl:value-of select="h4"/></h4>
     <div class="layout__padding">
-      <h1 class="head_subtitle">Менеджер по продажам</h1>
+      <h1 class="head_subtitle"><xsl:value-of select="h1"/></h1>
       <span class="head_subtitle">&#160;&#183;&#160;</span>
-      <h2 class="head_subtitle">Продавец-консультант</h2>
+      <h2 class="head_subtitle"><xsl:value-of select="h2"/></h2>
       <span class="head_subtitle">&#160;&#183;&#160;</span>
-      <h3 class="head_subtitle">Торговый представитель</h3>
+      <h3 class="head_subtitle"><xsl:value-of select="h3"/></h3>
     </div>
   </xsl:template>
   
@@ -54,17 +54,7 @@
     
     <section class="margin indexline">
       <div class="layout__padding" style="color:#999;font-size:.8em;">
-        <p>
-        Давайте представим, что у вас есть друг - отличный менеджер по продажам или торговый представитель, настоящий профессионал своего дела, который может одинаково виртуозно продавать как холодильники, так и навороченную ERP-систему. Представили? И вот, ваш друг решил сменить работу (мы-то с вами знаем, что он может рассчитывать на большее) и отважно приступил к поискам. 
-        Заглянув на все известные работные сайты, он был немало удивлен. Вакансий тысячи, кто только не требуется, но ему-то нужна вполне конкретная вакансия - менеджер по продажам или менеджер по работе с клиентами. 
-        Как только ни строил наш друг поисковые запросы: и работа для продавцов, и работа продавцом, и даже менеджер по работе с ключевыми клиентами. Потратил уйму времени и сил, но найти подходящую было также трудно, как иголку в стоге сена. 
-        </p>
-        <p>
-        Именно поэтому мы создали сайт, где собраны вакансии только в сфере продаж. 
-        </p>
-        <p>
-        Неважно, вы просто начинающий продавец консультант или известный директор по продажам. Этот сайт создан специально для вас.
-        </p>
+        <xsl:apply-templates select="." mode="seo-text"/>
       </div>
     </section>
     
@@ -75,7 +65,25 @@
       <div class="layout__paddingright">
         <div class="layout__padding shortvacancy__list">
           <h2 class="shortvacancy__header">
-            <a href="/search/?text={text}&amp;salary={salary}&amp;onlysalary={onlysalary}" class="shortvacancy__header__link"><xsl:value-of select="name"/></a>
+            <a class="shortvacancy__header__link">
+              <xsl:attribute name="href">
+                <xsl:text>/search/?text=</xsl:text>
+                <xsl:value-of select="text"/>
+                <xsl:if test="salary">
+                  <xsl:text>&amp;salary=</xsl:text>
+                  <xsl:value-of select="salary"/>
+                </xsl:if>
+                <xsl:if test="onlysalary">
+                  <xsl:text>&amp;onlysalary=</xsl:text>
+                  <xsl:value-of select="onlysalary"/>
+                </xsl:if>
+                <xsl:if test="specialization">
+                  <xsl:text>&amp;specialization=</xsl:text>
+                  <xsl:value-of select="specialization"/>
+                </xsl:if>
+              </xsl:attribute>
+              <xsl:value-of select="name"/>
+            </a>
             <xsl:apply-templates select="last/hh:result/hh:found"/>
             <xsl:apply-templates select="median" mode="average"/>
           </h2>
@@ -167,7 +175,22 @@
       <xsl:text>&#160;р.</xsl:text>
     </span>
   </xsl:template>
-  
+
+  <xsl:template match="doc" mode="seo-text"/>
+
+  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="seo-text">
+    <p>
+      Давайте представим, что у вас есть друг - отличный менеджер по продажам или торговый представитель, настоящий профессионал своего дела, который может одинаково виртуозно продавать как холодильники, так и навороченную ERP-систему. Представили? И вот, ваш друг решил сменить работу (мы-то с вами знаем, что он может рассчитывать на большее) и отважно приступил к поискам. 
+      Заглянув на все известные работные сайты, он был немало удивлен. Вакансий тысячи, кто только не требуется, но ему-то нужна вполне конкретная вакансия - менеджер по продажам или менеджер по работе с клиентами. 
+      Как только ни строил наш друг поисковые запросы: и работа для продавцов, и работа продавцом, и даже менеджер по работе с ключевыми клиентами. Потратил уйму времени и сил, но найти подходящую было также трудно, как иголку в стоге сена. 
+    </p>
+    <p>
+      Именно поэтому мы создали сайт, где собраны вакансии только в сфере продаж. 
+    </p>
+    <p>
+      Неважно, вы просто начинающий продавец консультант или известный директор по продажам. Этот сайт создан специально для вас.
+    </p>
+  </xsl:template>
 </xsl:stylesheet>
 
 
