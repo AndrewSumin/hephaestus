@@ -18,26 +18,29 @@
         </table>
       </div>
     </footer>
-    
+    <xsl:comment>noidex</xsl:comment>
     <xsl:apply-templates select="." mode="counters"/>
-    
+    <xsl:comment>/noidex</xsl:comment>
   </xsl:template>
-  
+
   <xsl:template match="doc" mode="counters"/>
-    
+
   <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="counters">
     <!-- Yandex.Metrika -->
-    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript">&#160;</script>
+    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript"/>
     <div style="display:none;">
       <script type="text/javascript">
-        try { var yaCounter1153836 = new Ya.Metrika(1153836); } catch(e){}
+        try { var yaCounter1197067 = new Ya.Metrika(1197067); } catch(e){}
       </script>
     </div>
     <noscript>
-      <div style="position:absolute"><img src="//mc.yandex.ru/watch/1153836" alt=""/>&#160;</div>
+      <div style="position:absolute">
+        <img src="//mc.yandex.ru/watch/1197067" alt=""/>
+      </div>
     </noscript>
     <!-- /Yandex.Metrika -->
-    
+
+
     <div class="margin">
       <div class="layout__padding">
         <!--LiveInternet counter-->
@@ -47,10 +50,10 @@
             ';s' + screen.width + '*' + screen.height + '*' +(screen.colorDepth?
             screen.colorDepth: screen.pixelDepth)) + ';u' + escape(document.URL) +
             ';i' + escape('Жж' + document.title.substring(0, 80)) + ';' + Math.random() +
-            '" width="1" height="1" alt=""></img>')
+            '" width="1" height="1" alt=""/>')
         </script>
         <!--/LiveInternet-->
-        
+
         <!--LiveInternet logo-->
         <a href="http://www.liveinternet.ru/click" target="_blank">
           <img src="http://counter.yadro.ru/logo?14.1" border="0"
@@ -58,21 +61,21 @@
             height="31"/>
         </a>
         <!--/LiveInternet-->
-        
+
         <!-- begin of Top100 logo -->
         <a href="http://top100.rambler.ru/home?id=644963">
           <img src="http://top100-images.rambler.ru/top100/banner-88x31-rambler-gray2.gif"
             alt="Rambler's Top100" width="88" height="31" border="0"/>
         </a>
         <!-- end of Top100 logo -->
-        
+
         <!--begin of Rambler's Top100 code -->
         <a href="http://top100.rambler.ru/top100/">
           <img src="http://counter.rambler.ru/top100.cnt?644963" alt="" width="1" height="1"
             border="0"/>
         </a>
         <!--end of Top100 code-->
-        
+
         <!--Rating@Mail.ru COUNTER-->
         <script type="text/javascript">
           var a = 'r=' + escape(document.referrer) + ';j=' + navigator.javaEnabled();
@@ -91,7 +94,7 @@
           </a>
         </noscript>
         <!--/COUNTER-->
-        
+
       </div>
     </div>
   </xsl:template>

@@ -19,7 +19,7 @@
   </xsl:template>
   
   <xsl:template match="doc" mode="title">
-    Вакансия, <xsl:value-of select="hh:vacancy/hh:name"/>, <xsl:value-of select="hh:vacancy/hh:employer/hh:name"/>
+    Вакансия <xsl:value-of select="hh:vacancy/hh:name"/>, <xsl:value-of select="hh:vacancy/hh:employer/hh:name"/>
   </xsl:template>  
   
   <xsl:template match="doc[not(hh:vacancy)]" mode="page-title-text">
