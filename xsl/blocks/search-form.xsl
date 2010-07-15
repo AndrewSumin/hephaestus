@@ -9,13 +9,33 @@
           <table class="layout">
             <tr>
               <td colspan="5" class="searchform__item">
+                <div class="layout__padding searchform__hint">
+                  Должность
+                </div>
+              </td>
+              <td class="searchform__item">
+                &#160;
+              </td>
+              <td colspan="2" class="searchform__item">
+                <div class="layout__padding searchform__hint">
+                  Зарплата,&#160;руб
+                </div>
+              </td>
+              <td colspan="4" class="searchform__item">
+                &#160;
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5" class="searchform__item">
                 <div class="layout__padding">
                   <input name="text" value="{key('request', 'text')}" class="searchform__input searchform__search"/>
                 </div>
               </td>
-              <td colspan="3" class="searchform__item">
+              <td class="searchform__item">
+                &#160;
+              </td>
+              <td colspan="2" class="searchform__item">
                 <div class="layout__padding searchform__salary">
-                  зарплата&#160;
                   <input name="salary" value="{key('request', 'salary')}" class="searchform__input searchform__salaryinput"/>
                 </div>
               </td>

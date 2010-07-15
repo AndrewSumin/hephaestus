@@ -3,7 +3,6 @@
   margin-bottom:.5em;
   padding-top:.5em;
   padding-bottom:.5em;
-  background:#eee;
 }
   .searchform__item{
     vertical-align:middle;
@@ -16,11 +15,15 @@
     width:100%;
   }
   
+  .searchform__hint{
+    font-size:.8em;
+    color:#2e7368;
+  }
+  
   .searchform__salary{
-    text-align:right;
   }
   .searchform__salaryinput{
-    width:100px;
+    width:100%;
   }
 
   .searchform__submitinput{

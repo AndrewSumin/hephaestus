@@ -1,6 +1,6 @@
 @import url(../global/all.css);
 @import url(../blocks/page.css);
-@import url(../blocks/head.css);
+@import url(../blocks/head/head.css);
 @import url(../blocks/foot.css);
 @import url(../blocks/indexline.css);
 @import url(../blocks/count.css);
