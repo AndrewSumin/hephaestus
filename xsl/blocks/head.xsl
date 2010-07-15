@@ -70,5 +70,30 @@
       <xsl:text>cN6ngoWjOVBZJLyyHK7efAJ7YeqMS3vKAgOFKZXy-D0</xsl:text>
     </xsl:attribute>
   </xsl:template>
+
+  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="description">
+    <xsl:attribute name="content">
+      <xsl:text>HeadHunter - это качественная база резюме и вакансий и лучшие сервисы для поиска работы и персонала. Работа в области медицины и фармацевтики.</xsl:text>
+    </xsl:attribute>
+  </xsl:template>
+  
+  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="keywords">
+    <xsl:attribute name="content">
+      <xsl:text>работа для врачей, кваансии врачей, вакансии медсестер, вакансии медицина, работа для медиков, вакансии провизоров, вакансии ветеринарных врачей, работа для ветеринаров, вакансии доктора, вакансии ветеринаров, вакансии медработников, вакансии медиков, вакансии медицинских работников, работа в фармацевтике</xsl:text>
+    </xsl:attribute>
+  </xsl:template>
+  
+  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="yandex-verification">
+    <xsl:attribute name="content">
+      <xsl:text>7240fac008e6e2c3</xsl:text>
+    </xsl:attribute>
+  </xsl:template>
+  
+  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="google-site-verification">
+    <xsl:attribute name="content">
+      <xsl:text>cN6ngoWjOVBZJLyyHK7efAJ7YeqMS3vKAgOFKZXy-D0</xsl:text>
+    </xsl:attribute>
+  </xsl:template>
+  
 </xsl:stylesheet>
 
