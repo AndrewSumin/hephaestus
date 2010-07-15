@@ -1,10 +1,10 @@
 .shortvacancy__header{
   margin-bottom:1em;
-  font-size:1em;
-  font-weight:normal;
 }
   .shortvacancy__header__link{
     color:#000;
+    font-size:.8em;
+    font-weight:normal;
   }
     .shortvacancy__header__link:visited{
       color:#000;
@@ -16,18 +16,14 @@
     padding-top:10px;
     padding-bottom:10px;
     background:#FFF;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-    box-shadow:1px 1px 3px #D3BA02;
-    -moz-box-shadow:1px 1px 3px #D3BA02;
-    -webkit-box-shadow:1px 1px 3px #D3BA02;
   }
-
+.shortvacancy__subheader{
+  margin-bottom:.3em;
+}
 
 
 .shortvacancy{
-  margin-top:.1em;
+  margin:.2em 0 1em 0;
 }
   .shortvacancy__title{
     color:#000;
@@ -35,11 +31,11 @@
     font-weight:normal;
   }
     .shortvacancy__title__link{
-      overflow: hidden;
-      white-space:nowrap;
-      display:block;
-      height:1.2em;
     }
+
+  .shortvacancy__salary{
+    margin-top:.2em;
+  }
 
   .shortvacancy__company{
     margin-top:.2em;
@@ -48,9 +44,6 @@
       color:#999;
       font-size:.8em;
       text-decoration:none;
-      overflow: hidden;
-      white-space:nowrap;
-      display:block;
     }
       .shortvacancy__company__link:visited{
         color:#999;

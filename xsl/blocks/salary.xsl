@@ -14,17 +14,9 @@
   
 
   <xsl:template match="hh:compensation | hh:salary">
-    <xsl:param name="break"/>
     <xsl:param name="notags" select="false()"/>
     <xsl:apply-templates select="hh:from"/>
-    <xsl:choose>
-      <xsl:when test="hh:from and hh:to and $break">
-        <br/>
-      </xsl:when>
-      <xsl:when test="hh:from and hh:to">
-        <xsl:text> </xsl:text>
-      </xsl:when>
-    </xsl:choose>
+    <xsl:text> </xsl:text>
     <xsl:apply-templates select="hh:to"/>
     <xsl:apply-templates select="hh:currency"/>
     <xsl:apply-templates select="hh:notset[not($notags)]"/>
