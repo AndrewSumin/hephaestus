@@ -34,7 +34,7 @@ data = {
       'h3': u'Вакансии медсестер',
       'queries':[
         {'name': 'doctor', 'text': u'Врачи', 'query': {'text': u'NOT Представитель', 'items': '5', 'order':'0',  'area':'1', 'field':'13', 'specialization':'131'}},
-        {'name': 'scrubs', 'text': u'Медперсонал', 'query': {'text': u'NOT Представитель', 'items': '5', 'order':'0',  'area':'1', 'field':'13', 'specialization':'155'}},
+        {'name': 'scrubs', 'text': u'Младший и средний медперсонал', 'query': {'text': u'NOT Представитель', 'items': '5', 'order':'0',  'area':'1', 'field':'13', 'specialization':'155'}},
         {'name': 'veterinary', 'text': u'Ветеринария', 'query': {'text': u'', 'items': '5', 'order':'0',  'area':'1', 'field':'13', 'specialization':'49'}},
         {'name': 'manufacture', 'text': u'Производство', 'query': {'text': u'NOT (Представитель OR Продажи)', 'items': '5', 'order':'0',  'area':'1', 'field':'13', 'specialization':'432'}},
         {'name': 'provizor', 'text': u'Провизоры, Фармацевты', 'query': {'text': u'(Провизор OR Фармацевт) NOT (Представитель)', 'items': '5', 'order':'0',  'area':'1', 'field':'13', 'specialization':'220'}},
