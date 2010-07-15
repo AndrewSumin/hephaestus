@@ -21,23 +21,22 @@
   </xsl:template>
   
   <xsl:template match="doc" mode="body">
-    <div style="background:#99E102;">
-      <section class="margin indexline">
-        <table class="layout">
-          <tr>
-            <xsl:apply-templates select="tabs/tab[position() &lt; 4]"/>
-          </tr>
-          <tr>
-            <td colspan="12">
-              &#160;
-            </td>
-          </tr>
-          <tr>
-            <xsl:apply-templates select="tabs/tab[position() &gt; 3]"/>
-          </tr>
-        </table>
-      </section>
-    </div>
+    <section class="margin indexline">
+      <table class="layout">
+        <tr>
+          <xsl:apply-templates select="tabs/tab[position() &lt; 4]"/>
+        </tr>
+        <tr>
+          <td colspan="12">
+            &#160;
+          </td>
+        </tr>
+        <tr>
+          <xsl:apply-templates select="tabs/tab[position() &gt; 3]"/>
+        </tr>
+      </table>
+    </section>
+    
     
     <section class="margin indexline">
       <table class="layout">
@@ -64,29 +63,33 @@
     <td colspan="4">
       <div class="layout__paddingright">
         <div class="layout__padding shortvacancy__list">
-          <h2 class="shortvacancy__header">
-            <a class="shortvacancy__header__link">
-              <xsl:attribute name="href">
-                <xsl:text>/search/?text=</xsl:text>
-                <xsl:value-of select="text"/>
-                <xsl:if test="salary">
-                  <xsl:text>&amp;salary=</xsl:text>
-                  <xsl:value-of select="salary"/>
-                </xsl:if>
-                <xsl:if test="onlysalary">
-                  <xsl:text>&amp;onlysalary=</xsl:text>
-                  <xsl:value-of select="onlysalary"/>
-                </xsl:if>
-                <xsl:if test="specialization">
-                  <xsl:text>&amp;specialization=</xsl:text>
-                  <xsl:value-of select="specialization"/>
-                </xsl:if>
-              </xsl:attribute>
-              <xsl:value-of select="name"/>
-            </a>
-            <xsl:apply-templates select="last/hh:result/hh:found"/>
-            <xsl:apply-templates select="median" mode="average"/>
-          </h2>
+          <div class="shortvacancy__header">
+            <h2>
+              <a class="shortvacancy__header__link">
+                <xsl:attribute name="href">
+                  <xsl:text>/search/?text=</xsl:text>
+                  <xsl:value-of select="text"/>
+                  <xsl:if test="salary">
+                    <xsl:text>&amp;salary=</xsl:text>
+                    <xsl:value-of select="salary"/>
+                  </xsl:if>
+                  <xsl:if test="onlysalary">
+                    <xsl:text>&amp;onlysalary=</xsl:text>
+                    <xsl:value-of select="onlysalary"/>
+                  </xsl:if>
+                  <xsl:if test="specialization">
+                    <xsl:text>&amp;specialization=</xsl:text>
+                    <xsl:value-of select="specialization"/>
+                  </xsl:if>
+                </xsl:attribute>
+                <xsl:value-of select="name"/>
+              </a>
+            </h2>
+            <div class="shortvacancy__subheader">
+              <xsl:apply-templates select="last/hh:result/hh:found"/>
+              <xsl:apply-templates select="median" mode="average"/>
+            </div>
+          </div>
           <xsl:apply-templates select="last/hh:result/hh:vacancies"/>
         </div>
       </div>
@@ -113,30 +116,21 @@
   
   <xsl:template match="hh:vacancy">
     <div class="shortvacancy">
-      <table class="layout">
-        <tr>
-          <td colspan="2">
-            <div class="layout__paddingright">
-              <h3 class="shortvacancy__title">
-                <a class="shortvacancy__title__link" href="/vacancy/{@id}" title="{hh:name}">
-                  <xsl:value-of select="hh:name"/>
-                </a>
-                <span class="fade">&#160;</span>
-              </h3>
-              <details>
-                <xsl:apply-templates select="hh:employer"/>
-              </details>
-            </div>
-          </td>
-          <td>
-            <span class="salary">
-              <xsl:apply-templates select="hh:salary">
-                <xsl:with-param name="break" select="true()"/>
-              </xsl:apply-templates>
-            </span>
-          </td>
-        </tr>
-      </table>
+        <div class="layout__paddingright">
+          <h3 class="shortvacancy__title">
+            <a class="shortvacancy__title__link" href="/vacancy/{@id}" title="{hh:name}">
+              <xsl:value-of select="hh:name"/>
+            </a>
+          </h3>
+          <div class="salary shortvacancy__salary">
+            <xsl:apply-templates select="hh:salary">
+              <xsl:with-param name="break" select="true()"/>
+            </xsl:apply-templates>
+          </div>
+          <details>
+            <xsl:apply-templates select="hh:employer"/>
+          </details>
+        </div>
     </div>
   </xsl:template>
   
@@ -154,8 +148,7 @@
           </span>
         </xsl:otherwise>
       </xsl:choose>
-      <span class="fade">&#160;</span>
-    </div>
+     </div>
   </xsl:template>
   
   <xsl:template match="*" mode="logo">
