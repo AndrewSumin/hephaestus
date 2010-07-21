@@ -44,7 +44,7 @@
     </xsl:apply-templates>
   </xsl:template>
   
-  <xsl:template match="doc[search/hh:error] | doc[search/hh:error]" mode="body">
+  <xsl:template match="doc[search/hh:error] | doc[search/error]" mode="body">
     <section class="margin">
       <div class="layout__padding">
         На <a href="http://hh.ru">hh.ru</a> ошибка, попробуйте <a href="javascript:window.location.reload()">обновить страницу</a>. 
