@@ -58,13 +58,21 @@
             </div>
           </td>
           <td colspan="4">
-            <a href="{hh:link[@rel = 'related']/@href}">
-              <xsl:apply-templates select="." mode="logo"/>
-            </a>
+            <xsl:apply-templates select="." mode="logo-link"/>
           </td>
         </tr>
       </table>
     </article>
+  </xsl:template>
+  
+  <xsl:template match="hh:employer[hh:link[@rel = 'related']]" mode="logo-link">
+    <a href="{hh:link[@rel = 'related']/@href}">
+      <xsl:apply-templates select="." mode="logo"/>
+    </a>
+  </xsl:template>
+  
+  <xsl:template match="hh:employer" mode="logo-link">
+    <xsl:apply-templates select="." mode="logo"/>
   </xsl:template>
   
   <xsl:template match="hh:employer" mode="logo">

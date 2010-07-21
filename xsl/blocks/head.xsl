@@ -70,7 +70,11 @@
       <xsl:text>cN6ngoWjOVBZJLyyHK7efAJ7YeqMS3vKAgOFKZXy-D0</xsl:text>
     </xsl:attribute>
   </xsl:template>
-
+  
+  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="title">
+    <xsl:text>Работа для врачей, вакансии врачей, работа в области медицины – med.hh.ru</xsl:text>
+  </xsl:template>
+  
   <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="description">
     <xsl:attribute name="content">
       <xsl:text>HeadHunter - это качественная база резюме и вакансий и лучшие сервисы для поиска работы и персонала. Работа в области медицины и фармацевтики.</xsl:text>
