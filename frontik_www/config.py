@@ -45,5 +45,5 @@ data = {
     }
 }
 
-data['test.sales.hh.ru'] = data['sales.hh.ru']
-data['test.med.hh.ru'] = data['med.hh.ru']
+data['sales.jsx.ru'] = data['sales.hh.ru']
+data['med.jsx.ru'] = data['med.hh.ru']
