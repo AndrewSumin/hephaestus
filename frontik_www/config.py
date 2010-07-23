@@ -44,3 +44,6 @@ data = {
       'employers':['24', '45333', '13819', '346', '6860', '1982', '4793', '1180', '4943', '81892', '132656', '5786', '106571']
     }
 }
+
+data['test.sales.hh.ru'] = data['sales.hh.ru']
+data['test.med.hh.ru'] = data['med.hh.ru']

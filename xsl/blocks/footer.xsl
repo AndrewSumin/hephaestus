@@ -25,7 +25,7 @@
 
   <xsl:template match="doc" mode="counters"/>
 
-  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="counters">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'sales')]" mode="counters">
     <!-- Yandex.Metrika -->
     <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript">&#160;</script>
     <div style="display:none;">
@@ -99,7 +99,7 @@
     </div>
   </xsl:template>
 
-  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="counters">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'med')]" mode="counters">
     <!-- Yandex.Metrika -->
     <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript">&#160;</script>
     <div style="display:none;">

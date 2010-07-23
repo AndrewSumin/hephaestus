@@ -8,5 +8,15 @@
   <xsl:variable name="params" select="/doc/pagedata/request/param[@name != 'field' and @name != 'cluster' and @name != 'items' and @name != 'area']"/>
   <xsl:key name="request" match="request/param" use="@name"/>
   <xsl:key name="protocol" match="protocol/param" use="@name"/>
+  <xsl:variable name="prof">
+    <xsl:choose>
+      <xsl:when test="key('protocol', 'host') = 'sales.hh.ru'">
+        <xsl:text>sales</xsl:text>
+      </xsl:when>
+      <xsl:when test="key('protocol', 'host') = 'med.hh.ru'">
+        <xsl:text>med</xsl:text>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
 </xsl:stylesheet>
 

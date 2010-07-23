@@ -43,57 +43,57 @@
   <xsl:template match="doc" mode="yandex-verification"/>
   <xsl:template match="doc" mode="google-site-verification"/>
 
-  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="title">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'sales')]" mode="title">
     <xsl:text>Работа для продавцов , вакансии менеджера по продажам , продавец консультант , менеджер  по продажам  -  Работа на HeadHunter</xsl:text>
   </xsl:template>
 
-  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="description">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'sales')]" mode="description">
     <xsl:attribute name="content">
       <xsl:text>HeadHunter - это качественная база резюме и вакансий и лучшие сервисы для поиска работы и персонала.</xsl:text>
     </xsl:attribute>
   </xsl:template>
 
-  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="keywords">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'sales')]" mode="keywords">
     <xsl:attribute name="content">
       <xsl:text>менеджер  по продажам , продавец консультант , торговый представитель , работа для продавцов , работа продавцом , менеджер по работе с клиентами , менеджер  по работе  с клиентами , вакансия менеджер по продажам, вакансии менеджер  по продажам, менеджер по работе с ключевыми клиентами , директор отдела продаж</xsl:text>
     </xsl:attribute>
   </xsl:template>
   
-  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="yandex-verification">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'sales')]" mode="yandex-verification">
     <xsl:attribute name="content">
       <xsl:text>6f54c42a66b473e2</xsl:text>
     </xsl:attribute>
   </xsl:template>
   
-  <xsl:template match="doc[key('protocol', 'host') = 'sales.hh.ru']" mode="google-site-verification">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'sales')]" mode="google-site-verification">
     <xsl:attribute name="content">
       <xsl:text>cN6ngoWjOVBZJLyyHK7efAJ7YeqMS3vKAgOFKZXy-D0</xsl:text>
     </xsl:attribute>
   </xsl:template>
   
-  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="title">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'med')]" mode="title">
     <xsl:text>Работа для врачей, вакансии врачей, работа в области медицины – med.hh.ru</xsl:text>
   </xsl:template>
   
-  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="description">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'med')]" mode="description">
     <xsl:attribute name="content">
       <xsl:text>HeadHunter - это качественная база резюме и вакансий и лучшие сервисы для поиска работы и персонала. Работа в области медицины и фармацевтики.</xsl:text>
     </xsl:attribute>
   </xsl:template>
   
-  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="keywords">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'med')]" mode="keywords">
     <xsl:attribute name="content">
       <xsl:text>работа для врачей, кваансии врачей, вакансии медсестер, вакансии медицина, работа для медиков, вакансии провизоров, вакансии ветеринарных врачей, работа для ветеринаров, вакансии доктора, вакансии ветеринаров, вакансии медработников, вакансии медиков, вакансии медицинских работников, работа в фармацевтике</xsl:text>
     </xsl:attribute>
   </xsl:template>
   
-  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="yandex-verification">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'med')]" mode="yandex-verification">
     <xsl:attribute name="content">
       <xsl:text>7240fac008e6e2c3</xsl:text>
     </xsl:attribute>
   </xsl:template>
   
-  <xsl:template match="doc[key('protocol', 'host') = 'med.hh.ru']" mode="google-site-verification">
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'med')]" mode="google-site-verification">
     <xsl:attribute name="content">
       <xsl:text>cN6ngoWjOVBZJLyyHK7efAJ7YeqMS3vKAgOFKZXy-D0</xsl:text>
     </xsl:attribute>
