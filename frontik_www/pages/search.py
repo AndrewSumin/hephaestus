@@ -3,11 +3,9 @@
 import frontik.handler
 from frontik.doc import Doc
 
-from frontik_www import config as config
-
-import frontik_www.handler as handler
-
 import tornado.web
+
+frontik_import('handler')
 
 class Page(frontik.handler.PageHandler):
     def get_page(self):
@@ -21,12 +19,12 @@ class Page(frontik.handler.PageHandler):
           salary = None
         
         search = Doc('search')
-        search.put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/',
+        search.put(self.get_url_retry(self.config.api_host + '/1/xml/vacancy/search/',
                                 {
                                  'text': self.get_argument('text', None),
                                  'page': self.get_argument('page', None),
                                  'salary': self.get_argument('salary', None),
-                                 'field': config.data[self.request.host]['field'],
+                                 'field': self.config.data[self.request.host]['field'],
                                  'onlysalary': self.get_argument('onlysalary', None),
                                  'area':'1',
                                  'items': '20',

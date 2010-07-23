@@ -7,13 +7,7 @@ import frontik.handler
 from frontik.doc import Doc
 from frontik import etree
 
-import frontik_www.handler as handler
-
-import frontik_www.storage
-from frontik_www import config as config
-
-storage = frontik_www.storage.MedianSalaryStorage(config.db_filename)
-
+frontik_import('handler')
 
 def count_median(vacancies_xml):
     salaries = []
@@ -42,7 +36,7 @@ class Page(frontik.handler.PageHandler):
         
         handler.do_pagedata(self)
         
-        data = config.data[self.request.host]
+        data = self.config.data[self.request.host]
         
         self.doc.put(Doc('h1').put(data['h1']))
         self.doc.put(Doc('h2').put(data['h2']))
@@ -63,7 +57,7 @@ class Page(frontik.handler.PageHandler):
               block.put(Doc('onlysalary').put(urllib.quote(query['onlysalary'].encode('utf-8'))))
             if 'specialization' in query:
               block.put(Doc('specialization').put(urllib.quote(query['specialization'].encode('utf-8'))))
-            block.put(Doc('last').put(self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', query)))
+            block.put(Doc('last').put(self.get_url_retry(self.config.api_host + '/1/xml/vacancy/search/', query)))
 
             def put_median(m):
                 median_block = Doc('median')
@@ -74,23 +68,23 @@ class Page(frontik.handler.PageHandler):
                 if xml:
                     m = count_median(xml)
                     if m:
-                        storage.store_today(id, m)
+                        #storage.store_today(id, m)
                         put_median(m)
 
-            if storage.has_today(id):
-                self.log.debug('show median using cached value')
-                put_median(storage.get_today(id))
-            else:
-                query['items']='40'
-                query['order']='0'
-                query['onlysalary']='true'
-                self.log.debug('make search request to count median')
-                self.get_url_retry(config.api_host + '/1/xml/vacancy/search/', query, callback=count_median_cb)
+            #if storage.has_today(id):
+            #    self.log.debug('show median using cached value')
+            #    put_median(storage.get_today(id))
+            #else:
+            query['items']='40'
+            query['order']='0'
+            query['onlysalary']='true'
+            self.log.debug('make search request to count median')
+            self.get_url_retry(self.config.api_host + '/1/xml/vacancy/search/', query, callback=count_median_cb)
             
             tabs.put(block)
         
-        for query in config.data[self.request.host]['queries']:
+        for query in self.config.data[self.request.host]['queries']:
           put_block(query['name'], query['text'], query['query'])
  
-        for employer in config.data[self.request.host]['employers']:
-          self.doc.put(Doc('employer').put(self.get_url_retry(config.api_host + '/1/xml/employer/' + employer + '/')))
+        for employer in self.config.data[self.request.host]['employers']:
+          self.doc.put(Doc('employer').put(self.get_url_retry(self.config.api_host + '/1/xml/employer/' + employer + '/')))
