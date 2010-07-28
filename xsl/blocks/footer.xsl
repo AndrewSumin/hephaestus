@@ -21,6 +21,19 @@
       <script type="text/javascript">try { var yaCounter1071168 = new Ya.Metrika(1071168); } catch(e){}</script>
     </div>
     <noscript><div style="position:absolute"><img src="//mc.yandex.ru/watch/1071168" alt="" /></div></noscript>
+    
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1820824-3']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    
     <style>
       #myotziv_box{
         background:#fff;
