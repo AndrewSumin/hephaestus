@@ -65,13 +65,13 @@
     </article>
   </xsl:template>
 
-  <xsl:template match="employer" mode="logo-link">
+  <xsl:template match="hh:employer" mode="logo-link">
     <a href="{hh:link[@rel = 'related']/@href}">
       <xsl:apply-templates select="." mode="logo"/>
     </a>
   </xsl:template>
 
-  <xsl:template match="employer[not(hh:link[@rel = 'related'])]" mode="logo-link">
+  <xsl:template match="hh:employer[not(hh:link[@rel = 'related'])]" mode="logo-link">
     <xsl:apply-templates select="." mode="logo"/>
   </xsl:template>
 
