@@ -19,10 +19,10 @@
   
   <xsl:template match="hh:clusters/hh:cluster[@name = 'metro']">
     <div class="clusters__cluster">
-      <header class="clusters__title">Метро</header>
+      <header class="clusters__title">Метро1</header>
       <xsl:choose>
-        <xsl:when test="count(hh:line) = 1">
-          <xsl:apply-templates select="hh:line/hh:station"/>
+        <xsl:when test="hh:line[hh:value = key('request', 'metro')]">
+          <xsl:apply-templates select="hh:line[hh:value = key('request', 'metro')]/hh:station"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:apply-templates select="hh:line"/>

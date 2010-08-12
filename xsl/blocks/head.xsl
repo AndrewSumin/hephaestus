@@ -10,7 +10,7 @@
       <meta name="description" content="http://hh.jsx.ru позволяет верстальщикам найти работу в Москве" />
       <meta name="keywords" content="верстальщик, работе, вакансии, работа, поиск вакансий, резюме, работы, работу, работ, ищу работу, поиск, россия,  москва" />
       <meta name='yandex-verification' content='590c31fa805e0bde' />
-      <link rel="stylesheet" type="text/css" charset="utf-8" href="{$shost}markup/pages/style.css" />
+      <link rel="stylesheet" type="text/css" charset="utf-8" href="{$shost}markup/_pages/style.css" />
       <xsl:apply-templates select="." mode="rss"/>
       <xsl:comment>
         <xsl:text>[if IE]&gt;</xsl:text>
