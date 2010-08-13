@@ -94,7 +94,16 @@
           </a>
         </noscript>
         <!--/COUNTER-->
-
+        <!--LiveInternet counter-->
+        <script type="text/javascript">
+            document.write('<a href='http://www.liveinternet.ru/click;HeadHunter_Prof' target='_blank'><img src="http://counter.yadro.ru/hit;HeadHunter_Prof?r' +
+            escape(document.referrer) +((typeof (screen) == 'undefined')? '':
+            ';s' + screen.width + '*' + screen.height + '*' +(screen.colorDepth?
+            screen.colorDepth: screen.pixelDepth)) + ';u' + escape(document.URL) +
+            ';h' + escape(document.title.substring(0, 80)) + ';' + Math.random() +
+            '" border='0' width='31' height='31' alt=""/></a>')
+        </script>
+        <!--/LiveInternet-->
       </div>
     </div>
   </xsl:template>
@@ -168,7 +177,16 @@
           </a>
         </noscript>
         <!--/COUNTER-->
-
+        <!--LiveInternet counter-->
+        <script type="text/javascript">
+            document.write('<a href='http://www.liveinternet.ru/click;HeadHunter_Prof' target='_blank'><img src="http://counter.yadro.ru/hit;HeadHunter_Prof?r' +
+            escape(document.referrer) +((typeof (screen) == 'undefined')? '':
+            ';s' + screen.width + '*' + screen.height + '*' +(screen.colorDepth?
+            screen.colorDepth: screen.pixelDepth)) + ';u' + escape(document.URL) +
+            ';h' + escape(document.title.substring(0, 80)) + ';' + Math.random() +
+            '" border='0' width='31' height='31' alt=""/></a>')
+        </script>
+        <!--/LiveInternet-->
       </div>
     </div>
   </xsl:template>
