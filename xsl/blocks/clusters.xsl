@@ -10,7 +10,7 @@
       <xsl:apply-templates select="hh:cluster[@name = 'employment'][key('request', 'employment')]" mode="reset"/>
     </div>
     <div class="layout__padding clusters">
-      <xsl:apply-templates select="hh:cluster[@name = 'metro' and count(hh:line/hh:station) != 1]"/>
+      <xsl:apply-templates select="hh:cluster[@name = 'metro' and count(hh:line/hh:station) != 1 and count(hh:line/hh:station[hh:value = key('request', 'metro')]) = 0]"/>
       <!--xsl:apply-templates select="hh:cluster[@name = 'fields' and not(key('request', 'specialization'))]/hh:field[hh:value = '17']"/-->
       <xsl:apply-templates select="hh:cluster[@name = 'employment' and not(key('request', 'employment')) and count(hh:employment) != 1]"/>
       <!--xsl:apply-templates select="hh:cluster[@name = 'experience']"/-->
