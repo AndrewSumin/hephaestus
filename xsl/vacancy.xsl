@@ -179,13 +179,19 @@
         }
       </script>
       <div style="overflow:hidden">
+        <a class="livejournal" title="в жж" href="http://www.livejournal.com/update.bml?subject={hh:name}&amp;event=&lt;a href=&#34;http://{key('protocol', 'host')}/vacancy/{@id}&#34;&gt;{hh:name}, {hh:employer/hh:name}&lt;/a&gt;" target="_blank">
+          &#160;
+        </a>
         <a target="_blank" class="facebook" onclick="return fbs_click()" href="http://www.facebook.com/share.php?u=http://{key('protocol', 'host')}/vacancy/{@id}" title="Поделиться на facebook">
           &#160;
         </a>
         <a class="twitter" title="в твиттер" href="http://twitter.com/home/?status=http://{key('protocol', 'host')}/vacancy/{@id} {hh:name}, {hh:employer/hh:name}" target="_blank">
           &#160;
         </a>
-      </div>
+        <!--
+          
+        -->
+        </div>
     </div>
     
   </xsl:template>
