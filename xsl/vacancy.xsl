@@ -140,7 +140,28 @@
   <xsl:template match="hh:vacancy" mode="social">
     <div class="vacancy__label">рассказать друзьям</div>
     <div class="vacancy__value" style="margin-top:.3em;">
-      
+      <a counter="yes" type="button" size="large" name="ya-share">&#160;</a>
+      <script charset="utf-8" type="text/javascript">
+        <![CDATA[
+          if (!(!window.Ya || !window.Ya.Share)) {
+            Ya.Share.update();
+          }else{
+            (function(){
+              if(!window.Ya){
+                window.Ya = {}
+              };
+              Ya.STATIC_BASE = 'http:\/\/img\-css.friends.yandex.net';
+              Ya.START_BASE = 'http:\/\/wow.ya.ru\/';
+              var shareScript = document.createElement("script");
+              shareScript.type = "text/javascript";
+              shareScript.async = "true";
+              shareScript.charset = "utf-8";
+              shareScript.src = Ya.STATIC_BASE + "/js/api/Share.js";
+              (document.getElementsByTagName("head")[0] || document.body).appendChild(shareScript);
+            })();
+          }
+        ]]>
+      </script>
     </div>
     <div class="vacancy__value">
       <script type="text/javascript" src="http://vkontakte.ru/js/api/share.js?5" charset="windows-1251">&#160;</script>
@@ -158,9 +179,6 @@
         }
       </script>
       <div style="overflow:hidden">
-        <a target="_blank" class="yaru" href="http://my.ya.ru/posts_add_link.xml?URL=http://{key('protocol', 'host')}/vacancy/{@id}&amp;title={hh:name}, {hh:employer/hh:name}" title="Поделиться на я.ру">
-          &#160;
-        </a>
         <a target="_blank" class="facebook" onclick="return fbs_click()" href="http://www.facebook.com/share.php?u=http://{key('protocol', 'host')}/vacancy/{@id}" title="Поделиться на facebook">
           &#160;
         </a>
