@@ -215,6 +215,13 @@
       </div>
     </div>
   </xsl:template>
+  <xsl:template match="doc[key('request', 'yaru_denied')]" mode="yaru_info">
+    <div class="tiser m-tiser_normalnews">
+      <div class="margin layout__padding">
+        Вы отказались публиковать вакансию
+      </div>
+    </div>
+  </xsl:template>
   
 
 </xsl:stylesheet>
