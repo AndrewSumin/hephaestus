@@ -1,2 +1,3 @@
 *.pyc
 median_salaries.db
+config.py
