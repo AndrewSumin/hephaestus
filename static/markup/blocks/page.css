@@ -20,6 +20,9 @@ a {
   .notvisited:hover{
     color: #c00;
   }
+  .nowrap{
+    white-space:nowrap;
+  }
 
 
 .margin{

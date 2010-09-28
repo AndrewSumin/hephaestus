@@ -14,10 +14,6 @@
   doctype-public="html"/>
   
   
-  <xsl:template match="doc[not(hh:vacancy)]" mode="title">
-    Вакансия
-  </xsl:template>
-  
   <xsl:template match="doc" mode="title">
     Вакансия, <xsl:value-of select="hh:vacancy/hh:name"/>, <xsl:value-of select="hh:vacancy/hh:employer/hh:name"/>
   </xsl:template>  
@@ -29,6 +25,7 @@
   <xsl:template match="doc[not(hh:vacancy)]" mode="body">
     <section class="margin">
       <div class="layout__padding">
+        <br/>
         Извините, произошла ошибка. Возможно этой вакансии не существует.<br/>
         Если вы уверены, что это существующюя вакансия, попробуйте <a href="">перезагрузить страницу</a> позже.
       </div>
@@ -36,6 +33,7 @@
   </xsl:template>
   
   <xsl:template match="doc" mode="body">
+    <xsl:apply-templates select="." mode="yaru_info"/>
     <article class="margin">
       <h1 class="layout__padding title m-title_margintop">
         <strong><xsl:value-of select="hh:vacancy/hh:name"/></strong>
@@ -55,7 +53,7 @@
               <xsl:value-of select="hh:description" disable-output-escaping="yes"/>
             </div>
             <div style="margin-top:1em;">
-              <xsl:apply-templates select="." mode="button">
+              <xsl:apply-templates select="." mode="button-href">
                 <xsl:with-param name="url" select="concat('http://hh.ru/applicant/vacancyResponse.do?vacancyId=', @id)"/>
                 <xsl:with-param name="text" select="'Откликнуться на hh.ru &#8594;'"/>
               </xsl:apply-templates>
@@ -140,7 +138,10 @@
   <xsl:template match="hh:vacancy" mode="social">
     <div class="vacancy__label">рассказать друзьям</div>
     <div class="vacancy__value" style="margin-top:.3em;">
-      <a counter="yes" type="button" size="large" name="ya-share">&#160;</a>
+      <style>.vacancy__value .ya-share .share-button{margin:0}</style>
+      <a counter="yes" type="button" size="large" name="ya-share" style="float:left; margin-right:.3em">&#160;</a>
+      <xsl:text> или </xsl:text>
+      <xsl:apply-templates select="." mode="yaru"/>
       <script charset="utf-8" type="text/javascript">
         <![CDATA[
           if (!(!window.Ya || !window.Ya.Share)) {
@@ -188,13 +189,33 @@
         <a class="twitter" title="в твиттер" href="http://twitter.com/home/?status=http://{key('protocol', 'host')}/vacancy/{@id} {hh:name}, {hh:employer/hh:name}" target="_blank">
           &#160;
         </a>
-        <!--
-          
-        -->
-        </div>
+      </div>
     </div>
     
   </xsl:template>
+  <xsl:template match="hh:vacancy[key('cookie', 'yaru_token')]" mode="yaru">
+    <a href="/yaru/vacancy?id={@id}" class="notvisited n1owrap">опубликовать у себя</a>
+  </xsl:template>
+  <xsl:template match="hh:vacancy" mode="yaru">
+    <a href="/yaru/gettoken?vacancy={@id}" class="notvisited n1owrap">а вторизоваться и опубликовать у себя</a>
+  </xsl:template>
   
+  <xsl:template match="doc" mode="yaru_info"/>
+  <xsl:template match="doc[key('request', 'yaru_post')]" mode="yaru_info">
+    <div class="tiser m-tiser_goodnews">
+      <div class="margin layout__padding">
+        Вы успешно опубликовали вакансию <a href="{key('request', 'yaru_post')}">у себя</a>
+      </div>
+    </div>
+  </xsl:template>
+  <xsl:template match="doc[key('request', 'yaru_error')]" mode="yaru_info">
+    <div class="tiser m-tiser_badnews">
+      <div class="margin layout__padding">
+        Не удалось опубликовать вакансию, попробуйте позже
+      </div>
+    </div>
+  </xsl:template>
+  
+
 </xsl:stylesheet>
 

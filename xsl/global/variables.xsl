@@ -7,6 +7,7 @@
   <xsl:variable name="request" select="/doc/pagedata/request"/>
   <xsl:variable name="params" select="/doc/pagedata/request/param[@name != 'field' and @name != 'cluster' and @name != 'items' and @name != 'area']"/>
   <xsl:key name="request" match="request/param" use="@name"/>
+  <xsl:key name="cookie" match="cookies/param" use="@name"/>
   <xsl:key name="protocol" match="protocol/param" use="@name"/>
 </xsl:stylesheet>
 

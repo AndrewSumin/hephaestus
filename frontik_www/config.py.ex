@@ -11,11 +11,11 @@ db_filename = os.path.join(os.path.normpath(os.path.join(os.path.dirname(__file_
 
 hh_namespace = {'hh': 'http://hh.ru/api'}
 
-yaru_client_id = 'a2f0bcc79dcb4e26af3475b16c40c4a0'
+yaru_client_id = 'b4401c31e6984df2ae956f1c16dc8d28'
 yaru_api_host = 'https://api-yaru.yandex.ru'
 yaru_authorize_host = 'https://oauth.yandex.ru/authorize'
 yaru_token_host = 'https://oauth.yandex.ru/token'
-yaru_redirect_uri = 'http://beta.hh.jsx.ru/yaru/token'
+yaru_redirect_uri = 'http://hh.jsx.ru/yaru/token'
 yaru_namespace = {
   'atom':'http://www.w3.org/2005/Atom',
   'y': 'yandex:data'
