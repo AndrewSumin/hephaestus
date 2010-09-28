@@ -197,7 +197,7 @@
     <a href="/yaru/vacancy?id={@id}" class="notvisited n1owrap">опубликовать у себя</a>
   </xsl:template>
   <xsl:template match="hh:vacancy" mode="yaru">
-    <a href="/yaru/gettoken?vacancy={@id}" class="notvisited n1owrap">а вторизоваться и опубликовать у себя</a>
+    <a href="/yaru/gettoken?vacancy={@id}" class="notvisited n1owrap">авторизоваться и опубликовать у себя</a>
   </xsl:template>
   
   <xsl:template match="doc" mode="yaru_info"/>

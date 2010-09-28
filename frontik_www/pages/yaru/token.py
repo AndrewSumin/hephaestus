@@ -13,7 +13,7 @@ class Page(frontik.handler.PageHandler):
       def get_token(data, response):
         self.set_cookie('yaru_token', data['access_token']);
         self.clear_cookie('yaru_vacancy');
-        self.redirect('/yaru/vacancy?id=' + self.get_cookie('yaru_vacancy'))
+        self.redirect('/yaru/vacancy?id=' + str(self.get_cookie('yaru_vacancy')))
       
       self.post_url(self.config.yaru_token_host, {
         'code':self.get_argument('code', ''),
