@@ -9,7 +9,6 @@ frontik_import('handler')
 
 class Page(frontik.handler.PageHandler):
     def get_page(self):
-      #self.set_xsl('yaru.xsl')
       
       def get_token(data, response):
         self.set_cookie('yaru_token', data['access_token']);
