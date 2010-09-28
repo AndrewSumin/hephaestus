@@ -9,6 +9,7 @@ apply_xsl = True
 db_filename = os.path.join(os.path.normpath(os.path.join(os.path.dirname(__file__), "..")),
                            'median_salaries.db')
 
+
 hh_namespace = {'hh': 'http://hh.ru/api'}
 
 yaru_client_id = 'a2f0bcc79dcb4e26af3475b16c40c4a0'
