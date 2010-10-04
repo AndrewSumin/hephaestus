@@ -56,7 +56,7 @@ class Page(frontik.handler.PageHandler):
                 block.put(median_block)
                 
             def count_median_cb(xml, response):
-                if xml:
+                if xml is not None:
                     m = count_median(xml)
                     if m:
                         #median_storage.store_today(id, m, self)
