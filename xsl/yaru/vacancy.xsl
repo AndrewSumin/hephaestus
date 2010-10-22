@@ -3,7 +3,7 @@
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:jsx="http://jsx.ru/"
-  xmlns:y="yandex:data"
+  xmlns:y="http://api.yandex.ru/yaru/"
   xmlns:hh="http://hh.ru/api" exclude-result-prefixes="hh jsx y">
   
   <xsl:import href="../blocks/page.xsl"/>
