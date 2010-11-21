@@ -184,8 +184,13 @@
         <xsl:text>Всe специализации</xsl:text>
       </a>
       <xsl:text>, </xsl:text>
-      <xsl:value-of select="hh:field/hh:specialization[hh:value = key('request', 'specialization')]/hh:name"/>
+      <xsl:apply-templates select="hh:field/hh:specialization[hh:value = key('request', 'specialization')]" mode="specialization-name"/>
     </div>
+  </xsl:template>
+
+  <xsl:template match="hh:field/hh:specialization" mode="specialization-name">
+      <xsl:if test="position() != 1">, </xsl:if>
+      <xsl:value-of select="hh:name"/>
   </xsl:template>
   
   <xsl:template match="hh:cluster[@name = 'employment']" mode="reset">

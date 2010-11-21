@@ -1,0 +1,2 @@
+User-agent: *
+Host: stroi.hh.ru

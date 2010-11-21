@@ -98,6 +98,62 @@
       <xsl:text>cN6ngoWjOVBZJLyyHK7efAJ7YeqMS3vKAgOFKZXy-D0</xsl:text>
     </xsl:attribute>
   </xsl:template>
+
+    <xsl:template match="doc[contains(key('protocol', 'host'), 'neftegaz')]" mode="title">
+      <xsl:text>Работа в нефтегазовой отрасли, вакансии нефтяника, работа в энергетике, работа в нефтяных компаниях - neftegaz.hh.ru</xsl:text>
+    </xsl:template>
+
+    <xsl:template match="doc[contains(key('protocol', 'host'), 'neftegaz')]" mode="description">
+      <xsl:attribute name="content">
+        <xsl:text>Поиск работы в области нефтегазовой отрасли, энергетической промышленности.</xsl:text>
+      </xsl:attribute>
+    </xsl:template>
   
+    <xsl:template match="doc[contains(key('protocol', 'host'), 'neftegaz')]" mode="keywords">
+      <xsl:attribute name="content">
+        <xsl:text>работа газпром, работа в энергетике, работа геодезистом, работа лукойл, работа бурильщиком, работа геологом, работа в нефтяных компаниях, работа нефтегазовая отрасль, работа в нефтегазовой отрасли, работа в металлургии, работа в нефтяной промышленности, работа горным инженером, работа норильский никель, работа горным мастером, работа в энергетической компании, работа в нефтегазовой промышленности, работа  русал, работа в атомной энергетике, работа атомэнергопроект, работа инженером по бурению, атомредметзолото вакансии, работа в атомстройэкспорт, работа в энергетической отрасли, работа в атомной отрасли</xsl:text>
+      </xsl:attribute>
+    </xsl:template>
+
+    <xsl:template match="doc[contains(key('protocol', 'host'), 'neftegaz')]" mode="yandex-verification">
+      <xsl:attribute name="content">
+        <xsl:text> </xsl:text>
+      </xsl:attribute>
+    </xsl:template>
+
+    <xsl:template match="doc[contains(key('protocol', 'host'), 'neftegaz')]" mode="google-site-verification">
+      <xsl:attribute name="content">
+        <xsl:text> </xsl:text>
+      </xsl:attribute>
+    </xsl:template>
+
+    <xsl:template match="doc[contains(key('protocol', 'host'), 'stroi')]" mode="title">
+      <xsl:text>Работа для строителей, работа в области строительства, работа для прорабов, вакансии архитекторов – stroi.hh.ru</xsl:text>
+    </xsl:template>
+
+    <xsl:template match="doc[contains(key('protocol', 'host'), 'stroi')]" mode="description">
+      <xsl:attribute name="content">
+        <xsl:text>Поиск работы в области строительства.  HeadHunter - это качественная база резюме и вакансий и лучшие сервисы для поиска работы.</xsl:text>
+      </xsl:attribute>
+    </xsl:template>
+
+    <xsl:template match="doc[contains(key('protocol', 'host'), 'stroi')]" mode="keywords">
+      <xsl:attribute name="content">
+        <xsl:text>работа сварщиком, работа электриком, работа монтажником, работа архитектором, работа прорабом, работа риэлтором, работа электромонтажником, работа инженером-проектировщиком, работа инженером-конструктором, работа инженером-строителем, работа главным инженером, работа дизайнером интерьера, работа инженером в строительстве, работа архитектором-дизайнером, работа инженером по эксплуатации зданий, работа директором по строительству, работа главным архитектором, работа сметчиком в строительстве, работа в девелоперской компании, работа начальником участка в строительстве, работа инженером пто в строительстве, работа инженером технического надзора, работа проектировщиком в строительстве, работа конструктором в строительстве, работа инженером по эксплуатации в строительстве</xsl:text>
+      </xsl:attribute>
+    </xsl:template>
+
+    <xsl:template match="doc[contains(key('protocol', 'host'), 'stroi')]" mode="yandex-verification">
+      <xsl:attribute name="content">
+        <xsl:text> </xsl:text>
+      </xsl:attribute>
+    </xsl:template>
+
+    <xsl:template match="doc[contains(key('protocol', 'host'), 'stroi')]" mode="google-site-verification">
+      <xsl:attribute name="content">
+        <xsl:text> </xsl:text>
+      </xsl:attribute>
+    </xsl:template>
+
 </xsl:stylesheet>
 

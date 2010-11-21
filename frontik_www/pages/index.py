@@ -55,8 +55,13 @@ class Page(frontik.handler.PageHandler):
               block.put(Doc('salary').put(urllib.quote(query['salary'].encode('utf-8'))))
             if 'onlysalary' in query:
               block.put(Doc('onlysalary').put(urllib.quote(query['onlysalary'].encode('utf-8'))))
+            if 'region' in query:
+              block.put(Doc('region').put(urllib.quote(query['region'].encode('utf-8'))))
+            if 'field' in query:
+              block.put(Doc('field').put(urllib.quote(query['field'].encode('utf-8'))))
             if 'specialization' in query:
-              block.put(Doc('specialization').put(urllib.quote(query['specialization'].encode('utf-8'))))
+                for specialization in query['specialization']:
+                    block.put(Doc('specialization').put(urllib.quote(specialization.encode('utf-8'))))
             block.put(Doc('last').put(self.get_url_retry(self.config.api_host + '/1/xml/vacancy/search/', query)))
 
             def put_median(m):
