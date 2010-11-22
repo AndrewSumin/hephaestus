@@ -32,7 +32,6 @@
   <xsl:template match="doc" mode="body">
     <div class="margin">
       <form method="post">
-        <input name="debug" type="hidden" value="true"/>
         <input name="id" type="hidden" value="{key('request', 'id')}"/>
         <input name="user" type="hidden" value="{y:person/y:id}"/>
         <input name="post" type="hidden" value="{y:person/y:link[@rel='posts']/@href}"/>

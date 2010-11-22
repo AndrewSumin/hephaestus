@@ -8,9 +8,12 @@ def do_query_dump(handler):
 
     for name, values in handler.request.arguments.iteritems():
         for value in values:
-            param = etree.Element("param", name=name)
-            param.text = value.decode('utf-8')
-            request.append(param)
+            try:
+                param = etree.Element("param", name=name)
+                param.text = value.decode('utf-8')
+                request.append(param)
+            except:
+                continue
     
     return request
 
@@ -19,10 +22,12 @@ def do_cookies_dump(handler):
     cookies = etree.Element("cookies")
 
     for name in handler.cookies:
-        param = etree.Element("param", name=name)
-        param.text = handler.cookies[name].value
-        cookies.append(param)
-
+        try:
+            param = etree.Element("param", name=name)
+            param.text = handler.cookies[name].value
+            cookies.append(param)
+        except:
+            continue
         try:
             param2 = etree.Element(name)
         except: #Если негодяи хотят имя куки вида vresp#29199f0B300709
