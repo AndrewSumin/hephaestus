@@ -117,7 +117,7 @@
 
     <xsl:template match="doc[contains(key('protocol', 'host'), 'neftegaz')]" mode="yandex-verification">
       <xsl:attribute name="content">
-        <xsl:text> </xsl:text>
+        <xsl:text>5069f0c74789d1cd</xsl:text>
       </xsl:attribute>
     </xsl:template>
 
@@ -145,7 +145,7 @@
 
     <xsl:template match="doc[contains(key('protocol', 'host'), 'stroi')]" mode="yandex-verification">
       <xsl:attribute name="content">
-        <xsl:text> </xsl:text>
+        <xsl:text>6a44b807f0183ee7</xsl:text>
       </xsl:attribute>
     </xsl:template>
 
