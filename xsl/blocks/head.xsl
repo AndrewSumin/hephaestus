@@ -155,5 +155,34 @@
       </xsl:attribute>
     </xsl:template>
 
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'engineer')]" mode="title">
+    <xsl:text>Работа для инженеров, Вакансии инженеров, Поиск работы для инженеров – engineer.hh.ru  </xsl:text>
+  </xsl:template>
+  
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'engineer')]" mode="description">
+    <xsl:attribute name="content">
+      <xsl:text>Работа для инженеров.  HeadHunter - это качественная база резюме и вакансий и лучшие сервисы для поиска работы.</xsl:text>
+    </xsl:attribute>
+  </xsl:template>
+  
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'engineer')]" mode="keywords">
+    <xsl:attribute name="content">
+      <xsl:text>работа инженером, работа инженер, работа для инженера, работа главного инженера, работа инженер строитель, работа инженер технолог, работа инженер сметчик, вакансии инженера, вакансии инженер Москва, вакансии работа инженер, вакансия главный инженер, найти работу инженера, работа инженер проектировщик, работа инженер конструктор</xsl:text>
+    </xsl:attribute>
+  </xsl:template>
+  
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'engineer')]" mode="yandex-verification">
+    <xsl:attribute name="content">
+      <xsl:text> </xsl:text>
+    </xsl:attribute>
+  </xsl:template>
+  
+  <xsl:template match="doc[contains(key('protocol', 'host'), 'engineer')]" mode="google-site-verification">
+    <xsl:attribute name="content">
+      <xsl:text> </xsl:text>
+    </xsl:attribute>
+  </xsl:template>
+  
+
 </xsl:stylesheet>
 

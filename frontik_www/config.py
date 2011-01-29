@@ -74,6 +74,25 @@ data = {
       ],
       'field':'20',
       'employers':['5306', '6563', '45223', '12550', '92010', '23330', '42453', '961', '132173', '2825', '148074', '113825', '27084', '3545', '93550']
+    },
+    'engineer.hh.ru': {
+      'h4': u'Работа инженером',
+      'h1': u'Работа инженером',
+      'h2': u'Работа инженер',
+      'h3': u'Вакансии инженера',
+      'queries':[
+        {'name': 'stroi', 'text': u'Строительство', 'query': {'text': u'инженер', 'items': '5', 'order':'0', 'field':'20', 'specialization':[]}},
+        {'name': 'siirie', 'text': u'Добыча сырья', 'query': {'text': u'инженер', 'items': '5', 'order':'0', 'field':'10', 'specialization':[]}},
+        {'name': 'food', 'text': u'Пищевая промышленность', 'query': {'text': u'инженер', 'items': '5', 'order':'0', 'field':'18', 'specialization':['84', '85', '86', '208', '298', '299', '300']}},
+        {'name': 'electro', 'text': u'Электроэнергетика', 'query': {'text': u'инженер', 'items': '5', 'order':'0', 'field':'18', 'specialization':['360', '361']}},
+        {'name': 'radio', 'text': u'Радиоэлектронная промышленность', 'query': {'text': u'инженер', 'items': '5', 'order':'0', 'field':'18', 'specialization':['245']}},
+        {'name': 'avia', 'text': u'Авиационная промышленность, Автомобильная промышленность, Машиностроение, Судостроение', 'query': {'text': u'инженер', 'items': '5', 'order':'0', 'field':'18', 'specialization':['13', '16', '142', '373']}},
+        {'name': 'service', 'text': u'Сервисные инженеры, настройка и установка оборудования', 'query': {'text': u'инженер', 'items': '5', 'order':'0', 'field':'25', 'specialization':[]}},
+        {'name': 'telecom', 'text': u'Телеком', 'query': {'text': u'(инженер оборудование) not Администратор', 'items': '5', 'order':'0', 'field':'1', 'specialization':[]}},
+        {'name': 'main', 'text': u'Вакансии главных, старших, ведущих инженеров', 'query': {'text': u'Главный инженер not программист not R&D not пресейл not продаж not администратор', 'items': '5', 'order':'0', 'field':'0', 'specialization':[]}}
+      ],
+      'field':'18',
+      'employers':['3471', '27084', '2935', '2314', '2743', '33041', '20628', '72525', '26814', '8556', '206688', '31169', '383808', '2792', '92922', '2487', '38891', '23330', '17833', '3607', '221515', '107149', '218769', '179002', '85820']
     }
 
 }
@@ -82,3 +101,4 @@ data['test.sales.jsx.ru'] = data['sales.hh.ru']
 data['test.med.jsx.ru'] = data['med.hh.ru']
 data['neftegaz.jsx.ru'] = data['neftegaz.hh.ru']
 data['stroi.jsx.ru'] = data['stroi.hh.ru']
+data['engineer.jsx.ru'] = data['engineer.hh.ru']

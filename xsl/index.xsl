@@ -32,8 +32,18 @@
           </td>
         </tr>
         <tr>
-          <xsl:apply-templates select="tabs/tab[position() &gt; 3]"/>
+          <xsl:apply-templates select="tabs/tab[position() &gt; 3 and position() &lt; 7]"/>
         </tr>
+        <xsl:if test="tabs/tab[position() &gt; 6]">
+          <tr>
+            <td colspan="12">
+              &#160;
+            </td>
+          </tr>
+          <tr>
+            <xsl:apply-templates select="tabs/tab[position() &gt; 6]"/>
+          </tr>
+        </xsl:if>
       </table>
     </section>
     
