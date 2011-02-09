@@ -173,7 +173,7 @@
   
   <xsl:template match="doc[contains(key('protocol', 'host'), 'engineer')]" mode="yandex-verification">
     <xsl:attribute name="content">
-      <xsl:text> </xsl:text>
+      <xsl:text>5fda28a1f13278f8</xsl:text>
     </xsl:attribute>
   </xsl:template>
   
