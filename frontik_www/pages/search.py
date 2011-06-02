@@ -25,6 +25,7 @@ class Page(frontik.handler.PageHandler):
                                  'text': utils.parse_text(self.get_argument('text', None)),
                                  'page': self.get_argument('page', None),
                                  'salary': self.get_argument('salary', None),
+                                 'currency': 'RUR',
                                  'field': '1',
                                  'onlysalary': self.get_argument('onlysalary', None),
                                  'area':'1',

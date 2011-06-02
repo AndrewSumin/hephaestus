@@ -14,18 +14,3 @@
   .layout__paddingleft{
     padding-left:10px;
   }
-
-
-  
-.web{
-  height:1000px;
-  font-size:0px;
-  opacity:.1;
-  filter:alpha(opacity=10);
-  position:absolute;
-  z-index:-1;
-}
-  .web .layout{
-    height:1000px;
-  }
-
