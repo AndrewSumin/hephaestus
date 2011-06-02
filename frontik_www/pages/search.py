@@ -32,6 +32,7 @@ class Page(frontik.handler.PageHandler):
                                  'specialization': self.get_argument('specialization', None),
                                  'employment': self.get_argument('employment', None),
                                  'order': self.get_argument('order', None),
+                                 'currency': 'RUR',
                                  'clusters': 'true'
                                 })
         )
