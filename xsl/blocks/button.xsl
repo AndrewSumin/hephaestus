@@ -6,7 +6,7 @@
     <xsl:param name="text"/>
     <div class="button__block">
       <span class="button m-button_green">
-        <a href="{$url}">
+        <a href="{$url}&amp;partner={/doc/partner}">
           <xsl:value-of select="$text"/>
         </a>
       </span>

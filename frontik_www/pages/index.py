@@ -42,6 +42,7 @@ class Page(frontik.handler.PageHandler):
         self.doc.put(Doc('h2').put(data['h2']))
         self.doc.put(Doc('h3').put(data['h3']))
         self.doc.put(Doc('h4').put(data['h4']))
+        self.doc.put(Doc('partner').put(data['partner']))
         
         tabs = Doc('tabs')
         self.doc.put(tabs)

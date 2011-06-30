@@ -12,6 +12,8 @@ class Page(frontik.handler.PageHandler):
         self.set_xsl('vacancy.xsl')
         
         handler.do_pagedata(self)
+        data = self.config.data[self.request.host]
+        self.doc.put(Doc('partner').put(data['partner']))
         
         self.doc.put(self.get_url_retry(self.config.api_host + '/1/xml/vacancy/' + self.get_argument('id', None) + '/'))
 
