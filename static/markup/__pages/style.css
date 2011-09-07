@@ -1,0 +1,653 @@
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../global/all.css*/
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../global/reset.css*/
+
+*{
+  padding:0;
+  margin:0;
+}
+table{
+  border-collapse:collapse;
+}
+ul {
+  list-style:none;
+}
+img {
+  border:0;
+}
+td { 
+  vertical-align: top;
+}
+input, select{
+  vertical-align:middle;
+}
+wbr {
+  display: inline-block;
+}
+article,
+aside,
+dialog,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../global/layout.css*/
+
+
+.layout{
+  width:100%;
+  table-layout:fixed;
+}
+  .layout__padding{
+    padding-right:10px;
+    padding-left:10px;
+  }
+
+  .layout__paddingright{
+    padding-right:10px;
+  }
+  .layout__paddingleft{
+    padding-left:10px;
+  }
+
+
+  
+.web{
+  height:1000px;
+  font-size:0px;
+  opacity:.1;
+  filter:alpha(opacity=10);
+  position:absolute;
+  z-index:-1;
+}
+  .web .layout{
+    height:1000px;
+  }
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../global/hidden.css*/
+
+.g-hidden{
+  display:none;
+}
+
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/page.css*/
+
+body{
+  background:#fff;
+  font-family:Tahoma, Arial;
+  /*font-size:.8em;*/
+}
+a {
+  cursor: pointer;
+  color: #076CC7;
+}
+
+  a:visited {
+    color: #691A95;
+  }
+  a:hover {
+    color: #c00;
+  }
+  .notvisited:visited{
+    color: #076CC7;
+  }
+  .notvisited:hover{
+    color: #c00;
+  }
+  .nowrap{
+    white-space:nowrap;
+  }
+
+
+.margin{
+  width:96%;
+  margin:0 2%;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/head.css*/
+
+.head{
+  margin-top:1em;
+  margin-bottom:1em;
+}
+  .head__title{
+    font-size:1.4em;
+    font-weight:normal;
+  }
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/foot.css*/
+
+.foot{
+  margin-top:2em;
+  border-top:1px solid #ccc;
+  padding:1em 0;
+  color:#999;
+}
+  .foot_text,
+  .foot a{
+    color:#999;
+    font-size:.8em;
+  }
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/indexline.css*/
+
+.indexline{
+  padding-top:1.3em;
+  padding-bottom:1.3em;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/count.css*/
+
+.count{
+  font-size:.8em;
+  color:#999;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/hint.css*/
+
+.hint{
+  color:#999;
+  font-size:.8em;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/shortvacancy.css*/
+
+.shortvacancy__header{
+  margin-bottom:1em;
+}
+  .shortvacancy__header__link{
+    color:#000;
+    font-size:.8em;
+    font-weight:normal;
+  }
+    .shortvacancy__header__link:visited{
+      color:#000;
+    }
+    .shortvacancy__header__link:hover{
+      color:#c00;
+    }
+  .shortvacancy__list{
+    padding-top:10px;
+    padding-bottom:10px;
+    background:#FFF;
+  }
+.shortvacancy__subheader{
+  margin-bottom:.3em;
+}
+
+
+.shortvacancy{
+  margin:.2em 0 1em 0;
+}
+  .shortvacancy__title{
+    color:#000;
+    font-size:1em;
+    font-weight:normal;
+  }
+    .shortvacancy__title__link{
+    }
+
+  .shortvacancy__salary{
+    margin-top:.2em;
+  }
+
+  .shortvacancy__company{
+    margin-top:.2em;
+  }
+    .shortvacancy__company__link{
+      color:#999;
+      font-size:.8em;
+      text-decoration:none;
+    }
+      .shortvacancy__company__link:visited{
+        color:#999;
+      }
+      .shortvacancy__company__link:hover{
+        color:#c00;
+      }
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/fade/fade.css*/
+
+.fade{
+  float: right;
+  background: url(../blocks/fade/fade.png) no-repeat right;
+  display: block;
+  overflow: hidden;
+  padding: 0 0 0 16px;
+  margin-top: -1em;
+  position: relative;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/salary.css*/
+
+.salary{
+}
+  .salary__notset{
+    color:#999;
+    font-weight:normal;
+  }
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/title.css*/
+
+.title{
+  color:#000;
+  font-weight:normal;
+  font-size:1.4em;
+  margin-top:.7em;
+  margin-bottom:.3em;
+}
+  .m-title_margin{
+    margin-top:1.5em;
+    margin-bottom:1em;
+  }
+  .m-title_marginbottom{
+    margin-bottom:1em;
+  }
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/hint.css*/
+
+.hint{
+  color:#999;
+  font-size:.8em;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/pager.css*/
+
+.pager{
+  text-align:center;
+  overflow:hidden;
+  margin-top:2em;
+}
+  .pager ul{
+    display:inline;
+    font-size:1.1em;
+  }
+
+  .pager li{
+    display:inline;
+    margin:.3em;
+  }
+  
+  .pager a:visited{
+    color:#076CC7;
+  }
+  
+  .pager a:visited:hover{
+    color:#c00;
+  }
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/description.css*/
+
+.description{
+  margin-right:50px;
+}
+  .description li{
+    margin-left:2em;
+    list-style:disc;
+  }
+  .description p{
+    margin-top:.5em;
+    margin-bottom:.3em;
+  }
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/facebook/facebook.css*/
+
+.facebook{
+  display:block;
+  float:left;
+  width:32px;
+  height:32px;
+  background:url(../blocks/facebook/facebook.png);
+  text-decoration:none;
+  margin-right:.1em;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/twitter/twitter.css*/
+
+.twitter{
+  display:block;
+  float:left;
+  width:32px;
+  height:32px;
+  background:url(../blocks/twitter/twitter.png);
+  text-decoration:none;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/livejournal/livejournal.css*/
+
+.livejournal{
+  display:block;
+  float:left;
+  width:32px;
+  height:32px;
+  background:url(../blocks/livejournal/livejournal.png);
+  text-decoration:none;
+  margin-right:.1em;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/vacancylist/vacancylist.all.css*/
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/vacancylist/vacancylist__item.css*/
+
+.vacancylist__item{
+  
+}
+  .vacancylist__item__item{
+    border-bottom:1px solid #eee;
+    padding:10px 0;
+  }
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/vacancylist/vacancylist__name.css*/
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/vacancylist/vacancylist__salary.css*/
+
+.vacancylist__salary{
+  vertical-align:middle;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/vacancylist/vacancylist__company.css*/
+
+.vacancylist__company{
+  margin-top:.2em;
+}
+  .vacancylist__company__link{
+    color:#999;
+    text-decoration:none;
+  }
+  .vacancylist__company__link:visited{
+    color:#999
+  }
+  .vacancylist__company__link:hover{
+    color:#c00;
+  }
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/vacancylist/vacancylist__logo.css*/
+
+.vacancylist__logo{
+  vertical-align:middle;
+  text-align:center;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/vacancylist/vacancylist__info.css*/
+
+.vacancylist__info{
+  font-size:.8em;
+  color:#999;
+}
+
+
+
+
+
+ 
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/searchform/searchform.all.css*/
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/searchform/searchform.css*/
+
+.searchform{
+  margin-top:.5em;
+  padding-top:.5em;
+  padding-bottom:.5em;
+  background:#eee;
+}
+  .searchform__item{
+    vertical-align:middle;
+  }
+  .searchform__input{
+    font-size:1.3em;
+  }
+  
+  .searchform__search{
+    width:100%;
+  }
+  
+  .searchform__salary{
+    text-align:right;
+  }
+  .searchform__salaryinput{
+    width:100px;
+  }
+
+  .searchform__submitinput{
+    padding-left:1em;
+    padding-right:1em;
+  }
+
+  .searchform__onlysalary{
+    position:absolute;
+    margin-left:-1.5em;
+    margin-top:.4em;
+    display:block;
+  }
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/vacancy/vacancy.all.css*/
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/vacancy/vacancy.css*/
+
+.vacancy{}
+  .vacancy__label{
+    font-size:.8em;
+    color:#ccc;
+  }
+  .vacancy__value{
+    margin-top:.1em;
+    margin-bottom:.5em;
+  }
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/button/button.all.css*/
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/button/button.css*/
+
+/*
+
+<div class="button__block">
+  <span class="button m-button_green">
+    <a href="#">
+      button
+    </a>
+  </span>
+</div>
+
+*/
+
+.button__block {
+  text-align: center;
+  padding: 1em 0;
+}
+  .button {
+    margin: 0 auto;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+  }
+    .button a,
+    .button input,
+    .button span {
+      font-family: Arial, Verdana, Helvetica, sans-serif;
+      background: none;
+      border: none;
+      color: #FFF;
+      cursor: pointer;
+      font-size: 1.3em;
+      text-decoration: none;
+      padding: .5em 20px .5em;
+      display: inline-block;
+      text-align: center;
+    }
+      .button a:link,
+      .button a:visited {
+        color: #fff;
+      }
+      .button span {
+        cursor: default;
+      }
+      .m-button_green {
+        background: #71B61F url(../blocks/button/green.png) 0 0 repeat-x;
+        border: 1px solid #91D64A;
+      }
+        .m-button_green:hover {
+          background-position: 0 -80px;
+        }
+        .m-button_green:active {
+          background-position: 0 -160px;
+        }
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/button/button.opera.css*/
+
+@media all and (min-width:0px) {
+
+  noindex:-o-prefocus, html .button input {
+    border-color: transparent;
+    border-style: solid;
+    border-width: 7px 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 20;
+  }
+  noindex:-o-prefocus, html .button a {
+    position: relative;
+    z-index: 20;
+  }
+  noindex:-o-prefocus, html .button_green{
+    border: 0;
+  }
+
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/clusters/clusters.css*/
+
+.clusters{
+  font-size:.8em;
+  padding-top:1em;
+}
+
+  .m-clusters_selected{
+  }
+
+  .clusters__title{
+    font-weight:bold;
+  }
+  .clusters__count{
+    color:#666;
+    font-style:italic;
+  }
+   .clusters__cluster{
+     margin-bottom:1.5em;
+   }
+    .clusters__cluster__item{
+      margin:.6em 0;
+    }
+    
+  .clusters__link{
+    color:#666;
+  }
+    .clusters__link:visited{
+      color:#666;
+    }
+    .clusters__link:hover{
+      color:#C00;
+    }
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/yaru/yaru.all.css*/
+
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/yaru/yaru.css*/
+
+.yaru__input{
+  width:100%;
+  font-size:1.2em;
+}
+
+
+/* importing /home/sumin/hephaestus/static/markup/pages/../blocks/tiser/tiser.css*/
+
+.tiser{
+  padding-top:1em;
+  padding-bottom:1em;
+}
+  .m-tiser_goodnews{
+    background-color:#F3FFEF;
+  }
+  .m-tiser_badnews{
+    background-color:#FFDFDF;
+  }
+  .m-tiser_normalnews{
+    background-color:#FFFBCF;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

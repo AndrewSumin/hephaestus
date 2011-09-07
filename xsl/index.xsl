@@ -95,9 +95,9 @@
               <xsl:with-param name="break" select="true()"/>
             </xsl:apply-templates>
           </div>
-          <details>
+          <div>
             <xsl:apply-templates select="hh:employer"/>
-          </details>
+          </div>
         </div>
     </div>
   </xsl:template>
